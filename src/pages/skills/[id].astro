@@ -1,4 +1,5 @@
 ---
+import NewsletterSignup from "../../components/NewsletterSignup.astro";
 import Base from "../../layouts/Base.astro";
 import { claimUrl } from "../../lib/links";
 import { agentLabels, agentOrder, healthLabels, skills, statusLabels } from "../../lib/skills";
@@ -110,4 +111,5 @@ const title = `${skill.name} | SkillCheck`;
       <a class="button" href={claimUrl(skill.id, skill.sourceUrl)}>Claim this skill</a>
     </p>
   </section>
+  <NewsletterSignup />
 </Base>

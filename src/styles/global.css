@@ -130,6 +130,19 @@ th { font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; colo
 .meta-list { list-style: none; padding: 0; margin: 0; }
 .meta-list li { display: flex; justify-content: space-between; gap: 1rem; padding: 0.35rem 0; border-bottom: 1px solid var(--line); }
 .site-footer { padding: 2rem 0 3rem; color: var(--muted); }
+.newsletter { margin-top: 1.2rem; }
+.newsletter form { display: grid; gap: 0.7rem; max-width: 28rem; }
+.newsletter .check { display: flex; gap: 0.55rem; align-items: flex-start; color: var(--ink); font-size: 0.95rem; }
+.newsletter .check input { margin-top: 0.3rem; }
+.hp {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.newsletter-status:empty { display: none; }
 .empty { padding: 1rem; color: var(--muted); }
 @media (max-width: 800px) {
   .filters, .grid { grid-template-columns: 1fr; }

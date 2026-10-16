@@ -1,4 +1,5 @@
 ---
+import NewsletterSignup from "../components/NewsletterSignup.astro";
 import Base from "../layouts/Base.astro";
 
 const description = "How SkillCheck reads skills, what it stores, and how the labels work.";
@@ -45,19 +46,5 @@ const description = "How SkillCheck reads skills, what it stores, and how the la
     </p>
   </section>
 
-  <section class="card panel" style="margin-top: 1rem">
-    <h2>Updates</h2>
-    <p>No mailing list is connected. SkillCheck does not store email addresses.</p>
-    <form action="https://github.com/mystickcal/skillcheck/issues/new" method="get">
-      <input type="hidden" name="template" value="newsletter.yml" />
-      <input type="hidden" name="title" value="Updates request" />
-      <label>
-        Email
-        <input type="email" name="email" placeholder="Not collected" disabled />
-      </label>
-      <p>
-        <button type="submit">Ask for update notes on GitHub</button>
-      </p>
-    </form>
-  </section>
+  <NewsletterSignup />
 </Base>

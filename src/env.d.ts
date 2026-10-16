@@ -2,4 +2,7 @@
 
 interface ImportMetaEnv {
   readonly PUBLIC_CF_BEACON_TOKEN?: string;
+  readonly PUBLIC_NEWSLETTER_ENABLED?: string;
+  readonly PUBLIC_NEWSLETTER_GATEWAY?: string;
+  readonly PUBLIC_NEWSLETTER_TURNSTILE_SITE_KEY?: string;
 }

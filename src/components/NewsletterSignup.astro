@@ -1,0 +1,98 @@
+---
+import { HOSTED_FORM_URL, newsletterEnabled, newsletterEndpoint } from "../lib/newsletter";
+
+const enabled = newsletterEnabled(import.meta.env.PUBLIC_NEWSLETTER_ENABLED);
+const endpoint = newsletterEndpoint(import.meta.env.PUBLIC_NEWSLETTER_GATEWAY);
+const turnstileKey = import.meta.env.PUBLIC_NEWSLETTER_TURNSTILE_SITE_KEY ?? "";
+const safeTurnstile = /^[A-Za-z0-9_-]{8,128}$/.test(turnstileKey) ? turnstileKey : "";
+---
+
+{
+  enabled && (
+    <section class="newsletter card panel" aria-labelledby="newsletter-title">
+      <h2 id="newsletter-title">SkillCheck Weekly</h2>
+      <p class="desc">One short email when skills are added or updated.</p>
+      <form data-newsletter-form method="post" action={endpoint}>
+        <label class="hp">
+          Leave this blank
+          <input name="company" type="text" tabindex="-1" autocomplete="off" maxlength="200" />
+        </label>
+        <label>
+          Email
+          <input name="email" type="email" maxlength="254" autocomplete="email" required />
+        </label>
+        <label class="check">
+          <input name="consent" type="checkbox" value="true" required />
+          <span>Weekly email about new and updated agent skills. Unsubscribe any time.</span>
+        </label>
+        {safeTurnstile && (
+          <div class="cf-turnstile" data-sitekey={safeTurnstile} data-action="newsletter_signup" />
+        )}
+        <p>
+          <button type="submit">Send confirmation email</button>
+        </p>
+        <p class="newsletter-status" data-newsletter-status role="status" aria-live="polite"></p>
+      </form>
+      <noscript>
+        <p>
+          JavaScript is required to sign up on this page.{" "}
+          <a href={HOSTED_FORM_URL}>Open the hosted form</a> and choose SkillCheck Weekly.
+        </p>
+      </noscript>
+      {safeTurnstile && <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer />}
+    </section>
+  )
+}
+
+<script>
+  import { ERROR_MESSAGE, SUCCESS_MESSAGE, subscriptionBody } from "../lib/newsletter";
+
+  const forms = document.querySelectorAll<HTMLFormElement>("[data-newsletter-form]");
+  for (const form of forms) {
+    const status = form.querySelector<HTMLElement>("[data-newsletter-status]");
+    const button = form.querySelector<HTMLButtonElement>("button[type='submit']");
+    let busy = false;
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      if (busy || !form.reportValidity()) return;
+      const data = new FormData(form);
+      const turnstile = data.get("cf-turnstile-response");
+      const body = subscriptionBody({
+        email: String(data.get("email") ?? ""),
+        company: String(data.get("company") ?? ""),
+        consent: data.get("consent") === "true",
+        turnstileToken: typeof turnstile === "string" ? turnstile : "",
+      });
+      if (!body) {
+        if (status) status.textContent = ERROR_MESSAGE;
+        return;
+      }
+      busy = true;
+      if (button) button.disabled = true;
+      if (status) status.textContent = "Sending";
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          headers: { Accept: "application/json", "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+          credentials: "omit",
+          cache: "no-store",
+          redirect: "error",
+        });
+        if (!response.ok) throw new Error("request_failed");
+        const type = (response.headers.get("content-type") || "").split(";")[0].trim().toLowerCase();
+        if (type.includes("json")) {
+          const payload = (await response.json()) as { error?: unknown };
+          if (payload && typeof payload === "object" && payload.error) throw new Error("request_failed");
+        }
+        form.reset();
+        if (status) status.textContent = SUCCESS_MESSAGE;
+      } catch {
+        if (status) status.textContent = ERROR_MESSAGE;
+      } finally {
+        busy = false;
+        if (button) button.disabled = false;
+      }
+    });
+  }
+</script>

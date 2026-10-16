@@ -1,4 +1,5 @@
 ---
+import NewsletterSignup from "../components/NewsletterSignup.astro";
 import Base from "../layouts/Base.astro";
 import { agentLabels, agentOrder, categories, healthLabels, skills, statusLabels } from "../lib/skills";
 
@@ -102,6 +103,7 @@ const description =
     <p id="no-rows" class="empty" hidden>No skills match these filters.</p>
     {skills.length === 0 && <p class="empty">No skills have been ingested yet.</p>}
   </div>
+  <NewsletterSignup />
 </Base>
 
 <script>

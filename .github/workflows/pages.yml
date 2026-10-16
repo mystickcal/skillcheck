@@ -29,6 +29,8 @@ jobs:
         env:
           SITE: https://mystickcal.github.io
           BASE_PATH: /skillcheck
+          PUBLIC_NEWSLETTER_ENABLED: "true"
+          PUBLIC_NEWSLETTER_GATEWAY: https://newsletter.clickconsultants.com
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
