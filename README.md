@@ -86,4 +86,10 @@ Import the repo. Vercel detects Astro. Leave `BASE_PATH` unset. Do not add a cus
 
 ## Claim and updates
 
-Each skill page links to a GitHub issue template for a maintainer claim. The about page has a placeholder form that opens a GitHub issue. No email is stored.
+Each skill page links to a GitHub issue template for a maintainer claim.
+
+SkillCheck Weekly signup is off unless `PUBLIC_NEWSLETTER_ENABLED=true`. The GitHub Pages workflows set that flag. The form posts JSON to `PUBLIC_NEWSLETTER_GATEWAY` (default `https://newsletter.clickconsultants.com`) at `/v1/subscriptions` with `brand: "skillcheck"`, `consent: true`, and an empty `company` honeypot. A 2xx response says "Check your inbox to confirm". Any other response is a generic error. The page never says the address is subscribed. Without JavaScript, the page links to the hosted form at `https://newsletter.clickconsultants.com/subscription/form`.
+
+Set `PUBLIC_NEWSLETTER_TURNSTILE_SITE_KEY` only if this brand starts requiring a Turnstile token. No other third-party script is loaded.
+
+The gateway currently allows the origin `https://mystickcal.github.io`. Leave the flag off for a Cloudflare Pages or Vercel origin until that origin is allowed too.
