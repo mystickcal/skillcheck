@@ -1,0 +1,113 @@
+---
+import Base from "../../layouts/Base.astro";
+import { claimUrl } from "../../lib/links";
+import { agentLabels, agentOrder, healthLabels, skills, statusLabels } from "../../lib/skills";
+
+export function getStaticPaths() {
+  return skills.map((skill) => ({ params: { id: skill.id }, props: { skill } }));
+}
+
+const { skill } = Astro.props;
+const title = `${skill.name} | SkillCheck`;
+---
+
+<Base title={title} description={skill.description}>
+  <article class="skill-head">
+    <p class="lede">{skill.sources.map((source) => source.name).join(", ")}</p>
+    <h1 class="page-title">{skill.name}</h1>
+    <p>{skill.description}</p>
+    <p>
+      <a href={skill.sourceUrl}>Open the source</a>
+      {skill.repo && (
+        <>
+          {" · "}
+          <a href={skill.repo}>Open the repo</a>
+        </>
+      )}
+    </p>
+  </article>
+
+  <div class="grid">
+    <section class="card panel">
+      <h2>Compatibility</h2>
+      {
+        agentOrder.map((agent) => (
+          <div>
+            <p>
+              <span class={`badge ${skill.compatibility[agent].status}`}>
+                {agentLabels[agent]} {statusLabels[skill.compatibility[agent].status]}
+              </span>
+            </p>
+            <ul class="reasons">
+              {skill.compatibility[agent].reasons.map((reason) => (
+                <li>{reason}</li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </section>
+
+    <aside>
+      <section class="card panel">
+        <h2>GitHub</h2>
+        {
+          skill.github ? (
+            <ul class="meta-list">
+              <li><span>Stars</span><span>{skill.github.stars}</span></li>
+              <li><span>Last push</span><span>{skill.github.lastPush ? skill.github.lastPush.slice(0, 10) : "Unknown"}</span></li>
+              <li><span>Open issues and pull requests</span><span>{skill.github.openIssuesAndPullRequests}</span></li>
+              <li><span>License</span><span>{skill.github.license ?? "Not listed"}</span></li>
+              <li><span>Archived</span><span>{skill.github.archived ? "Yes" : "No"}</span></li>
+              <li><span>Health</span><span>{healthLabels[skill.health]}</span></li>
+            </ul>
+          ) : (
+            <p>No GitHub repo is recorded for this listing. Health: {healthLabels[skill.health]}.</p>
+          )
+        }
+        <p class="desc">
+          Active means the repo is not archived and the last push was within 365 days. Quiet means the last push is older than that.
+        </p>
+      </section>
+
+      <section class="card panel" style="margin-top: 1rem">
+        <h2>Scan</h2>
+        <p>{skill.scan.label}</p>
+        {
+          skill.scan.flags.length > 0 && (
+            <ul class="reasons">
+              {skill.scan.flags.map((flag) => (
+                <li>{flag.summary}</li>
+              ))}
+            </ul>
+          )
+        }
+        <p class="desc">A flag is a text pattern. It is not a claim that the skill is safe or unsafe.</p>
+      </section>
+    </aside>
+  </div>
+
+  <section class="card panel" style="margin-top: 1rem">
+    <h2>Named in the file</h2>
+    <ul class="meta-list">
+      <li><span>Path</span><span>{skill.path}</span></li>
+      <li><span>Author</span><span>{skill.author ?? "Not listed"}</span></li>
+      <li><span>Tools</span><span>{skill.tools.join(", ") || "None listed"}</span></li>
+      <li><span>Bins</span><span>{skill.bins.join(", ") || "None listed"}</span></li>
+      <li><span>Env vars</span><span>{skill.env.join(", ") || "None listed"}</span></li>
+      <li><span>Scripts directory</span><span>{skill.hasScriptsDir ? "Yes" : "No"}</span></li>
+      <li><span>Network mention</span><span>{skill.mentionsNetwork ? "Yes" : "No"}</span></li>
+      <li><span>Frontmatter keys</span><span>{skill.frontmatterKeys.join(", ") || "None"}</span></li>
+    </ul>
+    {
+      skill.registry?.source === "clawhub" && (
+        <p class="desc">
+          ClawHub reports {skill.registry.downloads} downloads and {skill.registry.stars} stars for this listing.
+        </p>
+      )
+    }
+    <p>
+      <a class="button" href={claimUrl(skill.id, skill.sourceUrl)}>Claim this skill</a>
+    </p>
+  </section>
+</Base>

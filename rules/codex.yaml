@@ -1,0 +1,71 @@
+version: 1
+agent: codex
+title: Codex
+spec_url: https://github.com/openai/codex/blob/main/codex-rs/skills/src/parser.rs
+retrieved: 2026-10-16
+compatible_reason: Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.
+checks:
+  - id: no-frontmatter
+    when: no_frontmatter
+    effect: needs_changes
+    reason: The Codex parser requires YAML frontmatter.
+  - id: missing-description
+    when: missing_description
+    effect: needs_changes
+    reason: The Codex parser rejects a skill with an empty description.
+  - id: name-length
+    when: name_longer_than_64
+    effect: needs_changes
+    reason: The Codex parser rejects a name longer than 64 characters.
+  - id: missing-name
+    when: missing_name
+    effect: likely
+    reason: name is missing. The Codex parser falls back to the directory name.
+  - id: name-shape
+    when: name_not_spec_shape
+    effect: likely
+    reason: name is not the lowercase hyphen form from the Agent Skills spec. The Codex parser checks length, not that shape.
+  - id: description-length
+    when: description_longer_than_1024
+    effect: likely
+    reason: description is longer than the 1024 character Agent Skills spec limit. The Codex parser sanitizes description to one line and does not apply that cap in current source.
+  - id: openclaw-requires
+    when: has_openclaw_requires
+    effect: likely
+    reason: metadata.openclaw requirements are not applied by Codex. The skill can load without those bins or env vars.
+  - id: hermes-gates
+    when: has_hermes_gates
+    effect: likely
+    reason: Hermes platform, toolset, or env gates are not applied by Codex.
+  - id: short-description
+    when: has_codex_short_description
+    effect: info
+    reason: metadata.short-description is read by Codex as a short UI label.
+  - id: legacy-clawdbot
+    when: has_legacy_clawdbot
+    effect: info
+    reason: metadata.clawdbot or metadata.clawdis is ignored by Codex.
+  - id: allowed-tools
+    when: has_allowed_tools
+    effect: info
+    reason: allowed-tools does not pre-approve tools in Codex. Extra keys are ignored.
+  - id: model
+    when: has_model
+    effect: info
+    reason: model is ignored by the Codex skill parser.
+  - id: claude-fields
+    when: has_claude_only_fields
+    effect: info
+    reason: Claude Code fields such as context, hooks, or paths are ignored by Codex.
+  - id: empty-body
+    when: empty_body
+    effect: info
+    reason: The body is empty. Codex keeps the body on disk and does not require it for the skill to load.
+  - id: scripts
+    when: has_scripts_dir
+    effect: info
+    reason: A scripts directory sits next to SKILL.md. This index did not run those files.
+  - id: network
+    when: mentions_network
+    effect: info
+    reason: The skill text mentions a network command or an http URL.

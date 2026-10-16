@@ -1,0 +1,26 @@
+name: Claim a skill
+description: Tell us you maintain a listed skill.
+title: "Claim skill: "
+labels: ["claim"]
+body:
+  - type: input
+    id: skill-id
+    attributes:
+      label: Skill id
+      description: The id from the SkillCheck skill page.
+    validations:
+      required: true
+  - type: input
+    id: source-url
+    attributes:
+      label: Source URL
+      description: The listing you want attached to your claim.
+    validations:
+      required: true
+  - type: textarea
+    id: note
+    attributes:
+      label: Note
+      description: How you maintain this skill. Do not paste skill source into this issue.
+    validations:
+      required: true
