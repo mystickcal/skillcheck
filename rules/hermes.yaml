@@ -1,0 +1,63 @@
+version: 1
+agent: hermes
+title: Hermes
+spec_url: https://hermes-agent.nousresearch.com/docs/developer-guide/creating-skills
+retrieved: 2026-10-16
+compatible_reason: Hermes can load this file. The validator requires name, description, and a body after frontmatter.
+checks:
+  - id: no-frontmatter
+    when: no_frontmatter
+    effect: needs_changes
+    reason: Hermes requires SKILL.md to start with YAML frontmatter.
+  - id: missing-name
+    when: missing_name
+    effect: needs_changes
+    reason: Hermes requires a name field.
+  - id: missing-description
+    when: missing_description
+    effect: needs_changes
+    reason: Hermes requires a description field.
+  - id: empty-body
+    when: empty_body
+    effect: needs_changes
+    reason: Hermes requires instruction text after the frontmatter.
+  - id: hermes-gates
+    when: has_hermes_gates
+    effect: likely
+    reason: Hermes may hide this skill until a platform, toolset, tool, or env var listed in the file is available.
+  - id: name-length
+    when: name_longer_than_64
+    effect: likely
+    reason: The Hermes authoring guide caps name at 64 characters. Confirm the installed validator agrees.
+  - id: name-shape
+    when: name_not_spec_shape
+    effect: likely
+    reason: name is not the lowercase hyphen form the Hermes authoring guide shows.
+  - id: openclaw-requires
+    when: has_openclaw_requires
+    effect: likely
+    reason: metadata.openclaw requirements are not applied by Hermes. The skill can load without those bins or env vars.
+  - id: legacy-clawdbot
+    when: has_legacy_clawdbot
+    effect: info
+    reason: metadata.clawdbot or metadata.clawdis is an OpenClaw key. Hermes does not apply it.
+  - id: allowed-tools
+    when: has_allowed_tools
+    effect: info
+    reason: allowed-tools does not pre-approve tools in Hermes.
+  - id: model
+    when: has_model
+    effect: info
+    reason: model is a Claude Code field. Hermes does not use it to pick a model.
+  - id: claude-fields
+    when: has_claude_only_fields
+    effect: info
+    reason: Claude Code fields such as context, hooks, or paths are ignored by Hermes.
+  - id: scripts
+    when: has_scripts_dir
+    effect: info
+    reason: A scripts directory sits next to SKILL.md. This index did not run those files.
+  - id: network
+    when: mentions_network
+    effect: info
+    reason: The skill text mentions a network command or an http URL.

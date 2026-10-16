@@ -1,0 +1,56 @@
+---
+import "../styles/global.css";
+import { repoUrl } from "../lib/links";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+const beacon = import.meta.env.PUBLIC_CF_BEACON_TOKEN ?? "";
+const safeBeacon = /^[A-Za-z0-9_-]{8,128}$/.test(beacon) ? beacon : "";
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical.href} />
+    <link rel="icon" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+  </head>
+  <body>
+    <a class="skip" href="#content">Skip to content</a>
+    <header class="site-header">
+      <a class="wordmark" href={import.meta.env.BASE_URL}>SkillCheck</a>
+      <nav>
+        <a href={import.meta.env.BASE_URL}>Index</a>
+        <a href={`${import.meta.env.BASE_URL}about/`}>About</a>
+        <a href={repoUrl}>GitHub</a>
+      </nav>
+    </header>
+    <main id="content" data-pagefind-body>
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <p>SkillCheck stores metadata and links. It does not host skill files.</p>
+    </footer>
+    {
+      safeBeacon && (
+        <script
+          is:inline
+          defer
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon={`{"token":"${safeBeacon}"}`}
+        />
+      )
+    }
+  </body>
+</html>

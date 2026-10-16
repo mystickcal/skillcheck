@@ -1,0 +1,63 @@
+---
+import Base from "../layouts/Base.astro";
+
+const description = "How SkillCheck reads skills, what it stores, and how the labels work.";
+---
+
+<Base title="About SkillCheck" description={description}>
+  <h1 class="page-title">About</h1>
+  <p class="lede">
+    SkillCheck is a static index. It records metadata, a compatibility reading, GitHub activity, and scan flags.
+    It links to the source. It does not host or mirror skill code.
+  </p>
+
+  <section class="card panel">
+    <h2>Method</h2>
+    <p>
+      A nightly job reads the public ClawHub catalog and the public skills.sh sitemap. For each skill it fetches
+      SKILL.md, and script files when a GitHub tree lists them, then discards that text after analysis.
+    </p>
+    <p>
+      Compatibility rules live in versioned YAML. Each agent page cites the spec it was checked against.
+      The labels are compatible, likely, and needs changes. The reason is shown next to the label.
+    </p>
+    <p>
+      GitHub fields are stars, last push, open issues and pull requests, license, and archived state.
+      Health is active when the repo is not archived and the last push was within 365 days. Quiet means the last
+      push is older. Unknown means there is no repo data. The job caches GitHub responses and skips a repo when
+      the ETag has not changed.
+    </p>
+    <p>
+      The scan looks for a pipe into a shell, a base64 blob, a credential or keychain path, and an obfuscated URL.
+      The page says "scanned, no flags" or lists the flags. It never says a skill is safe.
+    </p>
+  </section>
+
+  <section class="card panel" style="margin-top: 1rem">
+    <h2>What this is for</h2>
+    <p>
+      The reading is neutral across Hermes, OpenClaw, Claude Code, and Codex. You can see why a skill landed on
+      a label instead of trusting a single-agent gallery.
+    </p>
+    <p>
+      cultofclaude.com and skillagent.dev are other places people browse skills. SkillCheck is the cross-agent
+      reading with the reasons left visible.
+    </p>
+  </section>
+
+  <section class="card panel" style="margin-top: 1rem">
+    <h2>Updates</h2>
+    <p>No mailing list is connected. SkillCheck does not store email addresses.</p>
+    <form action="https://github.com/mystickcal/skillcheck/issues/new" method="get">
+      <input type="hidden" name="template" value="newsletter.yml" />
+      <input type="hidden" name="title" value="Updates request" />
+      <label>
+        Email
+        <input type="email" name="email" placeholder="Not collected" disabled />
+      </label>
+      <p>
+        <button type="submit">Ask for update notes on GitHub</button>
+      </p>
+    </form>
+  </section>
+</Base>

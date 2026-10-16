@@ -1,0 +1,2724 @@
+[
+  {
+    "id": "claw-fly0pants-admapix",
+    "name": "admapix",
+    "description": "AdMapix raw data layer for ad creatives, apps, rankings, downloads/revenue, and market metadata. Returns structured JSON from the AdMapix API; the calling agent composes and analyzes. Use for 搜广告, 找素材, 广告素材, 竞品分析, 排行榜, 下载量, 收入, 市场分析, App数据, ad creative, search ads, app intelligence, rankings, downloads, revenue, market data.",
+    "sourceUrl": "https://clawhub.ai/fly0pants/skills/admapix",
+    "repo": null,
+    "path": "SKILL.md",
+    "author": "fly0pants",
+    "tags": [
+      "ad-intelligence",
+      "app-analytics",
+      "ad-creatives",
+      "ad-spy",
+      "advertising"
+    ],
+    "category": "ad-intelligence",
+    "frontmatterKeys": [
+      "name",
+      "description",
+      "metadata",
+      "metadata.openclaw",
+      "metadata.openclaw.primaryEnv"
+    ],
+    "sources": [
+      {
+        "name": "clawhub",
+        "url": "https://clawhub.ai/fly0pants/skills/admapix"
+      }
+    ],
+    "bins": [],
+    "env": [
+      "ADMAPIX_API_KEY"
+    ],
+    "tools": [],
+    "hasScriptsDir": false,
+    "mentionsNetwork": true,
+    "compatibility": {
+      "claude-code": {
+        "status": "compatible",
+        "reasons": [
+          "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "codex": {
+        "status": "compatible",
+        "reasons": [
+          "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "hermes": {
+        "status": "compatible",
+        "reasons": [
+          "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "openclaw": {
+        "status": "compatible",
+        "reasons": [
+          "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      }
+    },
+    "github": null,
+    "health": "unknown",
+    "scan": {
+      "label": "scanned, no flags",
+      "flags": []
+    },
+    "registry": {
+      "source": "clawhub",
+      "downloads": 133890,
+      "stars": 296
+    },
+    "contentSha": "9ce5853320e0f538e71df19043d2b9ca38b14c3817b783503f27cccf80c8791b",
+    "analyzedAt": "2026-10-16T04:44:54.872Z"
+  },
+  {
+    "id": "claw-matrixy-agent-browser-clawdbot",
+    "name": "agent-browser",
+    "description": "Headless browser automation CLI optimized for AI agents with accessibility tree snapshots and ref-based element selection",
+    "sourceUrl": "https://clawhub.ai/matrixy/skills/agent-browser-clawdbot",
+    "repo": null,
+    "path": "SKILL.md",
+    "author": "matrixy",
+    "tags": [
+      "Browser Automation"
+    ],
+    "category": "browser automation",
+    "frontmatterKeys": [
+      "name",
+      "description",
+      "metadata",
+      "metadata.clawdbot",
+      "metadata.clawdbot.emoji",
+      "metadata.clawdbot.requires",
+      "metadata.clawdbot.requires.commands",
+      "metadata.clawdbot.homepage"
+    ],
+    "sources": [
+      {
+        "name": "clawhub",
+        "url": "https://clawhub.ai/matrixy/skills/agent-browser-clawdbot"
+      }
+    ],
+    "bins": [],
+    "env": [],
+    "tools": [],
+    "hasScriptsDir": false,
+    "mentionsNetwork": true,
+    "compatibility": {
+      "claude-code": {
+        "status": "likely",
+        "reasons": [
+          "metadata.clawdbot or metadata.clawdis is an older OpenClaw key. Claude Code does not apply it."
+        ]
+      },
+      "codex": {
+        "status": "compatible",
+        "reasons": [
+          "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+          "metadata.clawdbot or metadata.clawdis is ignored by Codex.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "hermes": {
+        "status": "compatible",
+        "reasons": [
+          "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+          "metadata.clawdbot or metadata.clawdis is an OpenClaw key. Hermes does not apply it.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "openclaw": {
+        "status": "needs_changes",
+        "reasons": [
+          "The file uses metadata.clawdbot or metadata.clawdis and does not set metadata.openclaw. Current OpenClaw docs say the pre-July 2026 clawdbot format is no longer read."
+        ]
+      }
+    },
+    "github": null,
+    "health": "unknown",
+    "scan": {
+      "label": "scanned, no flags",
+      "flags": []
+    },
+    "registry": {
+      "source": "clawhub",
+      "downloads": 157908,
+      "stars": 463
+    },
+    "contentSha": "9643b9c65476eedd5ab353956c31a4d4ce9ad225f9a786d23376a43893f59979",
+    "analyzedAt": "2026-10-16T04:44:52.431Z"
+  },
+  {
+    "id": "gh-inference-sh-skills-tools-video-ai-avatar-video",
+    "name": "ai-avatar-video",
+    "description": "Create AI avatar and talking head videos via inference.sh CLI. Recommended: P-Video-Avatar (fastest, cheapest, built-in TTS). Also: OmniHuman, Fabric, PixVerse. Audio: Inworld TTS-2 (100+ languages, emotion steering for characters), ElevenLabs, Kokoro. Capabilities: audio-driven avatars, text-to-avatar, lipsync videos, talking head generation, virtual presenters, UGC content. Use for: AI presenters, explainer videos, virtual influencers, dubbing, marketing videos, UGC ads, gaming avatars, NPC dialogue. Triggers: ai avatar, talking head, lipsync, avatar video, virtual presenter, ai spokesperson, audio driven video, heygen alternative, synthesia alternative, talking avatar, lip sync, video avatar, ai presenter, digital human, ugc, ugc video, ugc ad, avatar ugc",
+    "sourceUrl": "https://www.skills.sh/inference-sh/skills/ai-avatar-video",
+    "repo": "https://github.com/inference-sh/skills",
+    "path": "tools/video/ai-avatar-video/SKILL.md",
+    "author": "inference-sh",
+    "tags": [],
+    "category": "uncategorized",
+    "frontmatterKeys": [
+      "name",
+      "description",
+      "allowed-tools"
+    ],
+    "sources": [
+      {
+        "name": "skills.sh",
+        "url": "https://www.skills.sh/inference-sh/skills/ai-avatar-video"
+      }
+    ],
+    "bins": [],
+    "env": [],
+    "tools": [
+      "Bash(belt",
+      "*)"
+    ],
+    "hasScriptsDir": false,
+    "mentionsNetwork": true,
+    "compatibility": {
+      "claude-code": {
+        "status": "compatible",
+        "reasons": [
+          "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name.",
+          "allowed-tools pre-approves the listed tools for the turn that invokes the skill. It does not remove other tools.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "codex": {
+        "status": "compatible",
+        "reasons": [
+          "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+          "allowed-tools does not pre-approve tools in Codex. Extra keys are ignored.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "hermes": {
+        "status": "compatible",
+        "reasons": [
+          "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+          "allowed-tools does not pre-approve tools in Hermes.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "openclaw": {
+        "status": "compatible",
+        "reasons": [
+          "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it.",
+          "allowed-tools is not an OpenClaw permission grant.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      }
+    },
+    "github": {
+      "stars": 769,
+      "lastPush": "2026-10-15T10:38:25Z",
+      "openIssuesAndPullRequests": 3,
+      "license": null,
+      "archived": false
+    },
+    "health": "active",
+    "scan": {
+      "label": "scanned, no flags",
+      "flags": []
+    },
+    "registry": null,
+    "contentSha": "d5a17a6bc341fa2375c16c6239d6d6051714faea439b818f41dfa3fc7725b4ee",
+    "analyzedAt": "2026-10-16T04:45:38.816Z"
+  },
+  {
+    "id": "gh-inference-sh-skills-tools-image-ai-image-generation",
+    "name": "ai-image-generation",
+    "description": "Generate AI images with GPT-Image-2.5, FLUX, Gemini, Grok, Seedream, Reve and 50+ models via inference.sh CLI. Models: GPT-Image-2.5 Flare, GPT-Image-2.5 Sunburst, GPT-Image-2, FLUX Dev LoRA, FLUX.2 Klein LoRA, Gemini 3 Pro Image, Grok Imagine, Seedream 4.5, Reve, ImagineArt. Capabilities: text-to-image, image-to-image, inpainting, LoRA, image editing, upscaling, text rendering. Use for: AI art, product mockups, concept art, social media graphics, marketing visuals, illustrations. Triggers: flux, image generation, ai image, text to image, stable diffusion, generate image, ai art, midjourney alternative, dall-e alternative, text2img, t2i, image generator, ai picture, create image with ai, generative ai, ai illustration, grok image, gemini image, gpt image, openai image, chatgpt image",
+    "sourceUrl": "https://www.skills.sh/inference-sh/skills/ai-image-generation",
+    "repo": "https://github.com/inference-sh/skills",
+    "path": "tools/image/ai-image-generation/SKILL.md",
+    "author": "inference-sh",
+    "tags": [],
+    "category": "uncategorized",
+    "frontmatterKeys": [
+      "name",
+      "description",
+      "allowed-tools"
+    ],
+    "sources": [
+      {
+        "name": "skills.sh",
+        "url": "https://www.skills.sh/inference-sh/skills/ai-image-generation"
+      }
+    ],
+    "bins": [],
+    "env": [],
+    "tools": [
+      "Bash(belt",
+      "*)"
+    ],
+    "hasScriptsDir": false,
+    "mentionsNetwork": true,
+    "compatibility": {
+      "claude-code": {
+        "status": "compatible",
+        "reasons": [
+          "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name.",
+          "allowed-tools pre-approves the listed tools for the turn that invokes the skill. It does not remove other tools.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "codex": {
+        "status": "compatible",
+        "reasons": [
+          "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+          "allowed-tools does not pre-approve tools in Codex. Extra keys are ignored.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "hermes": {
+        "status": "compatible",
+        "reasons": [
+          "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+          "allowed-tools does not pre-approve tools in Hermes.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "openclaw": {
+        "status": "compatible",
+        "reasons": [
+          "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it.",
+          "allowed-tools is not an OpenClaw permission grant.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      }
+    },
+    "github": {
+      "stars": 769,
+      "lastPush": "2026-10-15T10:38:25Z",
+      "openIssuesAndPullRequests": 3,
+      "license": null,
+      "archived": false
+    },
+    "health": "active",
+    "scan": {
+      "label": "scanned, no flags",
+      "flags": []
+    },
+    "registry": null,
+    "contentSha": "1598dc03aaeb135e2a25f25f589908b44e1d0480453c62eea6f53b6788a6a23f",
+    "analyzedAt": "2026-10-16T04:45:38.413Z"
+  },
+  {
+    "id": "gh-inference-sh-skills-tools-video-ai-video-generation",
+    "name": "ai-video-generation",
+    "description": "Generate AI videos with Google Veo, Seedance 2.0, HappyHorse, Wan, Grok and 40+ models via inference.sh CLI. Models: Veo 3.1, Seedance 2.0, HappyHorse 1.0, Wan 2.5, Grok Imagine Video, OmniHuman, Fabric, HunyuanVideo. Capabilities: text-to-video, image-to-video, reference-to-video, video editing, lipsync, avatar animation, video upscaling, foley sound. Use for: social media videos, marketing content, explainer videos, product demos, AI avatars. Triggers: video generation, ai video, text to video, image to video, veo, animate image, video from image, ai animation, video generator, generate video, t2v, i2v, ai video maker, create video with ai, runway alternative, pika alternative, sora alternative, kling alternative, seedance, happyhorse",
+    "sourceUrl": "https://www.skills.sh/inference-sh/skills/ai-video-generation",
+    "repo": "https://github.com/inference-sh/skills",
+    "path": "tools/video/ai-video-generation/SKILL.md",
+    "author": "inference-sh",
+    "tags": [],
+    "category": "uncategorized",
+    "frontmatterKeys": [
+      "name",
+      "description",
+      "allowed-tools"
+    ],
+    "sources": [
+      {
+        "name": "skills.sh",
+        "url": "https://www.skills.sh/inference-sh/skills/ai-video-generation"
+      }
+    ],
+    "bins": [],
+    "env": [],
+    "tools": [
+      "Bash(belt",
+      "*)"
+    ],
+    "hasScriptsDir": false,
+    "mentionsNetwork": true,
+    "compatibility": {
+      "claude-code": {
+        "status": "compatible",
+        "reasons": [
+          "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name.",
+          "allowed-tools pre-approves the listed tools for the turn that invokes the skill. It does not remove other tools.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "codex": {
+        "status": "compatible",
+        "reasons": [
+          "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+          "allowed-tools does not pre-approve tools in Codex. Extra keys are ignored.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "hermes": {
+        "status": "compatible",
+        "reasons": [
+          "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+          "allowed-tools does not pre-approve tools in Hermes.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "openclaw": {
+        "status": "compatible",
+        "reasons": [
+          "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it.",
+          "allowed-tools is not an OpenClaw permission grant.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      }
+    },
+    "github": {
+      "stars": 769,
+      "lastPush": "2026-10-15T10:38:25Z",
+      "openIssuesAndPullRequests": 3,
+      "license": null,
+      "archived": false
+    },
+    "health": "active",
+    "scan": {
+      "label": "scanned, no flags",
+      "flags": []
+    },
+    "registry": null,
+    "contentSha": "30521e6262ed22b6f548c9dd636b667fee916bc3ce9c747a208b8daa46aff427",
+    "analyzedAt": "2026-10-16T04:45:38.034Z"
+  },
+  {
+    "id": "claw-maximeprades-auto-updater",
+    "name": "auto-updater",
+    "description": "Automatically update Clawdbot and all installed skills once daily. Runs via cron, checks for updates, applies them, and messages the user with a summary of what changed.",
+    "sourceUrl": "https://clawhub.ai/maximeprades/skills/auto-updater",
+    "repo": null,
+    "path": "SKILL.md",
+    "author": "maximeprades",
+    "tags": [
+      "Cron"
+    ],
+    "category": "cron",
+    "frontmatterKeys": [
+      "name",
+      "description",
+      "metadata",
+      "metadata.version",
+      "metadata.clawdbot",
+      "metadata.clawdbot.emoji",
+      "metadata.clawdbot.os"
+    ],
+    "sources": [
+      {
+        "name": "clawhub",
+        "url": "https://clawhub.ai/maximeprades/skills/auto-updater"
+      }
+    ],
+    "bins": [],
+    "env": [],
+    "tools": [],
+    "hasScriptsDir": false,
+    "mentionsNetwork": true,
+    "compatibility": {
+      "claude-code": {
+        "status": "likely",
+        "reasons": [
+          "metadata.clawdbot or metadata.clawdis is an older OpenClaw key. Claude Code does not apply it."
+        ]
+      },
+      "codex": {
+        "status": "compatible",
+        "reasons": [
+          "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+          "metadata.clawdbot or metadata.clawdis is ignored by Codex.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "hermes": {
+        "status": "compatible",
+        "reasons": [
+          "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+          "metadata.clawdbot or metadata.clawdis is an OpenClaw key. Hermes does not apply it.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "openclaw": {
+        "status": "needs_changes",
+        "reasons": [
+          "The file uses metadata.clawdbot or metadata.clawdis and does not set metadata.openclaw. Current OpenClaw docs say the pre-July 2026 clawdbot format is no longer read."
+        ]
+      }
+    },
+    "github": null,
+    "health": "unknown",
+    "scan": {
+      "label": "scanned, no flags",
+      "flags": []
+    },
+    "registry": {
+      "source": "clawhub",
+      "downloads": 100452,
+      "stars": 447
+    },
+    "contentSha": "4142916e146caa90d41cd274bdea6263da1738d8ecc81777b7fc19c6bd8ef9f4",
+    "analyzedAt": "2026-10-16T04:45:24.251Z"
+  },
+  {
+    "id": "claw-ide-rea-baidu-search",
+    "name": "baidu-search",
+    "description": "Search the web using Baidu AI Search Engine (BDSE). Use for live information, documentation, or research topics.",
+    "sourceUrl": "https://clawhub.ai/ide-rea/skills/baidu-search",
+    "repo": null,
+    "path": "SKILL.md",
+    "author": "ide-rea",
+    "tags": [
+      "Search The Web",
+      "Documentation"
+    ],
+    "category": "search the web",
+    "frontmatterKeys": [
+      "name",
+      "description",
+      "metadata",
+      "metadata.openclaw",
+      "metadata.openclaw.emoji",
+      "metadata.openclaw.requires",
+      "metadata.openclaw.requires.bins",
+      "metadata.openclaw.requires.env",
+      "metadata.openclaw.primaryEnv"
+    ],
+    "sources": [
+      {
+        "name": "clawhub",
+        "url": "https://clawhub.ai/ide-rea/skills/baidu-search"
+      }
+    ],
+    "bins": [
+      "python3"
+    ],
+    "env": [
+      "BAIDU_API_KEY"
+    ],
+    "tools": [],
+    "hasScriptsDir": false,
+    "mentionsNetwork": true,
+    "compatibility": {
+      "claude-code": {
+        "status": "likely",
+        "reasons": [
+          "metadata.openclaw requirements are not applied by Claude Code. The skill can load without those bins or env vars."
+        ]
+      },
+      "codex": {
+        "status": "likely",
+        "reasons": [
+          "metadata.openclaw requirements are not applied by Codex. The skill can load without those bins or env vars."
+        ]
+      },
+      "hermes": {
+        "status": "likely",
+        "reasons": [
+          "metadata.openclaw requirements are not applied by Hermes. The skill can load without those bins or env vars."
+        ]
+      },
+      "openclaw": {
+        "status": "likely",
+        "reasons": [
+          "metadata.openclaw.requires gates loading on bins, env, or config. This index does not check the machine those gates refer to."
+        ]
+      }
+    },
+    "github": null,
+    "health": "unknown",
+    "scan": {
+      "label": "scanned, no flags",
+      "flags": []
+    },
+    "registry": {
+      "source": "clawhub",
+      "downloads": 93511,
+      "stars": 219
+    },
+    "contentSha": "4fa6b504a90d14bccaa171656a203a3d1ee0a2f2be4bdb76c95819a9de03fe98",
+    "analyzedAt": "2026-10-16T04:45:30.064Z"
+  },
+  {
+    "id": "claw-autogame-17-evolver",
+    "name": "capability-evolver",
+    "description": "A self-evolution engine for AI agents. Analyzes runtime history to identify improvements and applies protocol-constrained evolution. Communicates with EvoMap Hub via local Proxy mailbox.",
+    "sourceUrl": "https://clawhub.ai/autogame-17/skills/evolver",
+    "repo": null,
+    "path": "SKILL.md",
+    "author": "autogame-17",
+    "tags": [
+      "Core",
+      "Meta",
+      "Self Improvement"
+    ],
+    "category": "core",
+    "frontmatterKeys": [
+      "name",
+      "description",
+      "tags",
+      "permissions",
+      "metadata",
+      "metadata.clawdbot",
+      "metadata.clawdbot.requires",
+      "metadata.clawdbot.requires.bins",
+      "metadata.clawdbot.requires.env",
+      "metadata.clawdbot.files",
+      "metadata.capabilities",
+      "metadata.capabilities.allow",
+      "metadata.capabilities.deny",
+      "metadata.env_declarations",
+      "metadata.network_endpoints",
+      "metadata.file_access",
+      "metadata.file_access.reads",
+      "metadata.file_access.writes"
+    ],
+    "sources": [
+      {
+        "name": "clawhub",
+        "url": "https://clawhub.ai/autogame-17/skills/evolver"
+      }
+    ],
+    "bins": [],
+    "env": [],
+    "tools": [],
+    "hasScriptsDir": false,
+    "mentionsNetwork": true,
+    "compatibility": {
+      "claude-code": {
+        "status": "likely",
+        "reasons": [
+          "metadata.clawdbot or metadata.clawdis is an older OpenClaw key. Claude Code does not apply it."
+        ]
+      },
+      "codex": {
+        "status": "compatible",
+        "reasons": [
+          "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+          "metadata.clawdbot or metadata.clawdis is ignored by Codex.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "hermes": {
+        "status": "compatible",
+        "reasons": [
+          "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+          "metadata.clawdbot or metadata.clawdis is an OpenClaw key. Hermes does not apply it.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "openclaw": {
+        "status": "needs_changes",
+        "reasons": [
+          "The file uses metadata.clawdbot or metadata.clawdis and does not set metadata.openclaw. Current OpenClaw docs say the pre-July 2026 clawdbot format is no longer read."
+        ]
+      }
+    },
+    "github": null,
+    "health": "unknown",
+    "scan": {
+      "label": "scanned, flags found",
+      "flags": [
+        {
+          "id": "obfuscated-url",
+          "summary": "Obfuscated URL. The text uses a disguised scheme, a raw IP host, or an encoded http scheme."
+        }
+      ]
+    },
+    "registry": {
+      "source": "clawhub",
+      "downloads": 90637,
+      "stars": 86
+    },
+    "contentSha": "ff0c2e6ff7070f15088c81498c61910692f02886de0ea1423fa31613535fc807",
+    "analyzedAt": "2026-10-16T04:45:35.366Z"
+  },
+  {
+    "id": "gh-vercel-labs-skills-skills-find-skills",
+    "name": "find-skills",
+    "description": "Helps users discover and install agent skills when they ask questions like \"how do I do X\", \"find a skill for X\", \"is there a skill that can...\", or express interest in extending capabilities. This skill should be used when the user is looking for functionality that might exist as an installable skill.",
+    "sourceUrl": "https://www.skills.sh/vercel-labs/skills/find-skills",
+    "repo": "https://github.com/vercel-labs/skills",
+    "path": "skills/find-skills/SKILL.md",
+    "author": "vercel-labs",
+    "tags": [],
+    "category": "uncategorized",
+    "frontmatterKeys": [
+      "name",
+      "description"
+    ],
+    "sources": [
+      {
+        "name": "skills.sh",
+        "url": "https://www.skills.sh/vercel-labs/skills/find-skills"
+      }
+    ],
+    "bins": [],
+    "env": [],
+    "tools": [],
+    "hasScriptsDir": false,
+    "mentionsNetwork": true,
+    "compatibility": {
+      "claude-code": {
+        "status": "compatible",
+        "reasons": [
+          "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "codex": {
+        "status": "compatible",
+        "reasons": [
+          "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "hermes": {
+        "status": "compatible",
+        "reasons": [
+          "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "openclaw": {
+        "status": "compatible",
+        "reasons": [
+          "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      }
+    },
+    "github": {
+      "stars": 35138,
+      "lastPush": "2026-10-09T17:54:47Z",
+      "openIssuesAndPullRequests": 1145,
+      "license": "MIT",
+      "archived": false
+    },
+    "health": "active",
+    "scan": {
+      "label": "scanned, no flags",
+      "flags": []
+    },
+    "registry": null,
+    "contentSha": "c00eeea0e13e74fe4a9d84ba0a8542205a1b736d65f13134fe1a6647eb14976f",
+    "analyzedAt": "2026-10-16T04:45:37.232Z"
+  },
+  {
+    "id": "claw-steipete-github",
+    "name": "github",
+    "description": "Interact with GitHub using the `gh` CLI. Use `gh issue`, `gh pr`, `gh run`, and `gh api` for issues, PRs, CI runs, and advanced queries.",
+    "sourceUrl": "https://clawhub.ai/steipete/skills/github",
+    "repo": null,
+    "path": "SKILL.md",
+    "author": "steipete",
+    "tags": [
+      "GitHub"
+    ],
+    "category": "github",
+    "frontmatterKeys": [
+      "name",
+      "description"
+    ],
+    "sources": [
+      {
+        "name": "clawhub",
+        "url": "https://clawhub.ai/steipete/skills/github"
+      }
+    ],
+    "bins": [],
+    "env": [],
+    "tools": [],
+    "hasScriptsDir": false,
+    "mentionsNetwork": false,
+    "compatibility": {
+      "claude-code": {
+        "status": "compatible",
+        "reasons": [
+          "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name."
+        ]
+      },
+      "codex": {
+        "status": "compatible",
+        "reasons": [
+          "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored."
+        ]
+      },
+      "hermes": {
+        "status": "compatible",
+        "reasons": [
+          "Hermes can load this file. The validator requires name, description, and a body after frontmatter."
+        ]
+      },
+      "openclaw": {
+        "status": "compatible",
+        "reasons": [
+          "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it."
+        ]
+      }
+    },
+    "github": null,
+    "health": "unknown",
+    "scan": {
+      "label": "scanned, no flags",
+      "flags": []
+    },
+    "registry": {
+      "source": "clawhub",
+      "downloads": 200903,
+      "stars": 671
+    },
+    "contentSha": "51b28818a6f0359287d5c8244a6fdc59a4ac5504596deb193b28b81832221c86",
+    "analyzedAt": "2026-10-16T04:44:20.819Z"
+  },
+  {
+    "id": "claw-steipete-gog",
+    "name": "gog",
+    "description": "Google Workspace CLI for Gmail, Calendar, Drive, Contacts, Sheets, and Docs.",
+    "sourceUrl": "https://clawhub.ai/steipete/skills/gog",
+    "repo": null,
+    "path": "SKILL.md",
+    "author": "steipete",
+    "tags": [
+      "Gmail",
+      "Calendar",
+      "Docs"
+    ],
+    "category": "gmail",
+    "frontmatterKeys": [
+      "name",
+      "description",
+      "homepage",
+      "metadata",
+      "metadata.clawdbot",
+      "metadata.clawdbot.emoji",
+      "metadata.clawdbot.requires",
+      "metadata.clawdbot.requires.bins",
+      "metadata.clawdbot.install"
+    ],
+    "sources": [
+      {
+        "name": "clawhub",
+        "url": "https://clawhub.ai/steipete/skills/gog"
+      }
+    ],
+    "bins": [],
+    "env": [],
+    "tools": [],
+    "hasScriptsDir": false,
+    "mentionsNetwork": false,
+    "compatibility": {
+      "claude-code": {
+        "status": "likely",
+        "reasons": [
+          "metadata.clawdbot or metadata.clawdis is an older OpenClaw key. Claude Code does not apply it."
+        ]
+      },
+      "codex": {
+        "status": "compatible",
+        "reasons": [
+          "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+          "metadata.clawdbot or metadata.clawdis is ignored by Codex."
+        ]
+      },
+      "hermes": {
+        "status": "compatible",
+        "reasons": [
+          "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+          "metadata.clawdbot or metadata.clawdis is an OpenClaw key. Hermes does not apply it."
+        ]
+      },
+      "openclaw": {
+        "status": "needs_changes",
+        "reasons": [
+          "The file uses metadata.clawdbot or metadata.clawdis and does not set metadata.openclaw. Current OpenClaw docs say the pre-July 2026 clawdbot format is no longer read."
+        ]
+      }
+    },
+    "github": null,
+    "health": "unknown",
+    "scan": {
+      "label": "scanned, no flags",
+      "flags": []
+    },
+    "registry": {
+      "source": "clawhub",
+      "downloads": 196961,
+      "stars": 953
+    },
+    "contentSha": "00c1af6cde01299753439088916cb6e245ce00e1672b8cd4305a66d7eac2abad",
+    "analyzedAt": "2026-10-16T04:44:31.050Z"
+  },
+  {
+    "id": "gh-mattpocock-skills-skills-productivity-grill-me",
+    "name": "grill-me",
+    "description": "A relentless interview to sharpen a plan or design.",
+    "sourceUrl": "https://www.skills.sh/mattpocock/skills/grill-me",
+    "repo": "https://github.com/mattpocock/skills",
+    "path": "skills/productivity/grill-me/SKILL.md",
+    "author": "mattpocock",
+    "tags": [],
+    "category": "uncategorized",
+    "frontmatterKeys": [
+      "name",
+      "description",
+      "disable-model-invocation"
+    ],
+    "sources": [
+      {
+        "name": "skills.sh",
+        "url": "https://www.skills.sh/mattpocock/skills/grill-me"
+      }
+    ],
+    "bins": [],
+    "env": [],
+    "tools": [],
+    "hasScriptsDir": false,
+    "mentionsNetwork": false,
+    "compatibility": {
+      "claude-code": {
+        "status": "compatible",
+        "reasons": [
+          "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name.",
+          "The file sets Claude Code fields such as context, hooks, paths, or when_to_use."
+        ]
+      },
+      "codex": {
+        "status": "compatible",
+        "reasons": [
+          "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+          "Claude Code fields such as context, hooks, or paths are ignored by Codex."
+        ]
+      },
+      "hermes": {
+        "status": "compatible",
+        "reasons": [
+          "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+          "Claude Code fields such as context, hooks, or paths are ignored by Hermes."
+        ]
+      },
+      "openclaw": {
+        "status": "compatible",
+        "reasons": [
+          "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it.",
+          "Claude Code fields such as context, hooks, or paths are ignored by OpenClaw."
+        ]
+      }
+    },
+    "github": {
+      "stars": 293096,
+      "lastPush": "2026-10-13T08:46:40Z",
+      "openIssuesAndPullRequests": 187,
+      "license": "MIT",
+      "archived": false
+    },
+    "health": "active",
+    "scan": {
+      "label": "scanned, no flags",
+      "flags": []
+    },
+    "registry": null,
+    "contentSha": "caaf8b8de1684f96e26b28f3c29189db5c89cce4b73e1c93d86164f66ef88637",
+    "analyzedAt": "2026-10-16T04:45:40.814Z"
+  },
+  {
+    "id": "gh-mattpocock-skills-skills-engineering-grill-with-docs",
+    "name": "grill-with-docs",
+    "description": "A relentless interview to sharpen a plan or design, which also creates docs (ADR's and glossary) as we go.",
+    "sourceUrl": "https://www.skills.sh/mattpocock/skills/grill-with-docs",
+    "repo": "https://github.com/mattpocock/skills",
+    "path": "skills/engineering/grill-with-docs/SKILL.md",
+    "author": "mattpocock",
+    "tags": [],
+    "category": "uncategorized",
+    "frontmatterKeys": [
+      "name",
+      "description",
+      "disable-model-invocation"
+    ],
+    "sources": [
+      {
+        "name": "skills.sh",
+        "url": "https://www.skills.sh/mattpocock/skills/grill-with-docs"
+      }
+    ],
+    "bins": [],
+    "env": [],
+    "tools": [],
+    "hasScriptsDir": false,
+    "mentionsNetwork": false,
+    "compatibility": {
+      "claude-code": {
+        "status": "compatible",
+        "reasons": [
+          "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name.",
+          "The file sets Claude Code fields such as context, hooks, paths, or when_to_use."
+        ]
+      },
+      "codex": {
+        "status": "compatible",
+        "reasons": [
+          "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+          "Claude Code fields such as context, hooks, or paths are ignored by Codex."
+        ]
+      },
+      "hermes": {
+        "status": "compatible",
+        "reasons": [
+          "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+          "Claude Code fields such as context, hooks, or paths are ignored by Hermes."
+        ]
+      },
+      "openclaw": {
+        "status": "compatible",
+        "reasons": [
+          "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it.",
+          "Claude Code fields such as context, hooks, or paths are ignored by OpenClaw."
+        ]
+      }
+    },
+    "github": {
+      "stars": 293096,
+      "lastPush": "2026-10-13T08:46:40Z",
+      "openIssuesAndPullRequests": 187,
+      "license": "MIT",
+      "archived": false
+    },
+    "health": "active",
+    "scan": {
+      "label": "scanned, no flags",
+      "flags": []
+    },
+    "registry": null,
+    "contentSha": "7de372c13488f1ee96cc11cd8907b56b6809cc93eef776eeddd37de6b6cbe3fe",
+    "analyzedAt": "2026-10-16T04:45:41.227Z"
+  },
+  {
+    "id": "gh-mattpocock-skills-skills-productivity-handoff",
+    "name": "handoff",
+    "description": "Compact the current conversation into a handoff document for another agent to pick up.",
+    "sourceUrl": "https://www.skills.sh/mattpocock/skills/handoff",
+    "repo": "https://github.com/mattpocock/skills",
+    "path": "skills/productivity/handoff/SKILL.md",
+    "author": "mattpocock",
+    "tags": [],
+    "category": "uncategorized",
+    "frontmatterKeys": [
+      "name",
+      "description",
+      "argument-hint",
+      "disable-model-invocation"
+    ],
+    "sources": [
+      {
+        "name": "skills.sh",
+        "url": "https://www.skills.sh/mattpocock/skills/handoff"
+      }
+    ],
+    "bins": [],
+    "env": [],
+    "tools": [],
+    "hasScriptsDir": false,
+    "mentionsNetwork": false,
+    "compatibility": {
+      "claude-code": {
+        "status": "compatible",
+        "reasons": [
+          "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name.",
+          "The file sets Claude Code fields such as context, hooks, paths, or when_to_use."
+        ]
+      },
+      "codex": {
+        "status": "compatible",
+        "reasons": [
+          "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+          "Claude Code fields such as context, hooks, or paths are ignored by Codex."
+        ]
+      },
+      "hermes": {
+        "status": "compatible",
+        "reasons": [
+          "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+          "Claude Code fields such as context, hooks, or paths are ignored by Hermes."
+        ]
+      },
+      "openclaw": {
+        "status": "compatible",
+        "reasons": [
+          "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it.",
+          "Claude Code fields such as context, hooks, or paths are ignored by OpenClaw."
+        ]
+      }
+    },
+    "github": {
+      "stars": 293096,
+      "lastPush": "2026-10-13T08:46:40Z",
+      "openIssuesAndPullRequests": 187,
+      "license": "MIT",
+      "archived": false
+    },
+    "health": "active",
+    "scan": {
+      "label": "scanned, no flags",
+      "flags": []
+    },
+    "registry": null,
+    "contentSha": "4cbb043950dad2ffd3662ff1a5a0b51ae676004b5cae10e3787e8ee7a4ee69d3",
+    "analyzedAt": "2026-10-16T04:45:42.819Z"
+  },
+  {
+    "id": "claw-biostartechnology-humanizer",
+    "name": "humanizer",
+    "description": "Remove signs of AI-generated writing from text. Use when editing or reviewing text to make it sound more natural and human-written. Based on Wikipedia's comprehensive \"Signs of AI writing\" guide. Detects and fixes patterns including: inflated symbolism, promotional language, superficial -ing analyses, vague attributions, em dash overuse, rule of three, AI vocabulary words, negative parallelisms, and excessive conjunctive phrases.",
+    "sourceUrl": "https://clawhub.ai/biostartechnology/skills/humanizer",
+    "repo": null,
+    "path": "SKILL.md",
+    "author": "biostartechnology",
+    "tags": [],
+    "category": "uncategorized",
+    "frontmatterKeys": [
+      "name",
+      "version",
+      "description",
+      "allowed-tools"
+    ],
+    "sources": [
+      {
+        "name": "clawhub",
+        "url": "https://clawhub.ai/biostartechnology/skills/humanizer"
+      }
+    ],
+    "bins": [],
+    "env": [],
+    "tools": [
+      "Read",
+      "Write",
+      "Edit",
+      "Grep",
+      "Glob",
+      "AskUserQuestion"
+    ],
+    "hasScriptsDir": false,
+    "mentionsNetwork": true,
+    "compatibility": {
+      "claude-code": {
+        "status": "compatible",
+        "reasons": [
+          "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name.",
+          "allowed-tools pre-approves the listed tools for the turn that invokes the skill. It does not remove other tools.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "codex": {
+        "status": "compatible",
+        "reasons": [
+          "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+          "allowed-tools does not pre-approve tools in Codex. Extra keys are ignored.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "hermes": {
+        "status": "compatible",
+        "reasons": [
+          "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+          "allowed-tools does not pre-approve tools in Hermes.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "openclaw": {
+        "status": "compatible",
+        "reasons": [
+          "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it.",
+          "allowed-tools is not an OpenClaw permission grant.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      }
+    },
+    "github": null,
+    "health": "unknown",
+    "scan": {
+      "label": "scanned, no flags",
+      "flags": []
+    },
+    "registry": {
+      "source": "clawhub",
+      "downloads": 132422,
+      "stars": 716
+    },
+    "contentSha": "d7ce483d368e430185b707611ce82ef4206021da28cf306d75d4b64f1167416f",
+    "analyzedAt": "2026-10-16T04:44:58.362Z"
+  },
+  {
+    "id": "gh-mattpocock-skills-skills-engineering-improve-codebase-architecture",
+    "name": "improve-codebase-architecture",
+    "description": "Scan a codebase for deepening opportunities, present them as a visual HTML report, then grill through whichever one you pick.",
+    "sourceUrl": "https://www.skills.sh/mattpocock/skills/improve-codebase-architecture",
+    "repo": "https://github.com/mattpocock/skills",
+    "path": "skills/engineering/improve-codebase-architecture/SKILL.md",
+    "author": "mattpocock",
+    "tags": [],
+    "category": "uncategorized",
+    "frontmatterKeys": [
+      "name",
+      "description",
+      "disable-model-invocation"
+    ],
+    "sources": [
+      {
+        "name": "skills.sh",
+        "url": "https://www.skills.sh/mattpocock/skills/improve-codebase-architecture"
+      }
+    ],
+    "bins": [],
+    "env": [],
+    "tools": [],
+    "hasScriptsDir": false,
+    "mentionsNetwork": false,
+    "compatibility": {
+      "claude-code": {
+        "status": "compatible",
+        "reasons": [
+          "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name.",
+          "The file sets Claude Code fields such as context, hooks, paths, or when_to_use."
+        ]
+      },
+      "codex": {
+        "status": "compatible",
+        "reasons": [
+          "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+          "Claude Code fields such as context, hooks, or paths are ignored by Codex."
+        ]
+      },
+      "hermes": {
+        "status": "compatible",
+        "reasons": [
+          "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+          "Claude Code fields such as context, hooks, or paths are ignored by Hermes."
+        ]
+      },
+      "openclaw": {
+        "status": "compatible",
+        "reasons": [
+          "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it.",
+          "Claude Code fields such as context, hooks, or paths are ignored by OpenClaw."
+        ]
+      }
+    },
+    "github": {
+      "stars": 293096,
+      "lastPush": "2026-10-13T08:46:40Z",
+      "openIssuesAndPullRequests": 187,
+      "license": "MIT",
+      "archived": false
+    },
+    "health": "active",
+    "scan": {
+      "label": "scanned, no flags",
+      "flags": []
+    },
+    "registry": null,
+    "contentSha": "552240a5ab5cec6b67c15dd1ad6e9f6962b1bca6ce870059a8c2713760c20392",
+    "analyzedAt": "2026-10-16T04:45:41.615Z"
+  },
+  {
+    "id": "claw-gpyangyoujun-multi-search-engine",
+    "name": "multi-search-engine",
+    "description": "Multi search engine integration with 16 engines (7 CN + 9 Global). Supports advanced search operators, time filters, site search, privacy engines, and WolframAlpha knowledge queries. No API keys required.",
+    "sourceUrl": "https://clawhub.ai/gpyangyoujun/skills/multi-search-engine",
+    "repo": null,
+    "path": "SKILL.md",
+    "author": "gpyangyoujun",
+    "tags": [
+      "Privacy"
+    ],
+    "category": "privacy",
+    "frontmatterKeys": [
+      "name",
+      "description"
+    ],
+    "sources": [
+      {
+        "name": "clawhub",
+        "url": "https://clawhub.ai/gpyangyoujun/skills/multi-search-engine"
+      }
+    ],
+    "bins": [],
+    "env": [],
+    "tools": [],
+    "hasScriptsDir": false,
+    "mentionsNetwork": true,
+    "compatibility": {
+      "claude-code": {
+        "status": "compatible",
+        "reasons": [
+          "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "codex": {
+        "status": "compatible",
+        "reasons": [
+          "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "hermes": {
+        "status": "compatible",
+        "reasons": [
+          "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "openclaw": {
+        "status": "compatible",
+        "reasons": [
+          "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      }
+    },
+    "github": null,
+    "health": "unknown",
+    "scan": {
+      "label": "scanned, no flags",
+      "flags": []
+    },
+    "registry": {
+      "source": "clawhub",
+      "downloads": 163003,
+      "stars": 764
+    },
+    "contentSha": "a089b7928eeff57cc50dfa87cfe6f630f227dafc3ed7f92af043b7edb0866796",
+    "analyzedAt": "2026-10-16T04:44:47.640Z"
+  },
+  {
+    "id": "claw-steipete-nano-banana-pro",
+    "name": "nano-banana-pro",
+    "description": "Generate/edit images with Nano Banana Pro (Gemini 3 Pro Image). Use for image create/modify requests incl. edits. Supports text-to-image + image-to-image; 1K/2K/4K; use --input-image.",
+    "sourceUrl": "https://clawhub.ai/steipete/skills/nano-banana-pro",
+    "repo": null,
+    "path": "SKILL.md",
+    "author": "steipete",
+    "tags": [
+      "Image Generation"
+    ],
+    "category": "image generation",
+    "frontmatterKeys": [
+      "name",
+      "description"
+    ],
+    "sources": [
+      {
+        "name": "clawhub",
+        "url": "https://clawhub.ai/steipete/skills/nano-banana-pro"
+      }
+    ],
+    "bins": [],
+    "env": [],
+    "tools": [],
+    "hasScriptsDir": false,
+    "mentionsNetwork": false,
+    "compatibility": {
+      "claude-code": {
+        "status": "compatible",
+        "reasons": [
+          "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name."
+        ]
+      },
+      "codex": {
+        "status": "compatible",
+        "reasons": [
+          "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored."
+        ]
+      },
+      "hermes": {
+        "status": "compatible",
+        "reasons": [
+          "Hermes can load this file. The validator requires name, description, and a body after frontmatter."
+        ]
+      },
+      "openclaw": {
+        "status": "compatible",
+        "reasons": [
+          "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it."
+        ]
+      }
+    },
+    "github": null,
+    "health": "unknown",
+    "scan": {
+      "label": "scanned, no flags",
+      "flags": []
+    },
+    "registry": {
+      "source": "clawhub",
+      "downloads": 107548,
+      "stars": 421
+    },
+    "contentSha": "4ea88f4b0e9577e22fb68111fb2efcacb3f5c034dee3f8f6f8aeabaa96a7988b",
+    "analyzedAt": "2026-10-16T04:45:12.184Z"
+  },
+  {
+    "id": "claw-steipete-nano-pdf",
+    "name": "nano-pdf",
+    "description": "Edit PDFs with natural-language instructions using the nano-pdf CLI.",
+    "sourceUrl": "https://clawhub.ai/steipete/skills/nano-pdf",
+    "repo": null,
+    "path": "SKILL.md",
+    "author": "steipete",
+    "tags": [
+      "PDF"
+    ],
+    "category": "pdf",
+    "frontmatterKeys": [
+      "name",
+      "description",
+      "homepage",
+      "metadata",
+      "metadata.clawdbot",
+      "metadata.clawdbot.emoji",
+      "metadata.clawdbot.requires",
+      "metadata.clawdbot.requires.bins",
+      "metadata.clawdbot.install"
+    ],
+    "sources": [
+      {
+        "name": "clawhub",
+        "url": "https://clawhub.ai/steipete/skills/nano-pdf"
+      }
+    ],
+    "bins": [],
+    "env": [],
+    "tools": [],
+    "hasScriptsDir": false,
+    "mentionsNetwork": false,
+    "compatibility": {
+      "claude-code": {
+        "status": "likely",
+        "reasons": [
+          "metadata.clawdbot or metadata.clawdis is an older OpenClaw key. Claude Code does not apply it."
+        ]
+      },
+      "codex": {
+        "status": "compatible",
+        "reasons": [
+          "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+          "metadata.clawdbot or metadata.clawdis is ignored by Codex."
+        ]
+      },
+      "hermes": {
+        "status": "compatible",
+        "reasons": [
+          "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+          "metadata.clawdbot or metadata.clawdis is an OpenClaw key. Hermes does not apply it."
+        ]
+      },
+      "openclaw": {
+        "status": "needs_changes",
+        "reasons": [
+          "The file uses metadata.clawdbot or metadata.clawdis and does not set metadata.openclaw. Current OpenClaw docs say the pre-July 2026 clawdbot format is no longer read."
+        ]
+      }
+    },
+    "github": null,
+    "health": "unknown",
+    "scan": {
+      "label": "scanned, no flags",
+      "flags": []
+    },
+    "registry": {
+      "source": "clawhub",
+      "downloads": 122722,
+      "stars": 273
+    },
+    "contentSha": "4a19c3916062a0b2a303f929be2e11bc89ed8531b47fa565d7936a363f34d4ac",
+    "analyzedAt": "2026-10-16T04:45:00.686Z"
+  },
+  {
+    "id": "claw-steipete-notion",
+    "name": "notion",
+    "description": "Notion API for creating and managing pages, databases, and blocks.",
+    "sourceUrl": "https://clawhub.ai/steipete/skills/notion",
+    "repo": null,
+    "path": "SKILL.md",
+    "author": "steipete",
+    "tags": [
+      "Notion"
+    ],
+    "category": "notion",
+    "frontmatterKeys": [
+      "name",
+      "description",
+      "homepage",
+      "metadata",
+      "metadata.clawdbot",
+      "metadata.clawdbot.emoji"
+    ],
+    "sources": [
+      {
+        "name": "clawhub",
+        "url": "https://clawhub.ai/steipete/skills/notion"
+      }
+    ],
+    "bins": [],
+    "env": [],
+    "tools": [],
+    "hasScriptsDir": false,
+    "mentionsNetwork": true,
+    "compatibility": {
+      "claude-code": {
+        "status": "likely",
+        "reasons": [
+          "metadata.clawdbot or metadata.clawdis is an older OpenClaw key. Claude Code does not apply it."
+        ]
+      },
+      "codex": {
+        "status": "compatible",
+        "reasons": [
+          "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+          "metadata.clawdbot or metadata.clawdis is ignored by Codex.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "hermes": {
+        "status": "compatible",
+        "reasons": [
+          "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+          "metadata.clawdbot or metadata.clawdis is an OpenClaw key. Hermes does not apply it.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "openclaw": {
+        "status": "needs_changes",
+        "reasons": [
+          "The file uses metadata.clawdbot or metadata.clawdis and does not set metadata.openclaw. Current OpenClaw docs say the pre-July 2026 clawdbot format is no longer read."
+        ]
+      }
+    },
+    "github": null,
+    "health": "unknown",
+    "scan": {
+      "label": "scanned, no flags",
+      "flags": []
+    },
+    "registry": {
+      "source": "clawhub",
+      "downloads": 104418,
+      "stars": 273
+    },
+    "contentSha": "1002bcb8230ff496b65c2cb030737ed561c8c85fa1f823bed9192550e282a6fa",
+    "analyzedAt": "2026-10-16T04:45:14.097Z"
+  },
+  {
+    "id": "claw-steipete-obsidian",
+    "name": "obsidian",
+    "description": "Work with Obsidian vaults (plain Markdown notes) and automate via obsidian-cli.",
+    "sourceUrl": "https://clawhub.ai/steipete/skills/obsidian",
+    "repo": null,
+    "path": "SKILL.md",
+    "author": "steipete",
+    "tags": [],
+    "category": "uncategorized",
+    "frontmatterKeys": [
+      "name",
+      "description",
+      "homepage",
+      "metadata",
+      "metadata.clawdbot",
+      "metadata.clawdbot.emoji",
+      "metadata.clawdbot.requires",
+      "metadata.clawdbot.requires.bins",
+      "metadata.clawdbot.install"
+    ],
+    "sources": [
+      {
+        "name": "clawhub",
+        "url": "https://clawhub.ai/steipete/skills/obsidian"
+      }
+    ],
+    "bins": [],
+    "env": [],
+    "tools": [],
+    "hasScriptsDir": false,
+    "mentionsNetwork": false,
+    "compatibility": {
+      "claude-code": {
+        "status": "likely",
+        "reasons": [
+          "metadata.clawdbot or metadata.clawdis is an older OpenClaw key. Claude Code does not apply it."
+        ]
+      },
+      "codex": {
+        "status": "compatible",
+        "reasons": [
+          "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+          "metadata.clawdbot or metadata.clawdis is ignored by Codex."
+        ]
+      },
+      "hermes": {
+        "status": "compatible",
+        "reasons": [
+          "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+          "metadata.clawdbot or metadata.clawdis is an OpenClaw key. Hermes does not apply it."
+        ]
+      },
+      "openclaw": {
+        "status": "needs_changes",
+        "reasons": [
+          "The file uses metadata.clawdbot or metadata.clawdis and does not set metadata.openclaw. Current OpenClaw docs say the pre-July 2026 clawdbot format is no longer read."
+        ]
+      }
+    },
+    "github": null,
+    "health": "unknown",
+    "scan": {
+      "label": "scanned, no flags",
+      "flags": []
+    },
+    "registry": {
+      "source": "clawhub",
+      "downloads": 111557,
+      "stars": 460
+    },
+    "contentSha": "dc45b522a0f08fa11762b330b5355ccaca789bd645b0c450fe75026f69d728b2",
+    "analyzedAt": "2026-10-16T04:45:05.778Z"
+  },
+  {
+    "id": "claw-oswalpalash-ontology",
+    "name": "ontology",
+    "description": "Typed knowledge graph for structured agent memory and composable skills. Use when creating/querying entities (Person, Project, Task, Event, Document), linking related objects, enforcing constraints, planning multi-step actions as graph transformations, or when skills need to share state. Trigger on \"remember\", \"what do I know about\", \"link X to Y\", \"show dependencies\", entity CRUD, or cross-skill data access.",
+    "sourceUrl": "https://clawhub.ai/oswalpalash/skills/ontology",
+    "repo": null,
+    "path": "SKILL.md",
+    "author": "oswalpalash",
+    "tags": [
+      "Agent Memory"
+    ],
+    "category": "agent memory",
+    "frontmatterKeys": [
+      "name",
+      "description"
+    ],
+    "sources": [
+      {
+        "name": "clawhub",
+        "url": "https://clawhub.ai/oswalpalash/skills/ontology"
+      }
+    ],
+    "bins": [],
+    "env": [],
+    "tools": [],
+    "hasScriptsDir": false,
+    "mentionsNetwork": false,
+    "compatibility": {
+      "claude-code": {
+        "status": "compatible",
+        "reasons": [
+          "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name."
+        ]
+      },
+      "codex": {
+        "status": "compatible",
+        "reasons": [
+          "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored."
+        ]
+      },
+      "hermes": {
+        "status": "compatible",
+        "reasons": [
+          "Hermes can load this file. The validator requires name, description, and a body after frontmatter."
+        ]
+      },
+      "openclaw": {
+        "status": "compatible",
+        "reasons": [
+          "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it."
+        ]
+      }
+    },
+    "github": null,
+    "health": "unknown",
+    "scan": {
+      "label": "scanned, no flags",
+      "flags": []
+    },
+    "registry": {
+      "source": "clawhub",
+      "downloads": 200087,
+      "stars": 660
+    },
+    "contentSha": "669830c58a0caa4b977229a79e3723c09e5c2fdd74da84007f125891aa0c7488",
+    "analyzedAt": "2026-10-16T04:44:25.611Z"
+  },
+  {
+    "id": "claw-pollyreach-pollyreach",
+    "name": "pollyreach",
+    "description": "PollyReach gives every AI agent a phone number and the ability to get things done over the phone — finding contacts, making calls, and completing tasks. Just tell Polly what you need.",
+    "sourceUrl": "https://clawhub.ai/pollyreach/skills/pollyreach",
+    "repo": null,
+    "path": "SKILL.md",
+    "author": "pollyreach",
+    "tags": [
+      "Pollyreach",
+      "Phone",
+      "Customer Service",
+      "Booking",
+      "Incoming Call"
+    ],
+    "category": "pollyreach",
+    "frontmatterKeys": [
+      "name",
+      "version",
+      "description",
+      "keywords",
+      "permissions",
+      "permissions.network",
+      "permissions.files",
+      "permissions.files.read",
+      "permissions.files.write",
+      "dependencies",
+      "dependencies.required",
+      "dependencies.install",
+      "dependencies.install.jq",
+      "dependencies.install.jq.macos",
+      "dependencies.install.jq.ubuntu",
+      "scripts",
+      "metadata",
+      "metadata.pollyreach",
+      "metadata.pollyreach.emoji",
+      "metadata.pollyreach.category",
+      "metadata.pollyreach.homepage"
+    ],
+    "sources": [
+      {
+        "name": "clawhub",
+        "url": "https://clawhub.ai/pollyreach/skills/pollyreach"
+      }
+    ],
+    "bins": [],
+    "env": [],
+    "tools": [],
+    "hasScriptsDir": false,
+    "mentionsNetwork": true,
+    "compatibility": {
+      "claude-code": {
+        "status": "compatible",
+        "reasons": [
+          "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "codex": {
+        "status": "compatible",
+        "reasons": [
+          "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "hermes": {
+        "status": "compatible",
+        "reasons": [
+          "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "openclaw": {
+        "status": "compatible",
+        "reasons": [
+          "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      }
+    },
+    "github": null,
+    "health": "unknown",
+    "scan": {
+      "label": "scanned, no flags",
+      "flags": []
+    },
+    "registry": {
+      "source": "clawhub",
+      "downloads": 101833,
+      "stars": 56
+    },
+    "contentSha": "bf71d4da6f4a8fafe2e17c7787cfd86ea5d941ebf82ee9e832761fdf1e299028",
+    "analyzedAt": "2026-10-16T04:45:19.559Z"
+  },
+  {
+    "id": "claw-halthelobster-proactive-agent",
+    "name": "proactive-agent",
+    "description": "Transform AI agents from task-followers into proactive partners that anticipate needs and continuously improve. Now with WAL Protocol, Working Buffer, Autonomous Crons, and battle-tested patterns. Part of the Hal Stack 🦞",
+    "sourceUrl": "https://clawhub.ai/halthelobster/skills/proactive-agent",
+    "repo": null,
+    "path": "SKILL.md",
+    "author": "halthelobster",
+    "tags": [],
+    "category": "uncategorized",
+    "frontmatterKeys": [
+      "name",
+      "version",
+      "description",
+      "author"
+    ],
+    "sources": [
+      {
+        "name": "clawhub",
+        "url": "https://clawhub.ai/halthelobster/skills/proactive-agent"
+      }
+    ],
+    "bins": [],
+    "env": [],
+    "tools": [],
+    "hasScriptsDir": false,
+    "mentionsNetwork": true,
+    "compatibility": {
+      "claude-code": {
+        "status": "compatible",
+        "reasons": [
+          "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "codex": {
+        "status": "compatible",
+        "reasons": [
+          "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "hermes": {
+        "status": "compatible",
+        "reasons": [
+          "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "openclaw": {
+        "status": "compatible",
+        "reasons": [
+          "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      }
+    },
+    "github": null,
+    "health": "unknown",
+    "scan": {
+      "label": "scanned, no flags",
+      "flags": []
+    },
+    "registry": {
+      "source": "clawhub",
+      "downloads": 177341,
+      "stars": 831
+    },
+    "contentSha": "571521d9f6f38b3ec9f073d7bdec47170a35e9c78556954ac7f0f860ab12873b",
+    "analyzedAt": "2026-10-16T04:44:37.397Z"
+  },
+  {
+    "id": "gh-inference-sh-skills-tools-video-remotion-render",
+    "name": "remotion-render",
+    "description": "Render videos from React/Remotion component code via inference.sh. Pass TSX code, get MP4. Supports all Remotion APIs: useCurrentFrame, useVideoConfig, spring, interpolate, AbsoluteFill, Sequence. Configurable resolution, FPS, duration, codec. Use for: programmatic video generation, animated graphics, motion design, data-driven videos, React animations to video. Triggers: remotion, render video from code, tsx to video, react video, programmatic video, remotion render, code to video, animated video, motion graphics code, react animation video",
+    "sourceUrl": "https://www.skills.sh/inference-sh/skills/remotion-render",
+    "repo": "https://github.com/inference-sh/skills",
+    "path": "tools/video/remotion-render/SKILL.md",
+    "author": "inference-sh",
+    "tags": [],
+    "category": "uncategorized",
+    "frontmatterKeys": [
+      "name",
+      "description",
+      "allowed-tools"
+    ],
+    "sources": [
+      {
+        "name": "skills.sh",
+        "url": "https://www.skills.sh/inference-sh/skills/remotion-render"
+      }
+    ],
+    "bins": [],
+    "env": [],
+    "tools": [
+      "Bash(belt",
+      "*)"
+    ],
+    "hasScriptsDir": false,
+    "mentionsNetwork": true,
+    "compatibility": {
+      "claude-code": {
+        "status": "compatible",
+        "reasons": [
+          "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name.",
+          "allowed-tools pre-approves the listed tools for the turn that invokes the skill. It does not remove other tools.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "codex": {
+        "status": "compatible",
+        "reasons": [
+          "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+          "allowed-tools does not pre-approve tools in Codex. Extra keys are ignored.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "hermes": {
+        "status": "compatible",
+        "reasons": [
+          "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+          "allowed-tools does not pre-approve tools in Hermes.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "openclaw": {
+        "status": "compatible",
+        "reasons": [
+          "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it.",
+          "allowed-tools is not an OpenClaw permission grant.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      }
+    },
+    "github": {
+      "stars": 769,
+      "lastPush": "2026-10-15T10:38:25Z",
+      "openIssuesAndPullRequests": 3,
+      "license": null,
+      "archived": false
+    },
+    "health": "active",
+    "scan": {
+      "label": "scanned, no flags",
+      "flags": []
+    },
+    "registry": null,
+    "contentSha": "27c9a0c03006db2a5eba5ef1783842b74edec38ffcccd3a239161f6a29bac246",
+    "analyzedAt": "2026-10-16T04:45:39.644Z"
+  },
+  {
+    "id": "claw-ivangdavila-self-improving",
+    "name": "Self-Improving + Proactive Agent",
+    "description": "Self-reflection + Self-criticism + Self-learning + Self-organizing memory. Agent evaluates its own work, catches mistakes, and improves permanently. Use when (1) a command, tool, API, or operation fails; (2) the user corrects you or rejects your work; (3) you realize your knowledge is outdated or incorrect; (4) you discover a better approach; (5) the user explicitly installs or references the skill for the current task.",
+    "sourceUrl": "https://clawhub.ai/ivangdavila/skills/self-improving",
+    "repo": null,
+    "path": "SKILL.md",
+    "author": "ivangdavila",
+    "tags": [
+      "Self Improving",
+      "Learning"
+    ],
+    "category": "self improving",
+    "frontmatterKeys": [
+      "name",
+      "slug",
+      "version",
+      "homepage",
+      "description",
+      "changelog",
+      "metadata",
+      "metadata.clawdbot",
+      "metadata.clawdbot.emoji",
+      "metadata.clawdbot.requires",
+      "metadata.clawdbot.requires.bins",
+      "metadata.clawdbot.os",
+      "metadata.clawdbot.configPaths",
+      "metadata.clawdbot.configPaths.optional"
+    ],
+    "sources": [
+      {
+        "name": "clawhub",
+        "url": "https://clawhub.ai/ivangdavila/skills/self-improving"
+      }
+    ],
+    "bins": [],
+    "env": [],
+    "tools": [],
+    "hasScriptsDir": false,
+    "mentionsNetwork": false,
+    "compatibility": {
+      "claude-code": {
+        "status": "likely",
+        "reasons": [
+          "name is not the lowercase hyphen form from the Agent Skills spec.",
+          "metadata.clawdbot or metadata.clawdis is an older OpenClaw key. Claude Code does not apply it."
+        ]
+      },
+      "codex": {
+        "status": "likely",
+        "reasons": [
+          "name is not the lowercase hyphen form from the Agent Skills spec. The Codex parser checks length, not that shape."
+        ]
+      },
+      "hermes": {
+        "status": "likely",
+        "reasons": [
+          "name is not the lowercase hyphen form the Hermes authoring guide shows."
+        ]
+      },
+      "openclaw": {
+        "status": "needs_changes",
+        "reasons": [
+          "The file uses metadata.clawdbot or metadata.clawdis and does not set metadata.openclaw. Current OpenClaw docs say the pre-July 2026 clawdbot format is no longer read."
+        ]
+      }
+    },
+    "github": null,
+    "health": "unknown",
+    "scan": {
+      "label": "scanned, no flags",
+      "flags": []
+    },
+    "registry": {
+      "source": "clawhub",
+      "downloads": 211562,
+      "stars": 1296
+    },
+    "contentSha": "11109b39d0f7fe7b98a9277609cb79c7ca67c86be1f98d13455d4da35c7047b0",
+    "analyzedAt": "2026-10-16T04:44:18.771Z"
+  },
+  {
+    "id": "claw-pskoett-self-improving-agent",
+    "name": "self-improving-agent",
+    "description": "Captures and maintains learnings, errors, and corrections. Use when a command fails, the user corrects an assumption, a capability is missing, knowledge is outdated, or a better approach is found. Review relevant saved guidance before major tasks, reuse, and promotion; revalidate it according to what could change and how quickly.",
+    "sourceUrl": "https://clawhub.ai/pskoett/skills/self-improving-agent",
+    "repo": null,
+    "path": "SKILL.md",
+    "author": "pskoett",
+    "tags": [
+      "self-improvement",
+      "context"
+    ],
+    "category": "self-improvement",
+    "frontmatterKeys": [
+      "name",
+      "description",
+      "version",
+      "metadata"
+    ],
+    "sources": [
+      {
+        "name": "clawhub",
+        "url": "https://clawhub.ai/pskoett/skills/self-improving-agent"
+      }
+    ],
+    "bins": [],
+    "env": [],
+    "tools": [],
+    "hasScriptsDir": false,
+    "mentionsNetwork": true,
+    "compatibility": {
+      "claude-code": {
+        "status": "compatible",
+        "reasons": [
+          "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "codex": {
+        "status": "compatible",
+        "reasons": [
+          "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "hermes": {
+        "status": "compatible",
+        "reasons": [
+          "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "openclaw": {
+        "status": "compatible",
+        "reasons": [
+          "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      }
+    },
+    "github": null,
+    "health": "unknown",
+    "scan": {
+      "label": "scanned, no flags",
+      "flags": []
+    },
+    "registry": {
+      "source": "clawhub",
+      "downloads": 485077,
+      "stars": 3999
+    },
+    "contentSha": "529b5aa692a5d050b42564ac7a01750fe30d2026db9daf4a6421bbfcfb30398a",
+    "analyzedAt": "2026-10-16T04:44:08.587Z"
+  },
+  {
+    "id": "gh-mattpocock-skills-skills-engineering-setup-matt-pocock-skills",
+    "name": "setup-matt-pocock-skills",
+    "description": "Configure this repo for the engineering skills: set up its issue tracker, triage label vocabulary, and domain doc layout. Run once before first use of the other engineering skills.",
+    "sourceUrl": "https://www.skills.sh/mattpocock/skills/setup-matt-pocock-skills",
+    "repo": "https://github.com/mattpocock/skills",
+    "path": "skills/engineering/setup-matt-pocock-skills/SKILL.md",
+    "author": "mattpocock",
+    "tags": [],
+    "category": "uncategorized",
+    "frontmatterKeys": [
+      "name",
+      "description",
+      "disable-model-invocation"
+    ],
+    "sources": [
+      {
+        "name": "skills.sh",
+        "url": "https://www.skills.sh/mattpocock/skills/setup-matt-pocock-skills"
+      }
+    ],
+    "bins": [],
+    "env": [],
+    "tools": [],
+    "hasScriptsDir": false,
+    "mentionsNetwork": true,
+    "compatibility": {
+      "claude-code": {
+        "status": "compatible",
+        "reasons": [
+          "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name.",
+          "The file sets Claude Code fields such as context, hooks, paths, or when_to_use.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "codex": {
+        "status": "compatible",
+        "reasons": [
+          "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+          "Claude Code fields such as context, hooks, or paths are ignored by Codex.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "hermes": {
+        "status": "compatible",
+        "reasons": [
+          "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+          "Claude Code fields such as context, hooks, or paths are ignored by Hermes.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "openclaw": {
+        "status": "compatible",
+        "reasons": [
+          "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it.",
+          "Claude Code fields such as context, hooks, or paths are ignored by OpenClaw.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      }
+    },
+    "github": {
+      "stars": 293096,
+      "lastPush": "2026-10-13T08:46:40Z",
+      "openIssuesAndPullRequests": 187,
+      "license": "MIT",
+      "archived": false
+    },
+    "health": "active",
+    "scan": {
+      "label": "scanned, no flags",
+      "flags": []
+    },
+    "registry": null,
+    "contentSha": "f148858ffb7f63c03c06fca06e6fdb1d91a35c6b293244b8fdfacd5f4cc028c4",
+    "analyzedAt": "2026-10-16T04:45:42.407Z"
+  },
+  {
+    "id": "claw-chindden-skill-creator",
+    "name": "skill-creator",
+    "description": "Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Claude's capabilities with specialized knowledge, workflows, or tool integrations.",
+    "sourceUrl": "https://clawhub.ai/chindden/skills/skill-creator",
+    "repo": null,
+    "path": "SKILL.md",
+    "author": "chindden",
+    "tags": [],
+    "category": "uncategorized",
+    "frontmatterKeys": [
+      "name",
+      "description",
+      "license"
+    ],
+    "sources": [
+      {
+        "name": "clawhub",
+        "url": "https://clawhub.ai/chindden/skills/skill-creator"
+      }
+    ],
+    "bins": [],
+    "env": [],
+    "tools": [],
+    "hasScriptsDir": false,
+    "mentionsNetwork": false,
+    "compatibility": {
+      "claude-code": {
+        "status": "compatible",
+        "reasons": [
+          "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name."
+        ]
+      },
+      "codex": {
+        "status": "compatible",
+        "reasons": [
+          "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored."
+        ]
+      },
+      "hermes": {
+        "status": "compatible",
+        "reasons": [
+          "Hermes can load this file. The validator requires name, description, and a body after frontmatter."
+        ]
+      },
+      "openclaw": {
+        "status": "compatible",
+        "reasons": [
+          "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it."
+        ]
+      }
+    },
+    "github": null,
+    "health": "unknown",
+    "scan": {
+      "label": "scanned, no flags",
+      "flags": []
+    },
+    "registry": {
+      "source": "clawhub",
+      "downloads": 102679,
+      "stars": 337
+    },
+    "contentSha": "b2e3d83f60425c2d0b9d4162efb8f9aa322b45843497340f2289f42be422801c",
+    "analyzedAt": "2026-10-16T04:45:17.267Z"
+  },
+  {
+    "id": "claw-spclaudehome-skill-vetter",
+    "name": "skill-vetter",
+    "description": "Security-first skill vetting for AI agents. Use before installing any skill from ClawdHub, GitHub, or other sources. Checks for red flags, permission scope, and suspicious patterns.",
+    "sourceUrl": "https://clawhub.ai/spclaudehome/skills/skill-vetter",
+    "repo": null,
+    "path": "SKILL.md",
+    "author": "spclaudehome",
+    "tags": [
+      "GitHub",
+      "Permission"
+    ],
+    "category": "github",
+    "frontmatterKeys": [
+      "name",
+      "version",
+      "description"
+    ],
+    "sources": [
+      {
+        "name": "clawhub",
+        "url": "https://clawhub.ai/spclaudehome/skills/skill-vetter"
+      }
+    ],
+    "bins": [],
+    "env": [],
+    "tools": [],
+    "hasScriptsDir": false,
+    "mentionsNetwork": true,
+    "compatibility": {
+      "claude-code": {
+        "status": "compatible",
+        "reasons": [
+          "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "codex": {
+        "status": "compatible",
+        "reasons": [
+          "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "hermes": {
+        "status": "compatible",
+        "reasons": [
+          "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "openclaw": {
+        "status": "compatible",
+        "reasons": [
+          "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      }
+    },
+    "github": null,
+    "health": "unknown",
+    "scan": {
+      "label": "scanned, no flags",
+      "flags": []
+    },
+    "registry": {
+      "source": "clawhub",
+      "downloads": 277369,
+      "stars": 1305
+    },
+    "contentSha": "e8eb7583355c2ae78a79187dca6a1ec448d9c8360e91652871392179f7ffb8bf",
+    "analyzedAt": "2026-10-16T04:44:13.809Z"
+  },
+  {
+    "id": "claw-tokauthai-skillscan",
+    "name": "SkillScan",
+    "description": "Security gate for skills. Every new skill MUST pass SkillScan before use. Activate on any install, load, add, evaluate, or safety question about a skill. On first load, run first-run to scan all existing skills. Blocks HIGH/CRITICAL skills. No exceptions.",
+    "sourceUrl": "https://clawhub.ai/tokauthai/skills/skillscan",
+    "repo": null,
+    "path": "SKILL.md",
+    "author": "tokauthai",
+    "tags": [],
+    "category": "uncategorized",
+    "frontmatterKeys": [
+      "name",
+      "metadata",
+      "metadata.version",
+      "description"
+    ],
+    "sources": [
+      {
+        "name": "clawhub",
+        "url": "https://clawhub.ai/tokauthai/skills/skillscan"
+      }
+    ],
+    "bins": [],
+    "env": [],
+    "tools": [],
+    "hasScriptsDir": false,
+    "mentionsNetwork": true,
+    "compatibility": {
+      "claude-code": {
+        "status": "likely",
+        "reasons": [
+          "name is not the lowercase hyphen form from the Agent Skills spec."
+        ]
+      },
+      "codex": {
+        "status": "likely",
+        "reasons": [
+          "name is not the lowercase hyphen form from the Agent Skills spec. The Codex parser checks length, not that shape."
+        ]
+      },
+      "hermes": {
+        "status": "likely",
+        "reasons": [
+          "name is not the lowercase hyphen form the Hermes authoring guide shows."
+        ]
+      },
+      "openclaw": {
+        "status": "likely",
+        "reasons": [
+          "name is not the lowercase hyphen form from the Agent Skills spec."
+        ]
+      }
+    },
+    "github": null,
+    "health": "unknown",
+    "scan": {
+      "label": "scanned, no flags",
+      "flags": []
+    },
+    "registry": {
+      "source": "clawhub",
+      "downloads": 182529,
+      "stars": 41
+    },
+    "contentSha": "7cc318d81fadddc98f18ebf785a94028ae7b310088c4e4dfefbd95eee0c8b589",
+    "analyzedAt": "2026-10-16T04:44:33.124Z"
+  },
+  {
+    "id": "claw-jacky1n7-openclaw-tavily-search",
+    "name": "tavily-search",
+    "description": "Search the public web through Tavily and return structured results with URLs and snippets. Use when an agent needs current information, source discovery, link lookup, news or finance search, or a fallback for unavailable built-in web search. Do not use for private or authenticated pages.",
+    "sourceUrl": "https://clawhub.ai/jacky1n7/skills/openclaw-tavily-search",
+    "repo": null,
+    "path": "SKILL.md",
+    "author": "jacky1n7",
+    "tags": [
+      "search-the-web",
+      "web-search"
+    ],
+    "category": "search-the-web",
+    "frontmatterKeys": [
+      "name",
+      "description",
+      "compatibility",
+      "metadata",
+      "metadata.version",
+      "metadata.openclaw",
+      "metadata.openclaw.requires",
+      "metadata.openclaw.requires.env",
+      "metadata.openclaw.requires.bins",
+      "metadata.openclaw.primaryEnv",
+      "metadata.openclaw.envVars",
+      "metadata.openclaw.homepage"
+    ],
+    "sources": [
+      {
+        "name": "clawhub",
+        "url": "https://clawhub.ai/jacky1n7/skills/openclaw-tavily-search"
+      }
+    ],
+    "bins": [
+      "python3"
+    ],
+    "env": [
+      "TAVILY_API_KEY"
+    ],
+    "tools": [],
+    "hasScriptsDir": false,
+    "mentionsNetwork": false,
+    "compatibility": {
+      "claude-code": {
+        "status": "likely",
+        "reasons": [
+          "metadata.openclaw requirements are not applied by Claude Code. The skill can load without those bins or env vars."
+        ]
+      },
+      "codex": {
+        "status": "likely",
+        "reasons": [
+          "metadata.openclaw requirements are not applied by Codex. The skill can load without those bins or env vars."
+        ]
+      },
+      "hermes": {
+        "status": "likely",
+        "reasons": [
+          "metadata.openclaw requirements are not applied by Hermes. The skill can load without those bins or env vars."
+        ]
+      },
+      "openclaw": {
+        "status": "likely",
+        "reasons": [
+          "metadata.openclaw.requires gates loading on bins, env, or config. This index does not check the machine those gates refer to."
+        ]
+      }
+    },
+    "github": null,
+    "health": "unknown",
+    "scan": {
+      "label": "scanned, no flags",
+      "flags": []
+    },
+    "registry": {
+      "source": "clawhub",
+      "downloads": 108470,
+      "stars": 268
+    },
+    "contentSha": "d3f1761279ee53cd6d11d5b009d368f7f4c2f97dbc0405a2931aa4e6e6952cef",
+    "analyzedAt": "2026-10-16T04:45:07.848Z"
+  },
+  {
+    "id": "gh-mattpocock-skills-skills-engineering-tdd",
+    "name": "tdd",
+    "description": "Test-driven development. Use when the user wants to build features or fix bugs test-first, mentions \"red-green-refactor\", or wants integration tests.",
+    "sourceUrl": "https://www.skills.sh/mattpocock/skills/tdd",
+    "repo": "https://github.com/mattpocock/skills",
+    "path": "skills/engineering/tdd/SKILL.md",
+    "author": "mattpocock",
+    "tags": [],
+    "category": "uncategorized",
+    "frontmatterKeys": [
+      "name",
+      "description"
+    ],
+    "sources": [
+      {
+        "name": "skills.sh",
+        "url": "https://www.skills.sh/mattpocock/skills/tdd"
+      }
+    ],
+    "bins": [],
+    "env": [],
+    "tools": [],
+    "hasScriptsDir": false,
+    "mentionsNetwork": false,
+    "compatibility": {
+      "claude-code": {
+        "status": "compatible",
+        "reasons": [
+          "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name."
+        ]
+      },
+      "codex": {
+        "status": "compatible",
+        "reasons": [
+          "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored."
+        ]
+      },
+      "hermes": {
+        "status": "compatible",
+        "reasons": [
+          "Hermes can load this file. The validator requires name, description, and a body after frontmatter."
+        ]
+      },
+      "openclaw": {
+        "status": "compatible",
+        "reasons": [
+          "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it."
+        ]
+      }
+    },
+    "github": {
+      "stars": 293096,
+      "lastPush": "2026-10-13T08:46:40Z",
+      "openIssuesAndPullRequests": 187,
+      "license": "MIT",
+      "archived": false
+    },
+    "health": "active",
+    "scan": {
+      "label": "scanned, no flags",
+      "flags": []
+    },
+    "registry": null,
+    "contentSha": "5505d25bbaa8fc14a79e4d20163936958992a2995b7f1dd1d6197edc9ed722e0",
+    "analyzedAt": "2026-10-16T04:45:42.006Z"
+  },
+  {
+    "id": "gh-inference-sh-skills-tools-social-twitter-automation",
+    "name": "twitter-automation",
+    "description": "Automate Twitter/X with posting, engagement, and user management via inference.sh CLI. Apps: x/post-create (text and media), x/post-like, x/post-retweet, x/dm-send, x/user-follow. Capabilities: post tweets, schedule content, like posts, retweet, send DMs, follow users, get profiles. Use for: social media automation, content scheduling, engagement bots, audience growth, X API. Triggers: twitter api, x api, tweet automation, post to twitter, twitter bot, social media automation, x automation, tweet scheduler, twitter integration, post tweet, twitter post, x post, send tweet",
+    "sourceUrl": "https://www.skills.sh/inference-sh/skills/twitter-automation",
+    "repo": "https://github.com/inference-sh/skills",
+    "path": "tools/social/twitter-automation/SKILL.md",
+    "author": "inference-sh",
+    "tags": [],
+    "category": "uncategorized",
+    "frontmatterKeys": [
+      "name",
+      "description",
+      "allowed-tools"
+    ],
+    "sources": [
+      {
+        "name": "skills.sh",
+        "url": "https://www.skills.sh/inference-sh/skills/twitter-automation"
+      }
+    ],
+    "bins": [],
+    "env": [],
+    "tools": [
+      "Bash(belt",
+      "*)"
+    ],
+    "hasScriptsDir": false,
+    "mentionsNetwork": true,
+    "compatibility": {
+      "claude-code": {
+        "status": "compatible",
+        "reasons": [
+          "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name.",
+          "allowed-tools pre-approves the listed tools for the turn that invokes the skill. It does not remove other tools.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "codex": {
+        "status": "compatible",
+        "reasons": [
+          "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+          "allowed-tools does not pre-approve tools in Codex. Extra keys are ignored.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "hermes": {
+        "status": "compatible",
+        "reasons": [
+          "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+          "allowed-tools does not pre-approve tools in Hermes.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "openclaw": {
+        "status": "compatible",
+        "reasons": [
+          "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it.",
+          "allowed-tools is not an OpenClaw permission grant.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      }
+    },
+    "github": {
+      "stars": 769,
+      "lastPush": "2026-10-15T10:38:25Z",
+      "openIssuesAndPullRequests": 3,
+      "license": null,
+      "archived": false
+    },
+    "health": "active",
+    "scan": {
+      "label": "scanned, no flags",
+      "flags": []
+    },
+    "registry": null,
+    "contentSha": "d82b17994017242a51318bab022f9169a5b511d81c12da3cbcdd8be90e4f0fee",
+    "analyzedAt": "2026-10-16T04:45:39.214Z"
+  },
+  {
+    "id": "claw-steipete-weather",
+    "name": "weather",
+    "description": "Get current weather and forecasts (no API key required).",
+    "sourceUrl": "https://clawhub.ai/steipete/skills/weather",
+    "repo": null,
+    "path": "SKILL.md",
+    "author": "steipete",
+    "tags": [
+      "Current Weather"
+    ],
+    "category": "current weather",
+    "frontmatterKeys": [
+      "name",
+      "description",
+      "homepage",
+      "metadata",
+      "metadata.clawdbot",
+      "metadata.clawdbot.emoji",
+      "metadata.clawdbot.requires",
+      "metadata.clawdbot.requires.bins"
+    ],
+    "sources": [
+      {
+        "name": "clawhub",
+        "url": "https://clawhub.ai/steipete/skills/weather"
+      }
+    ],
+    "bins": [],
+    "env": [],
+    "tools": [],
+    "hasScriptsDir": false,
+    "mentionsNetwork": true,
+    "compatibility": {
+      "claude-code": {
+        "status": "likely",
+        "reasons": [
+          "metadata.clawdbot or metadata.clawdis is an older OpenClaw key. Claude Code does not apply it."
+        ]
+      },
+      "codex": {
+        "status": "compatible",
+        "reasons": [
+          "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+          "metadata.clawdbot or metadata.clawdis is ignored by Codex.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "hermes": {
+        "status": "compatible",
+        "reasons": [
+          "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+          "metadata.clawdbot or metadata.clawdis is an OpenClaw key. Hermes does not apply it.",
+          "The skill text mentions a network command or an http URL."
+        ]
+      },
+      "openclaw": {
+        "status": "needs_changes",
+        "reasons": [
+          "The file uses metadata.clawdbot or metadata.clawdis and does not set metadata.openclaw. Current OpenClaw docs say the pre-July 2026 clawdbot format is no longer read."
+        ]
+      }
+    },
+    "github": null,
+    "health": "unknown",
+    "scan": {
+      "label": "scanned, no flags",
+      "flags": []
+    },
+    "registry": {
+      "source": "clawhub",
+      "downloads": 171707,
+      "stars": 429
+    },
+    "contentSha": "1ca0c8d768ad603ea8d5d47f56a9b435fe575f7f34e719eda85c82003d740e93",
+    "analyzedAt": "2026-10-16T04:44:42.589Z"
+  },
+  {
+    "id": "claw-ivangdavila-word-docx",
+    "name": "Word / DOCX",
+    "description": "Create, inspect, and edit Microsoft Word documents and DOCX files with reliable styles, numbering, tracked changes, tables, sections, and compatibility checks. Use when (1) the task is about Word or `.docx`; (2) the file includes tracked changes, comments, fields, tables, templates, or page layout constraints; (3) the document must survive round-trip editing without formatting drift.",
+    "sourceUrl": "https://clawhub.ai/ivangdavila/skills/word-docx",
+    "repo": null,
+    "path": "SKILL.md",
+    "author": "ivangdavila",
+    "tags": [
+      "Document"
+    ],
+    "category": "document",
+    "frontmatterKeys": [
+      "name",
+      "slug",
+      "version",
+      "homepage",
+      "description",
+      "changelog",
+      "metadata",
+      "metadata.clawdbot",
+      "metadata.clawdbot.emoji",
+      "metadata.clawdbot.os"
+    ],
+    "sources": [
+      {
+        "name": "clawhub",
+        "url": "https://clawhub.ai/ivangdavila/skills/word-docx"
+      }
+    ],
+    "bins": [],
+    "env": [],
+    "tools": [],
+    "hasScriptsDir": false,
+    "mentionsNetwork": false,
+    "compatibility": {
+      "claude-code": {
+        "status": "likely",
+        "reasons": [
+          "name is not the lowercase hyphen form from the Agent Skills spec.",
+          "metadata.clawdbot or metadata.clawdis is an older OpenClaw key. Claude Code does not apply it."
+        ]
+      },
+      "codex": {
+        "status": "likely",
+        "reasons": [
+          "name is not the lowercase hyphen form from the Agent Skills spec. The Codex parser checks length, not that shape."
+        ]
+      },
+      "hermes": {
+        "status": "likely",
+        "reasons": [
+          "name is not the lowercase hyphen form the Hermes authoring guide shows."
+        ]
+      },
+      "openclaw": {
+        "status": "needs_changes",
+        "reasons": [
+          "The file uses metadata.clawdbot or metadata.clawdis and does not set metadata.openclaw. Current OpenClaw docs say the pre-July 2026 clawdbot format is no longer read."
+        ]
+      }
+    },
+    "github": null,
+    "health": "unknown",
+    "scan": {
+      "label": "scanned, no flags",
+      "flags": []
+    },
+    "registry": {
+      "source": "clawhub",
+      "downloads": 94775,
+      "stars": 355
+    },
+    "contentSha": "c766da489810acf03290283780ba9d3be798678d689255ace34477caeb6d7541",
+    "analyzedAt": "2026-10-16T04:45:26.168Z"
+  }
+]

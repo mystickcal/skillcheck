@@ -1,0 +1,67 @@
+version: 1
+agent: openclaw
+title: OpenClaw
+spec_url: https://docs.openclaw.ai/tools/skills
+retrieved: 2026-10-16
+compatible_reason: OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it.
+checks:
+  - id: no-frontmatter
+    when: no_frontmatter
+    effect: needs_changes
+    reason: OpenClaw expects SKILL.md frontmatter. This file has none.
+  - id: missing-name
+    when: missing_name
+    effect: needs_changes
+    reason: name is missing. OpenClaw skill files use name in frontmatter.
+  - id: missing-description
+    when: missing_description
+    effect: needs_changes
+    reason: description is missing. OpenClaw uses it when deciding whether the skill applies.
+  - id: legacy-clawdbot
+    when: has_legacy_clawdbot
+    effect: needs_changes
+    reason: The file uses metadata.clawdbot or metadata.clawdis and does not set metadata.openclaw. Current OpenClaw docs say the pre-July 2026 clawdbot format is no longer read.
+  - id: openclaw-requires
+    when: has_openclaw_requires
+    effect: likely
+    reason: metadata.openclaw.requires gates loading on bins, env, or config. This index does not check the machine those gates refer to.
+  - id: openclaw-os
+    when: has_openclaw_os
+    effect: likely
+    reason: metadata.openclaw.os limits the skill to listed operating systems.
+  - id: name-length
+    when: name_longer_than_64
+    effect: likely
+    reason: name is longer than 64 characters. The Agent Skills spec, which OpenClaw skill files follow, sets that limit.
+  - id: name-shape
+    when: name_not_spec_shape
+    effect: likely
+    reason: name is not the lowercase hyphen form from the Agent Skills spec.
+  - id: hermes-gates
+    when: has_hermes_gates
+    effect: likely
+    reason: Hermes platform, toolset, or env gates are not applied by OpenClaw. Instructions may still assume them.
+  - id: empty-body
+    when: empty_body
+    effect: info
+    reason: The file has frontmatter and no body. OpenClaw can still index name and description.
+  - id: allowed-tools
+    when: has_allowed_tools
+    effect: info
+    reason: allowed-tools is not an OpenClaw permission grant.
+  - id: model
+    when: has_model
+    effect: info
+    reason: model is a Claude Code field. OpenClaw does not use it to pick a model.
+  - id: claude-fields
+    when: has_claude_only_fields
+    effect: info
+    reason: Claude Code fields such as context, hooks, or paths are ignored by OpenClaw.
+  - id: scripts
+    when: has_scripts_dir
+    effect: info
+    reason: A scripts directory sits next to SKILL.md. This index did not run those files.
+  - id: network
+    when: mentions_network
+    effect: info
+    reason: The skill text mentions a network command or an http URL.

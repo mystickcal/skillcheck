@@ -1,0 +1,11 @@
+name: Updates request
+description: Ask to hear when SkillCheck has an update list.
+title: "Updates request"
+body:
+  - type: textarea
+    id: note
+    attributes:
+      label: What do you want to hear about?
+      description: SkillCheck does not collect email. This issue is the placeholder.
+    validations:
+      required: true

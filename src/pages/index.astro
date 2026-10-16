@@ -1,0 +1,158 @@
+---
+import Base from "../layouts/Base.astro";
+import { agentLabels, agentOrder, categories, healthLabels, skills, statusLabels } from "../lib/skills";
+
+const description =
+  "A directory of agent skills with compatibility readings for Hermes, OpenClaw, Claude Code, and Codex.";
+---
+
+<Base title="SkillCheck" description={description}>
+  <section class="hero">
+    <h1>Check a skill before you install it.</h1>
+    <p class="lede">
+      SkillCheck lists public skills and reads each SKILL.md against published rules for four agents.
+      You get a label and the reason. The skill file stays at the source.
+    </p>
+    <div id="search" class="search"></div>
+  </section>
+
+  <form class="filters panel" id="filters">
+    <label>
+      Agent
+      <select id="filter-agent" name="agent">
+        <option value="">Any</option>
+        {agentOrder.map((agent) => <option value={agent}>{agentLabels[agent]}</option>)}
+      </select>
+    </label>
+    <label>
+      Reading
+      <select id="filter-status" name="status">
+        <option value="">Any</option>
+        <option value="compatible">Compatible</option>
+        <option value="likely">Likely</option>
+        <option value="needs_changes">Needs changes</option>
+      </select>
+    </label>
+    <label>
+      Category
+      <select id="filter-category" name="category">
+        <option value="">Any</option>
+        {categories().map((category) => <option value={category}>{category}</option>)}
+      </select>
+    </label>
+    <label>
+      Health
+      <select id="filter-health" name="health">
+        <option value="">Any</option>
+        {Object.entries(healthLabels).map(([value, label]) => <option value={value}>{label}</option>)}
+      </select>
+    </label>
+    <label>
+      Scan
+      <select id="filter-scan" name="scan">
+        <option value="">Any</option>
+        <option value="clear">Scanned, no flags</option>
+        <option value="flags">Flags found</option>
+      </select>
+    </label>
+  </form>
+
+  <div class="table-wrap panel">
+    <table>
+      <caption class="skip">Skills</caption>
+      <thead>
+        <tr>
+          <th>Skill</th>
+          <th>Agents</th>
+          <th>Category</th>
+          <th>Health</th>
+          <th>Scan</th>
+        </tr>
+      </thead>
+      <tbody id="skill-rows">
+        {
+          skills.map((skill) => (
+            <tr
+              data-category={skill.category}
+              data-health={skill.health}
+              data-scan={skill.scan.flags.length ? "flags" : "clear"}
+              data-status={agentOrder.map((agent) => `${agent}:${skill.compatibility[agent].status}`).join(" ")}
+            >
+              <td class="name-cell">
+                <a href={`${import.meta.env.BASE_URL}skills/${skill.id}/`}>{skill.name}</a>
+                <p class="desc">{skill.description}</p>
+              </td>
+              <td>
+                <div class="badges">
+                  {agentOrder.map((agent) => (
+                    <span class={`badge ${skill.compatibility[agent].status}`}>
+                      {agentLabels[agent]} {statusLabels[skill.compatibility[agent].status]}
+                    </span>
+                  ))}
+                </div>
+              </td>
+              <td>{skill.category}</td>
+              <td>{healthLabels[skill.health]}</td>
+              <td>{skill.scan.label}</td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+    <p id="no-rows" class="empty" hidden>No skills match these filters.</p>
+    {skills.length === 0 && <p class="empty">No skills have been ingested yet.</p>}
+  </div>
+</Base>
+
+<script>
+  const base = import.meta.env.BASE_URL;
+  const agent = document.querySelector<HTMLSelectElement>("#filter-agent");
+  const status = document.querySelector<HTMLSelectElement>("#filter-status");
+  const category = document.querySelector<HTMLSelectElement>("#filter-category");
+  const health = document.querySelector<HTMLSelectElement>("#filter-health");
+  const scan = document.querySelector<HTMLSelectElement>("#filter-scan");
+  const rows = [...document.querySelectorAll<HTMLTableRowElement>("#skill-rows tr")];
+  const empty = document.querySelector<HTMLElement>("#no-rows");
+
+  function applyFilters(): void {
+    let shown = 0;
+    for (const row of rows) {
+      const statuses = Object.fromEntries(
+        (row.dataset.status ?? "").split(" ").filter(Boolean).map((pair) => pair.split(":")),
+      );
+      const agentOk = !agent?.value || Boolean(statuses[agent.value]);
+      const statusOk = !status?.value
+        ? true
+        : agent?.value
+          ? statuses[agent.value] === status.value
+          : Object.values(statuses).includes(status.value);
+      const categoryOk = !category?.value || row.dataset.category === category.value;
+      const healthOk = !health?.value || row.dataset.health === health.value;
+      const scanOk = !scan?.value || row.dataset.scan === scan.value;
+      const visible = agentOk && statusOk && categoryOk && healthOk && scanOk;
+      row.hidden = !visible;
+      if (visible) shown += 1;
+    }
+    if (empty) empty.hidden = shown !== 0;
+  }
+
+  for (const control of [agent, status, category, health, scan]) {
+    control?.addEventListener("change", applyFilters);
+  }
+
+  if (import.meta.env.PROD) {
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = `${base}pagefind/pagefind-ui.css`;
+    document.head.appendChild(link);
+    const script = document.createElement("script");
+    script.src = `${base}pagefind/pagefind-ui.js`;
+    script.onload = () => {
+      const ui = window as Window & { PagefindUI?: new (options: { element: string; bundlePath: string }) => void };
+      if (ui.PagefindUI) {
+        new ui.PagefindUI({ element: "#search", bundlePath: `${base}pagefind/` });
+      }
+    };
+    document.head.appendChild(script);
+  }
+</script>
