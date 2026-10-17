@@ -945,6 +945,2096 @@
         "contentSha": "4cbb043950dad2ffd3662ff1a5a0b51ae676004b5cae10e3787e8ee7a4ee69d3",
         "analyzedAt": "2026-10-16T04:45:42.819Z"
       }
+    },
+    "https://github.com/mattpocock/skills|skills/engineering/triage/SKILL.md": {
+      "sha": "3fd5617e906cf9b71a6b17424791adb905fc248b",
+      "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
+      "record": {
+        "id": "gh-mattpocock-skills-skills-engineering-triage",
+        "name": "triage",
+        "description": "Move issues and external PRs through a state machine of triage roles, categorise, verify, grill if needed, and write agent-ready briefs.",
+        "sourceUrl": "https://www.skills.sh/mattpocock/skills/triage",
+        "repo": "https://github.com/mattpocock/skills",
+        "path": "skills/engineering/triage/SKILL.md",
+        "author": "mattpocock",
+        "tags": [],
+        "category": "uncategorized",
+        "frontmatterKeys": [
+          "name",
+          "description",
+          "disable-model-invocation"
+        ],
+        "sources": [
+          {
+            "name": "skills.sh",
+            "url": "https://www.skills.sh/mattpocock/skills/triage"
+          }
+        ],
+        "bins": [],
+        "env": [],
+        "tools": [],
+        "hasScriptsDir": false,
+        "mentionsNetwork": false,
+        "compatibility": {
+          "claude-code": {
+            "status": "compatible",
+            "reasons": [
+              "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name.",
+              "The file sets Claude Code fields such as context, hooks, paths, or when_to_use."
+            ]
+          },
+          "codex": {
+            "status": "compatible",
+            "reasons": [
+              "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+              "Claude Code fields such as context, hooks, or paths are ignored by Codex."
+            ]
+          },
+          "hermes": {
+            "status": "compatible",
+            "reasons": [
+              "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+              "Claude Code fields such as context, hooks, or paths are ignored by Hermes."
+            ]
+          },
+          "openclaw": {
+            "status": "compatible",
+            "reasons": [
+              "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it.",
+              "Claude Code fields such as context, hooks, or paths are ignored by OpenClaw."
+            ]
+          }
+        },
+        "github": {
+          "stars": 294499,
+          "lastPush": "2026-10-13T08:46:40Z",
+          "openIssuesAndPullRequests": 189,
+          "license": "MIT",
+          "archived": false
+        },
+        "health": "active",
+        "scan": {
+          "label": "scanned, no flags",
+          "flags": []
+        },
+        "registry": null,
+        "contentSha": "917b0baf74be583e74f110857ed45df2766617f75c00baf61fd136d7af515edf",
+        "analyzedAt": "2026-10-17T11:25:47.594Z"
+      }
+    },
+    "https://github.com/mattpocock/skills|skills/engineering/prototype/SKILL.md": {
+      "sha": "a0044501fe0d385b4d8575b610188ede9b236ccf",
+      "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
+      "record": {
+        "id": "gh-mattpocock-skills-skills-engineering-prototype",
+        "name": "prototype",
+        "description": "Build a throwaway prototype to answer a design question. Use when the user wants to sanity-check whether a state model or logic feels right, or explore what a UI should look like.",
+        "sourceUrl": "https://www.skills.sh/mattpocock/skills/prototype",
+        "repo": "https://github.com/mattpocock/skills",
+        "path": "skills/engineering/prototype/SKILL.md",
+        "author": "mattpocock",
+        "tags": [],
+        "category": "uncategorized",
+        "frontmatterKeys": [
+          "name",
+          "description"
+        ],
+        "sources": [
+          {
+            "name": "skills.sh",
+            "url": "https://www.skills.sh/mattpocock/skills/prototype"
+          }
+        ],
+        "bins": [],
+        "env": [],
+        "tools": [],
+        "hasScriptsDir": false,
+        "mentionsNetwork": false,
+        "compatibility": {
+          "claude-code": {
+            "status": "compatible",
+            "reasons": [
+              "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name."
+            ]
+          },
+          "codex": {
+            "status": "compatible",
+            "reasons": [
+              "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored."
+            ]
+          },
+          "hermes": {
+            "status": "compatible",
+            "reasons": [
+              "Hermes can load this file. The validator requires name, description, and a body after frontmatter."
+            ]
+          },
+          "openclaw": {
+            "status": "compatible",
+            "reasons": [
+              "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it."
+            ]
+          }
+        },
+        "github": {
+          "stars": 294499,
+          "lastPush": "2026-10-13T08:46:40Z",
+          "openIssuesAndPullRequests": 189,
+          "license": "MIT",
+          "archived": false
+        },
+        "health": "active",
+        "scan": {
+          "label": "scanned, no flags",
+          "flags": []
+        },
+        "registry": null,
+        "contentSha": "714de632d116bb73f65cdb5a882db15b9369a6713b9a47c0fad827848f0bfbe3",
+        "analyzedAt": "2026-10-17T11:25:47.972Z"
+      }
+    },
+    "https://github.com/mattpocock/skills|skills/productivity/grilling/SKILL.md": {
+      "sha": "df69d9936880cd3314c28858c6c52f48db23b856",
+      "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
+      "record": {
+        "id": "gh-mattpocock-skills-skills-productivity-grilling",
+        "name": "grilling",
+        "description": "Grill the user relentlessly about a plan, decision, or idea. Use when the user wants to stress-test their thinking, or uses any 'grill' trigger phrases.",
+        "sourceUrl": "https://www.skills.sh/mattpocock/skills/grilling",
+        "repo": "https://github.com/mattpocock/skills",
+        "path": "skills/productivity/grilling/SKILL.md",
+        "author": "mattpocock",
+        "tags": [],
+        "category": "uncategorized",
+        "frontmatterKeys": [
+          "name",
+          "description"
+        ],
+        "sources": [
+          {
+            "name": "skills.sh",
+            "url": "https://www.skills.sh/mattpocock/skills/grilling"
+          }
+        ],
+        "bins": [],
+        "env": [],
+        "tools": [],
+        "hasScriptsDir": false,
+        "mentionsNetwork": false,
+        "compatibility": {
+          "claude-code": {
+            "status": "compatible",
+            "reasons": [
+              "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name."
+            ]
+          },
+          "codex": {
+            "status": "compatible",
+            "reasons": [
+              "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored."
+            ]
+          },
+          "hermes": {
+            "status": "compatible",
+            "reasons": [
+              "Hermes can load this file. The validator requires name, description, and a body after frontmatter."
+            ]
+          },
+          "openclaw": {
+            "status": "compatible",
+            "reasons": [
+              "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it."
+            ]
+          }
+        },
+        "github": {
+          "stars": 294499,
+          "lastPush": "2026-10-13T08:46:40Z",
+          "openIssuesAndPullRequests": 189,
+          "license": "MIT",
+          "archived": false
+        },
+        "health": "active",
+        "scan": {
+          "label": "scanned, no flags",
+          "flags": []
+        },
+        "registry": null,
+        "contentSha": "befdff1e27a1dfe2a294d5871169ac1afe16d983911daa4f32627514a48c1e15",
+        "analyzedAt": "2026-10-17T11:25:48.356Z"
+      }
+    },
+    "https://github.com/mattpocock/skills|skills/engineering/domain-modeling/SKILL.md": {
+      "sha": "a4438c6879c517d1a08e2b5fbca049b632688dfe",
+      "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
+      "record": {
+        "id": "gh-mattpocock-skills-skills-engineering-domain-modeling",
+        "name": "domain-modeling",
+        "description": "Build and sharpen a project's domain model. Use when discussing codebase terminology, writing or editing a GLOSSARY.md, or recording or editing an ADR.",
+        "sourceUrl": "https://www.skills.sh/mattpocock/skills/domain-modeling",
+        "repo": "https://github.com/mattpocock/skills",
+        "path": "skills/engineering/domain-modeling/SKILL.md",
+        "author": "mattpocock",
+        "tags": [],
+        "category": "uncategorized",
+        "frontmatterKeys": [
+          "name",
+          "description"
+        ],
+        "sources": [
+          {
+            "name": "skills.sh",
+            "url": "https://www.skills.sh/mattpocock/skills/domain-modeling"
+          }
+        ],
+        "bins": [],
+        "env": [],
+        "tools": [],
+        "hasScriptsDir": false,
+        "mentionsNetwork": false,
+        "compatibility": {
+          "claude-code": {
+            "status": "compatible",
+            "reasons": [
+              "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name."
+            ]
+          },
+          "codex": {
+            "status": "compatible",
+            "reasons": [
+              "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored."
+            ]
+          },
+          "hermes": {
+            "status": "compatible",
+            "reasons": [
+              "Hermes can load this file. The validator requires name, description, and a body after frontmatter."
+            ]
+          },
+          "openclaw": {
+            "status": "compatible",
+            "reasons": [
+              "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it."
+            ]
+          }
+        },
+        "github": {
+          "stars": 294499,
+          "lastPush": "2026-10-13T08:46:40Z",
+          "openIssuesAndPullRequests": 189,
+          "license": "MIT",
+          "archived": false
+        },
+        "health": "active",
+        "scan": {
+          "label": "scanned, no flags",
+          "flags": []
+        },
+        "registry": null,
+        "contentSha": "7b925d7b1e341a2eeae33ad68a8a8c0ab889a38ddd22a7598e4c240e5a7556a3",
+        "analyzedAt": "2026-10-17T11:25:48.762Z"
+      }
+    },
+    "https://github.com/mattpocock/skills|skills/productivity/teach/SKILL.md": {
+      "sha": "493fa3bae0dada971c4dfb965790e56920b1dced",
+      "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
+      "record": {
+        "id": "gh-mattpocock-skills-skills-productivity-teach",
+        "name": "teach",
+        "description": "Teach the user a new skill or concept, within this workspace.",
+        "sourceUrl": "https://www.skills.sh/mattpocock/skills/teach",
+        "repo": "https://github.com/mattpocock/skills",
+        "path": "skills/productivity/teach/SKILL.md",
+        "author": "mattpocock",
+        "tags": [],
+        "category": "uncategorized",
+        "frontmatterKeys": [
+          "name",
+          "description",
+          "disable-model-invocation",
+          "argument-hint"
+        ],
+        "sources": [
+          {
+            "name": "skills.sh",
+            "url": "https://www.skills.sh/mattpocock/skills/teach"
+          }
+        ],
+        "bins": [],
+        "env": [],
+        "tools": [],
+        "hasScriptsDir": false,
+        "mentionsNetwork": false,
+        "compatibility": {
+          "claude-code": {
+            "status": "compatible",
+            "reasons": [
+              "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name.",
+              "The file sets Claude Code fields such as context, hooks, paths, or when_to_use."
+            ]
+          },
+          "codex": {
+            "status": "compatible",
+            "reasons": [
+              "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+              "Claude Code fields such as context, hooks, or paths are ignored by Codex."
+            ]
+          },
+          "hermes": {
+            "status": "compatible",
+            "reasons": [
+              "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+              "Claude Code fields such as context, hooks, or paths are ignored by Hermes."
+            ]
+          },
+          "openclaw": {
+            "status": "compatible",
+            "reasons": [
+              "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it.",
+              "Claude Code fields such as context, hooks, or paths are ignored by OpenClaw."
+            ]
+          }
+        },
+        "github": {
+          "stars": 294499,
+          "lastPush": "2026-10-13T08:46:40Z",
+          "openIssuesAndPullRequests": 189,
+          "license": "MIT",
+          "archived": false
+        },
+        "health": "active",
+        "scan": {
+          "label": "scanned, no flags",
+          "flags": []
+        },
+        "registry": null,
+        "contentSha": "550482c2d674b085c9043b87bfdc14a8f2ec453c736119e7fcbb1e9332bffeba",
+        "analyzedAt": "2026-10-17T11:25:49.178Z"
+      }
+    },
+    "https://github.com/mattpocock/skills|skills/engineering/codebase-design/SKILL.md": {
+      "sha": "3f63c8146dd2604b419c929e9876b90c30d410e9",
+      "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
+      "record": {
+        "id": "gh-mattpocock-skills-skills-engineering-codebase-design",
+        "name": "codebase-design",
+        "description": "Shared vocabulary for designing deep modules. Use when the user wants to design or improve a module's interface, find deepening opportunities, decide where a seam goes, make code more testable or AI-navigable, or when another skill needs the deep-module vocabulary.",
+        "sourceUrl": "https://www.skills.sh/mattpocock/skills/codebase-design",
+        "repo": "https://github.com/mattpocock/skills",
+        "path": "skills/engineering/codebase-design/SKILL.md",
+        "author": "mattpocock",
+        "tags": [],
+        "category": "uncategorized",
+        "frontmatterKeys": [
+          "name",
+          "description"
+        ],
+        "sources": [
+          {
+            "name": "skills.sh",
+            "url": "https://www.skills.sh/mattpocock/skills/codebase-design"
+          }
+        ],
+        "bins": [],
+        "env": [],
+        "tools": [],
+        "hasScriptsDir": false,
+        "mentionsNetwork": false,
+        "compatibility": {
+          "claude-code": {
+            "status": "compatible",
+            "reasons": [
+              "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name."
+            ]
+          },
+          "codex": {
+            "status": "compatible",
+            "reasons": [
+              "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored."
+            ]
+          },
+          "hermes": {
+            "status": "compatible",
+            "reasons": [
+              "Hermes can load this file. The validator requires name, description, and a body after frontmatter."
+            ]
+          },
+          "openclaw": {
+            "status": "compatible",
+            "reasons": [
+              "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it."
+            ]
+          }
+        },
+        "github": {
+          "stars": 294499,
+          "lastPush": "2026-10-13T08:46:40Z",
+          "openIssuesAndPullRequests": 189,
+          "license": "MIT",
+          "archived": false
+        },
+        "health": "active",
+        "scan": {
+          "label": "scanned, no flags",
+          "flags": []
+        },
+        "registry": null,
+        "contentSha": "2c20617f87ec8af6a434859f381b2f061a69b530444e74eb39e78bb016a6d1e2",
+        "analyzedAt": "2026-10-17T11:25:49.568Z"
+      }
+    },
+    "https://github.com/mattpocock/skills|skills/engineering/diagnosing-bugs/SKILL.md": {
+      "sha": "d039541ddd1c46e6ddbd662fe99d49b686fc5e12",
+      "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
+      "record": {
+        "id": "gh-mattpocock-skills-skills-engineering-diagnosing-bugs",
+        "name": "diagnosing-bugs",
+        "description": "Diagnosis loop for hard bugs and performance regressions. Use when the user says \"diagnose\"/\"debug this\", or reports something broken/throwing/failing/slow.",
+        "sourceUrl": "https://www.skills.sh/mattpocock/skills/diagnosing-bugs",
+        "repo": "https://github.com/mattpocock/skills",
+        "path": "skills/engineering/diagnosing-bugs/SKILL.md",
+        "author": "mattpocock",
+        "tags": [],
+        "category": "uncategorized",
+        "frontmatterKeys": [
+          "name",
+          "description"
+        ],
+        "sources": [
+          {
+            "name": "skills.sh",
+            "url": "https://www.skills.sh/mattpocock/skills/diagnosing-bugs"
+          }
+        ],
+        "bins": [],
+        "env": [],
+        "tools": [],
+        "hasScriptsDir": true,
+        "mentionsNetwork": true,
+        "compatibility": {
+          "claude-code": {
+            "status": "compatible",
+            "reasons": [
+              "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name.",
+              "A scripts directory sits next to SKILL.md. This index did not run those files.",
+              "The skill text mentions a network command or an http URL."
+            ]
+          },
+          "codex": {
+            "status": "compatible",
+            "reasons": [
+              "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+              "A scripts directory sits next to SKILL.md. This index did not run those files.",
+              "The skill text mentions a network command or an http URL."
+            ]
+          },
+          "hermes": {
+            "status": "compatible",
+            "reasons": [
+              "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+              "A scripts directory sits next to SKILL.md. This index did not run those files.",
+              "The skill text mentions a network command or an http URL."
+            ]
+          },
+          "openclaw": {
+            "status": "compatible",
+            "reasons": [
+              "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it.",
+              "A scripts directory sits next to SKILL.md. This index did not run those files.",
+              "The skill text mentions a network command or an http URL."
+            ]
+          }
+        },
+        "github": {
+          "stars": 294499,
+          "lastPush": "2026-10-13T08:46:40Z",
+          "openIssuesAndPullRequests": 189,
+          "license": "MIT",
+          "archived": false
+        },
+        "health": "active",
+        "scan": {
+          "label": "scanned, no flags",
+          "flags": []
+        },
+        "registry": null,
+        "contentSha": "849198df88cdb65fd0d97236604c1fca7ff2f22d2f705f9724a800d0266b118d",
+        "analyzedAt": "2026-10-17T11:25:50.391Z"
+      }
+    },
+    "https://github.com/mattpocock/skills|skills/engineering/code-review/SKILL.md": {
+      "sha": "373a4f26e6cfa3617778397945bb069d9cb184bc",
+      "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
+      "record": {
+        "id": "gh-mattpocock-skills-skills-engineering-code-review",
+        "name": "code-review",
+        "description": "Review the changes since a fixed point (commit, branch, tag, or merge-base) along two axes: Standards (does the code follow this repo's documented coding standards?) and Spec (does the code match what the originating issue/spec asked for?). Runs both reviews in parallel sub-agents and reports them side by side. Use when the user wants to review a branch, a PR, work-in-progress changes, or asks to \"review since X\".",
+        "sourceUrl": "https://www.skills.sh/mattpocock/skills/code-review",
+        "repo": "https://github.com/mattpocock/skills",
+        "path": "skills/engineering/code-review/SKILL.md",
+        "author": "mattpocock",
+        "tags": [],
+        "category": "uncategorized",
+        "frontmatterKeys": [
+          "name",
+          "description"
+        ],
+        "sources": [
+          {
+            "name": "skills.sh",
+            "url": "https://www.skills.sh/mattpocock/skills/code-review"
+          }
+        ],
+        "bins": [],
+        "env": [],
+        "tools": [],
+        "hasScriptsDir": false,
+        "mentionsNetwork": false,
+        "compatibility": {
+          "claude-code": {
+            "status": "compatible",
+            "reasons": [
+              "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name."
+            ]
+          },
+          "codex": {
+            "status": "compatible",
+            "reasons": [
+              "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored."
+            ]
+          },
+          "hermes": {
+            "status": "compatible",
+            "reasons": [
+              "Hermes can load this file. The validator requires name, description, and a body after frontmatter."
+            ]
+          },
+          "openclaw": {
+            "status": "compatible",
+            "reasons": [
+              "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it."
+            ]
+          }
+        },
+        "github": {
+          "stars": 294499,
+          "lastPush": "2026-10-13T08:46:40Z",
+          "openIssuesAndPullRequests": 189,
+          "license": "MIT",
+          "archived": false
+        },
+        "health": "active",
+        "scan": {
+          "label": "scanned, no flags",
+          "flags": []
+        },
+        "registry": null,
+        "contentSha": "09eb147f793e4647949edd32dbad278f0554dfb56e0d46b699cd4c2c55bf0357",
+        "analyzedAt": "2026-10-17T11:25:50.760Z"
+      }
+    },
+    "https://github.com/mattpocock/skills|skills/engineering/implement/SKILL.md": {
+      "sha": "bd49e472984c7b99aac40286fdae749bb955a842",
+      "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
+      "record": {
+        "id": "gh-mattpocock-skills-skills-engineering-implement",
+        "name": "implement",
+        "description": "Implement a piece of work based on a spec or set of tickets.",
+        "sourceUrl": "https://www.skills.sh/mattpocock/skills/implement",
+        "repo": "https://github.com/mattpocock/skills",
+        "path": "skills/engineering/implement/SKILL.md",
+        "author": "mattpocock",
+        "tags": [],
+        "category": "uncategorized",
+        "frontmatterKeys": [
+          "name",
+          "description",
+          "disable-model-invocation"
+        ],
+        "sources": [
+          {
+            "name": "skills.sh",
+            "url": "https://www.skills.sh/mattpocock/skills/implement"
+          }
+        ],
+        "bins": [],
+        "env": [],
+        "tools": [],
+        "hasScriptsDir": false,
+        "mentionsNetwork": false,
+        "compatibility": {
+          "claude-code": {
+            "status": "compatible",
+            "reasons": [
+              "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name.",
+              "The file sets Claude Code fields such as context, hooks, paths, or when_to_use."
+            ]
+          },
+          "codex": {
+            "status": "compatible",
+            "reasons": [
+              "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+              "Claude Code fields such as context, hooks, or paths are ignored by Codex."
+            ]
+          },
+          "hermes": {
+            "status": "compatible",
+            "reasons": [
+              "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+              "Claude Code fields such as context, hooks, or paths are ignored by Hermes."
+            ]
+          },
+          "openclaw": {
+            "status": "compatible",
+            "reasons": [
+              "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it.",
+              "Claude Code fields such as context, hooks, or paths are ignored by OpenClaw."
+            ]
+          }
+        },
+        "github": {
+          "stars": 294499,
+          "lastPush": "2026-10-13T08:46:40Z",
+          "openIssuesAndPullRequests": 189,
+          "license": "MIT",
+          "archived": false
+        },
+        "health": "active",
+        "scan": {
+          "label": "scanned, no flags",
+          "flags": []
+        },
+        "registry": null,
+        "contentSha": "483bdc4ccf4ac31d86ac7beeaa0d0db80313e71e120bb8c59b3196ae5decd53d",
+        "analyzedAt": "2026-10-17T11:25:51.204Z"
+      }
+    },
+    "https://github.com/mattpocock/skills|skills/engineering/ask-matt/SKILL.md": {
+      "sha": "4bfeeb61dae548b8b7754c4fba7bd40ab3926099",
+      "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
+      "record": {
+        "id": "gh-mattpocock-skills-skills-engineering-ask-matt",
+        "name": "ask-matt",
+        "description": "Ask which skill or flow fits your situation. A router over the skills in this repo.",
+        "sourceUrl": "https://www.skills.sh/mattpocock/skills/ask-matt",
+        "repo": "https://github.com/mattpocock/skills",
+        "path": "skills/engineering/ask-matt/SKILL.md",
+        "author": "mattpocock",
+        "tags": [],
+        "category": "uncategorized",
+        "frontmatterKeys": [
+          "name",
+          "description",
+          "disable-model-invocation"
+        ],
+        "sources": [
+          {
+            "name": "skills.sh",
+            "url": "https://www.skills.sh/mattpocock/skills/ask-matt"
+          }
+        ],
+        "bins": [],
+        "env": [],
+        "tools": [],
+        "hasScriptsDir": false,
+        "mentionsNetwork": true,
+        "compatibility": {
+          "claude-code": {
+            "status": "compatible",
+            "reasons": [
+              "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name.",
+              "The file sets Claude Code fields such as context, hooks, paths, or when_to_use.",
+              "The skill text mentions a network command or an http URL."
+            ]
+          },
+          "codex": {
+            "status": "compatible",
+            "reasons": [
+              "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+              "Claude Code fields such as context, hooks, or paths are ignored by Codex.",
+              "The skill text mentions a network command or an http URL."
+            ]
+          },
+          "hermes": {
+            "status": "compatible",
+            "reasons": [
+              "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+              "Claude Code fields such as context, hooks, or paths are ignored by Hermes.",
+              "The skill text mentions a network command or an http URL."
+            ]
+          },
+          "openclaw": {
+            "status": "compatible",
+            "reasons": [
+              "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it.",
+              "Claude Code fields such as context, hooks, or paths are ignored by OpenClaw.",
+              "The skill text mentions a network command or an http URL."
+            ]
+          }
+        },
+        "github": {
+          "stars": 294499,
+          "lastPush": "2026-10-13T08:46:40Z",
+          "openIssuesAndPullRequests": 189,
+          "license": "MIT",
+          "archived": false
+        },
+        "health": "active",
+        "scan": {
+          "label": "scanned, no flags",
+          "flags": []
+        },
+        "registry": null,
+        "contentSha": "1371f5ce005de0992a44b137748bfb960a56948aa9871b405fe9d90b24332e3c",
+        "analyzedAt": "2026-10-17T11:25:51.547Z"
+      }
+    },
+    "https://github.com/mattpocock/skills|skills/engineering/wayfinder/SKILL.md": {
+      "sha": "e28cf3018906d6d60fc5b25390b4eeea035dd290",
+      "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
+      "record": {
+        "id": "gh-mattpocock-skills-skills-engineering-wayfinder",
+        "name": "wayfinder",
+        "description": "Plan a huge chunk of work (more than one agent session can hold) as a shared map of decision tickets on your issue tracker, and resolve them one at a time until the way to the destination is clear.",
+        "sourceUrl": "https://www.skills.sh/mattpocock/skills/wayfinder",
+        "repo": "https://github.com/mattpocock/skills",
+        "path": "skills/engineering/wayfinder/SKILL.md",
+        "author": "mattpocock",
+        "tags": [],
+        "category": "uncategorized",
+        "frontmatterKeys": [
+          "name",
+          "description",
+          "disable-model-invocation"
+        ],
+        "sources": [
+          {
+            "name": "skills.sh",
+            "url": "https://www.skills.sh/mattpocock/skills/wayfinder"
+          }
+        ],
+        "bins": [],
+        "env": [],
+        "tools": [],
+        "hasScriptsDir": false,
+        "mentionsNetwork": false,
+        "compatibility": {
+          "claude-code": {
+            "status": "compatible",
+            "reasons": [
+              "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name.",
+              "The file sets Claude Code fields such as context, hooks, paths, or when_to_use."
+            ]
+          },
+          "codex": {
+            "status": "compatible",
+            "reasons": [
+              "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+              "Claude Code fields such as context, hooks, or paths are ignored by Codex."
+            ]
+          },
+          "hermes": {
+            "status": "compatible",
+            "reasons": [
+              "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+              "Claude Code fields such as context, hooks, or paths are ignored by Hermes."
+            ]
+          },
+          "openclaw": {
+            "status": "compatible",
+            "reasons": [
+              "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it.",
+              "Claude Code fields such as context, hooks, or paths are ignored by OpenClaw."
+            ]
+          }
+        },
+        "github": {
+          "stars": 294499,
+          "lastPush": "2026-10-13T08:46:40Z",
+          "openIssuesAndPullRequests": 189,
+          "license": "MIT",
+          "archived": false
+        },
+        "health": "active",
+        "scan": {
+          "label": "scanned, no flags",
+          "flags": []
+        },
+        "registry": null,
+        "contentSha": "9be7b478c389605a24517d27752f278933588da97a1b5921b165f455edf4c5b7",
+        "analyzedAt": "2026-10-17T11:25:51.960Z"
+      }
+    },
+    "https://github.com/mattpocock/skills|skills/engineering/to-spec/SKILL.md": {
+      "sha": "3f52599ae2a4347aee5a07432c2707518e691a7f",
+      "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
+      "record": {
+        "id": "gh-mattpocock-skills-skills-engineering-to-spec",
+        "name": "to-spec",
+        "description": "Turn the current conversation into a spec and publish it to the project issue tracker: no interview, just synthesis of what you've already discussed.",
+        "sourceUrl": "https://www.skills.sh/mattpocock/skills/to-spec",
+        "repo": "https://github.com/mattpocock/skills",
+        "path": "skills/engineering/to-spec/SKILL.md",
+        "author": "mattpocock",
+        "tags": [],
+        "category": "uncategorized",
+        "frontmatterKeys": [
+          "name",
+          "description",
+          "disable-model-invocation"
+        ],
+        "sources": [
+          {
+            "name": "skills.sh",
+            "url": "https://www.skills.sh/mattpocock/skills/to-spec"
+          }
+        ],
+        "bins": [],
+        "env": [],
+        "tools": [],
+        "hasScriptsDir": false,
+        "mentionsNetwork": false,
+        "compatibility": {
+          "claude-code": {
+            "status": "compatible",
+            "reasons": [
+              "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name.",
+              "The file sets Claude Code fields such as context, hooks, paths, or when_to_use."
+            ]
+          },
+          "codex": {
+            "status": "compatible",
+            "reasons": [
+              "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+              "Claude Code fields such as context, hooks, or paths are ignored by Codex."
+            ]
+          },
+          "hermes": {
+            "status": "compatible",
+            "reasons": [
+              "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+              "Claude Code fields such as context, hooks, or paths are ignored by Hermes."
+            ]
+          },
+          "openclaw": {
+            "status": "compatible",
+            "reasons": [
+              "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it.",
+              "Claude Code fields such as context, hooks, or paths are ignored by OpenClaw."
+            ]
+          }
+        },
+        "github": {
+          "stars": 294499,
+          "lastPush": "2026-10-13T08:46:40Z",
+          "openIssuesAndPullRequests": 189,
+          "license": "MIT",
+          "archived": false
+        },
+        "health": "active",
+        "scan": {
+          "label": "scanned, no flags",
+          "flags": []
+        },
+        "registry": null,
+        "contentSha": "43ad9cf318e5e7d3d1fa360253a37021796dc87a0c2e595ad262661a10f85088",
+        "analyzedAt": "2026-10-17T11:25:52.357Z"
+      }
+    },
+    "https://github.com/mattpocock/skills|skills/engineering/research/SKILL.md": {
+      "sha": "fecee97e9457ba039678d2fcf1b1bc9fca78307d",
+      "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
+      "record": {
+        "id": "gh-mattpocock-skills-skills-engineering-research",
+        "name": "research",
+        "description": "Investigate a question against high-trust primary sources and capture the findings as a Markdown file in the repo. Use when the user wants a topic researched, docs or API facts gathered, or reading legwork delegated to a background agent.",
+        "sourceUrl": "https://www.skills.sh/mattpocock/skills/research",
+        "repo": "https://github.com/mattpocock/skills",
+        "path": "skills/engineering/research/SKILL.md",
+        "author": "mattpocock",
+        "tags": [],
+        "category": "uncategorized",
+        "frontmatterKeys": [
+          "name",
+          "description"
+        ],
+        "sources": [
+          {
+            "name": "skills.sh",
+            "url": "https://www.skills.sh/mattpocock/skills/research"
+          }
+        ],
+        "bins": [],
+        "env": [],
+        "tools": [],
+        "hasScriptsDir": false,
+        "mentionsNetwork": false,
+        "compatibility": {
+          "claude-code": {
+            "status": "compatible",
+            "reasons": [
+              "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name."
+            ]
+          },
+          "codex": {
+            "status": "compatible",
+            "reasons": [
+              "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored."
+            ]
+          },
+          "hermes": {
+            "status": "compatible",
+            "reasons": [
+              "Hermes can load this file. The validator requires name, description, and a body after frontmatter."
+            ]
+          },
+          "openclaw": {
+            "status": "compatible",
+            "reasons": [
+              "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it."
+            ]
+          }
+        },
+        "github": {
+          "stars": 294499,
+          "lastPush": "2026-10-13T08:46:40Z",
+          "openIssuesAndPullRequests": 189,
+          "license": "MIT",
+          "archived": false
+        },
+        "health": "active",
+        "scan": {
+          "label": "scanned, no flags",
+          "flags": []
+        },
+        "registry": null,
+        "contentSha": "985569f15739c713d6784887c3d186d4ef9ac85bec5ad9c068d25bf0739928e4",
+        "analyzedAt": "2026-10-17T11:25:52.814Z"
+      }
+    },
+    "https://github.com/mattpocock/skills|skills/engineering/to-tickets/SKILL.md": {
+      "sha": "9b77a01db9460c99c22d03c910c349f890f12c0e",
+      "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
+      "record": {
+        "id": "gh-mattpocock-skills-skills-engineering-to-tickets",
+        "name": "to-tickets",
+        "description": "Break a plan, spec, or the current conversation into a set of tracer-bullet tickets, each declaring its blocking edges, published to the configured tracker (edges as text in one file per ticket locally, or native blocking links on a real tracker).",
+        "sourceUrl": "https://www.skills.sh/mattpocock/skills/to-tickets",
+        "repo": "https://github.com/mattpocock/skills",
+        "path": "skills/engineering/to-tickets/SKILL.md",
+        "author": "mattpocock",
+        "tags": [],
+        "category": "uncategorized",
+        "frontmatterKeys": [
+          "name",
+          "description",
+          "disable-model-invocation"
+        ],
+        "sources": [
+          {
+            "name": "skills.sh",
+            "url": "https://www.skills.sh/mattpocock/skills/to-tickets"
+          }
+        ],
+        "bins": [],
+        "env": [],
+        "tools": [],
+        "hasScriptsDir": false,
+        "mentionsNetwork": false,
+        "compatibility": {
+          "claude-code": {
+            "status": "compatible",
+            "reasons": [
+              "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name.",
+              "The file sets Claude Code fields such as context, hooks, paths, or when_to_use."
+            ]
+          },
+          "codex": {
+            "status": "compatible",
+            "reasons": [
+              "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+              "Claude Code fields such as context, hooks, or paths are ignored by Codex."
+            ]
+          },
+          "hermes": {
+            "status": "compatible",
+            "reasons": [
+              "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+              "Claude Code fields such as context, hooks, or paths are ignored by Hermes."
+            ]
+          },
+          "openclaw": {
+            "status": "compatible",
+            "reasons": [
+              "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it.",
+              "Claude Code fields such as context, hooks, or paths are ignored by OpenClaw."
+            ]
+          }
+        },
+        "github": {
+          "stars": 294499,
+          "lastPush": "2026-10-13T08:46:40Z",
+          "openIssuesAndPullRequests": 189,
+          "license": "MIT",
+          "archived": false
+        },
+        "health": "active",
+        "scan": {
+          "label": "scanned, no flags",
+          "flags": []
+        },
+        "registry": null,
+        "contentSha": "56ec23c5b2782785d4e65bff9e315b6d3aeb4ef977c174a219e99489fada1995",
+        "analyzedAt": "2026-10-17T11:25:53.165Z"
+      }
+    },
+    "https://github.com/mattpocock/skills|skills/engineering/wizard/SKILL.md": {
+      "sha": "c4294ad8298b9b95fc727496b1b802b1f7363fba",
+      "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
+      "record": {
+        "id": "gh-mattpocock-skills-skills-engineering-wizard",
+        "name": "wizard",
+        "description": "Generate an interactive bash wizard that walks a human through steps only they can perform. Use when provisioning infrastructure, setting up credentials or CI secrets, walking an unfamiliar third-party dashboard, or running a one-off migration or cutover. Don't invoke this for steps the agent can perform itself.",
+        "sourceUrl": "https://www.skills.sh/mattpocock/skills/wizard",
+        "repo": "https://github.com/mattpocock/skills",
+        "path": "skills/engineering/wizard/SKILL.md",
+        "author": "mattpocock",
+        "tags": [],
+        "category": "uncategorized",
+        "frontmatterKeys": [
+          "name",
+          "description"
+        ],
+        "sources": [
+          {
+            "name": "skills.sh",
+            "url": "https://www.skills.sh/mattpocock/skills/wizard"
+          }
+        ],
+        "bins": [],
+        "env": [],
+        "tools": [],
+        "hasScriptsDir": false,
+        "mentionsNetwork": false,
+        "compatibility": {
+          "claude-code": {
+            "status": "compatible",
+            "reasons": [
+              "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name."
+            ]
+          },
+          "codex": {
+            "status": "compatible",
+            "reasons": [
+              "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored."
+            ]
+          },
+          "hermes": {
+            "status": "compatible",
+            "reasons": [
+              "Hermes can load this file. The validator requires name, description, and a body after frontmatter."
+            ]
+          },
+          "openclaw": {
+            "status": "compatible",
+            "reasons": [
+              "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it."
+            ]
+          }
+        },
+        "github": {
+          "stars": 294499,
+          "lastPush": "2026-10-13T08:46:40Z",
+          "openIssuesAndPullRequests": 189,
+          "license": "MIT",
+          "archived": false
+        },
+        "health": "active",
+        "scan": {
+          "label": "scanned, no flags",
+          "flags": []
+        },
+        "registry": null,
+        "contentSha": "bdf31d48211ea559878f95a4f344aeabf8d85897488ba564382bab0b000daac1",
+        "analyzedAt": "2026-10-17T11:25:53.583Z"
+      }
+    },
+    "https://github.com/mattpocock/skills|skills/misc/git-guardrails-claude-code/SKILL.md": {
+      "sha": "58bcdd875b164093b95f436fa32a65c6cb5eb572",
+      "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
+      "record": {
+        "id": "gh-mattpocock-skills-skills-misc-git-guardrails-claude-code",
+        "name": "git-guardrails-claude-code",
+        "description": "Set up Claude Code hooks to block dangerous git commands (push, reset --hard, clean, branch -D, etc.) before they execute. Use when user wants to prevent destructive git operations, add git safety hooks, or block git push/reset in Claude Code.",
+        "sourceUrl": "https://www.skills.sh/mattpocock/skills/git-guardrails-claude-code",
+        "repo": "https://github.com/mattpocock/skills",
+        "path": "skills/misc/git-guardrails-claude-code/SKILL.md",
+        "author": "mattpocock",
+        "tags": [],
+        "category": "uncategorized",
+        "frontmatterKeys": [
+          "name",
+          "description"
+        ],
+        "sources": [
+          {
+            "name": "skills.sh",
+            "url": "https://www.skills.sh/mattpocock/skills/git-guardrails-claude-code"
+          }
+        ],
+        "bins": [],
+        "env": [],
+        "tools": [],
+        "hasScriptsDir": true,
+        "mentionsNetwork": false,
+        "compatibility": {
+          "claude-code": {
+            "status": "compatible",
+            "reasons": [
+              "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name.",
+              "A scripts directory sits next to SKILL.md. This index did not run those files."
+            ]
+          },
+          "codex": {
+            "status": "compatible",
+            "reasons": [
+              "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+              "A scripts directory sits next to SKILL.md. This index did not run those files."
+            ]
+          },
+          "hermes": {
+            "status": "compatible",
+            "reasons": [
+              "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+              "A scripts directory sits next to SKILL.md. This index did not run those files."
+            ]
+          },
+          "openclaw": {
+            "status": "compatible",
+            "reasons": [
+              "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it.",
+              "A scripts directory sits next to SKILL.md. This index did not run those files."
+            ]
+          }
+        },
+        "github": {
+          "stars": 294499,
+          "lastPush": "2026-10-13T08:46:40Z",
+          "openIssuesAndPullRequests": 189,
+          "license": "MIT",
+          "archived": false
+        },
+        "health": "active",
+        "scan": {
+          "label": "scanned, no flags",
+          "flags": []
+        },
+        "registry": null,
+        "contentSha": "69b291d655626a01602b998a1836fcb93c058ede68dfafddfd71e87f17074764",
+        "analyzedAt": "2026-10-17T11:25:54.381Z"
+      }
+    },
+    "https://github.com/mattpocock/skills|skills/productivity/to-questionnaire/SKILL.md": {
+      "sha": "dadd0c00d6a350acaa15bb9ca1b96b20ead684ca",
+      "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
+      "record": {
+        "id": "gh-mattpocock-skills-skills-productivity-to-questionnaire",
+        "name": "to-questionnaire",
+        "description": "Turn a decision you can't fully answer into a questionnaire for someone else to fill in.",
+        "sourceUrl": "https://www.skills.sh/mattpocock/skills/to-questionnaire",
+        "repo": "https://github.com/mattpocock/skills",
+        "path": "skills/productivity/to-questionnaire/SKILL.md",
+        "author": "mattpocock",
+        "tags": [],
+        "category": "uncategorized",
+        "frontmatterKeys": [
+          "name",
+          "description",
+          "disable-model-invocation"
+        ],
+        "sources": [
+          {
+            "name": "skills.sh",
+            "url": "https://www.skills.sh/mattpocock/skills/to-questionnaire"
+          }
+        ],
+        "bins": [],
+        "env": [],
+        "tools": [],
+        "hasScriptsDir": false,
+        "mentionsNetwork": false,
+        "compatibility": {
+          "claude-code": {
+            "status": "compatible",
+            "reasons": [
+              "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name.",
+              "The file sets Claude Code fields such as context, hooks, paths, or when_to_use."
+            ]
+          },
+          "codex": {
+            "status": "compatible",
+            "reasons": [
+              "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+              "Claude Code fields such as context, hooks, or paths are ignored by Codex."
+            ]
+          },
+          "hermes": {
+            "status": "compatible",
+            "reasons": [
+              "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+              "Claude Code fields such as context, hooks, or paths are ignored by Hermes."
+            ]
+          },
+          "openclaw": {
+            "status": "compatible",
+            "reasons": [
+              "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it.",
+              "Claude Code fields such as context, hooks, or paths are ignored by OpenClaw."
+            ]
+          }
+        },
+        "github": {
+          "stars": 294499,
+          "lastPush": "2026-10-13T08:46:40Z",
+          "openIssuesAndPullRequests": 189,
+          "license": "MIT",
+          "archived": false
+        },
+        "health": "active",
+        "scan": {
+          "label": "scanned, no flags",
+          "flags": []
+        },
+        "registry": null,
+        "contentSha": "b5eb929842ee0e93d867c5e906d183d350f2f2d149eaeaa86967d94d8eda1d3b",
+        "analyzedAt": "2026-10-17T11:25:54.748Z"
+      }
+    },
+    "https://github.com/mattpocock/skills|skills/misc/setup-pre-commit/SKILL.md": {
+      "sha": "1b9708168263067adb4684d06ebb8f4ccfe9682c",
+      "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
+      "record": {
+        "id": "gh-mattpocock-skills-skills-misc-setup-pre-commit",
+        "name": "setup-pre-commit",
+        "description": "Set up Husky pre-commit hooks with lint-staged (Prettier), type checking, and tests in the current repo. Use when user wants to add pre-commit hooks, set up Husky, configure lint-staged, or add commit-time formatting/typechecking/testing.",
+        "sourceUrl": "https://www.skills.sh/mattpocock/skills/setup-pre-commit",
+        "repo": "https://github.com/mattpocock/skills",
+        "path": "skills/misc/setup-pre-commit/SKILL.md",
+        "author": "mattpocock",
+        "tags": [],
+        "category": "uncategorized",
+        "frontmatterKeys": [
+          "name",
+          "description"
+        ],
+        "sources": [
+          {
+            "name": "skills.sh",
+            "url": "https://www.skills.sh/mattpocock/skills/setup-pre-commit"
+          }
+        ],
+        "bins": [],
+        "env": [],
+        "tools": [],
+        "hasScriptsDir": false,
+        "mentionsNetwork": false,
+        "compatibility": {
+          "claude-code": {
+            "status": "compatible",
+            "reasons": [
+              "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name."
+            ]
+          },
+          "codex": {
+            "status": "compatible",
+            "reasons": [
+              "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored."
+            ]
+          },
+          "hermes": {
+            "status": "compatible",
+            "reasons": [
+              "Hermes can load this file. The validator requires name, description, and a body after frontmatter."
+            ]
+          },
+          "openclaw": {
+            "status": "compatible",
+            "reasons": [
+              "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it."
+            ]
+          }
+        },
+        "github": {
+          "stars": 294499,
+          "lastPush": "2026-10-13T08:46:40Z",
+          "openIssuesAndPullRequests": 189,
+          "license": "MIT",
+          "archived": false
+        },
+        "health": "active",
+        "scan": {
+          "label": "scanned, no flags",
+          "flags": []
+        },
+        "registry": null,
+        "contentSha": "c9819d7f1e3b198064edc1faa3154224ed67395e9f07f5d3cea4b67cf0a11a98",
+        "analyzedAt": "2026-10-17T11:25:55.184Z"
+      }
+    },
+    "https://github.com/mattpocock/skills|skills/in-progress/writing-beats/SKILL.md": {
+      "sha": "3d3b25b605491adc5c62ae5423127717a94b9632",
+      "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
+      "record": {
+        "id": "gh-mattpocock-skills-skills-in-progress-writing-beats",
+        "name": "writing-beats",
+        "description": "Writing, exploit; assemble raw material into a journey of beats, grounding each term before a beat leans on it.",
+        "sourceUrl": "https://www.skills.sh/mattpocock/skills/writing-beats",
+        "repo": "https://github.com/mattpocock/skills",
+        "path": "skills/in-progress/writing-beats/SKILL.md",
+        "author": "mattpocock",
+        "tags": [],
+        "category": "uncategorized",
+        "frontmatterKeys": [
+          "name",
+          "description",
+          "disable-model-invocation"
+        ],
+        "sources": [
+          {
+            "name": "skills.sh",
+            "url": "https://www.skills.sh/mattpocock/skills/writing-beats"
+          }
+        ],
+        "bins": [],
+        "env": [],
+        "tools": [],
+        "hasScriptsDir": false,
+        "mentionsNetwork": false,
+        "compatibility": {
+          "claude-code": {
+            "status": "compatible",
+            "reasons": [
+              "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name.",
+              "The file sets Claude Code fields such as context, hooks, paths, or when_to_use."
+            ]
+          },
+          "codex": {
+            "status": "compatible",
+            "reasons": [
+              "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+              "Claude Code fields such as context, hooks, or paths are ignored by Codex."
+            ]
+          },
+          "hermes": {
+            "status": "compatible",
+            "reasons": [
+              "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+              "Claude Code fields such as context, hooks, or paths are ignored by Hermes."
+            ]
+          },
+          "openclaw": {
+            "status": "compatible",
+            "reasons": [
+              "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it.",
+              "Claude Code fields such as context, hooks, or paths are ignored by OpenClaw."
+            ]
+          }
+        },
+        "github": {
+          "stars": 294499,
+          "lastPush": "2026-10-13T08:46:40Z",
+          "openIssuesAndPullRequests": 189,
+          "license": "MIT",
+          "archived": false
+        },
+        "health": "active",
+        "scan": {
+          "label": "scanned, no flags",
+          "flags": []
+        },
+        "registry": null,
+        "contentSha": "a96abafa2372eede8267d770138b322d6125da8adaa7ccf0a5e08e4ee13ee71e",
+        "analyzedAt": "2026-10-17T11:25:55.584Z"
+      }
+    },
+    "https://github.com/mattpocock/skills|skills/in-progress/writing-shape/SKILL.md": {
+      "sha": "02f2866d13e72504e010f2ad3458eb9b36b876db",
+      "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
+      "record": {
+        "id": "gh-mattpocock-skills-skills-in-progress-writing-shape",
+        "name": "writing-shape",
+        "description": "Writing, exploit: shape raw material into an article, paragraph by paragraph.",
+        "sourceUrl": "https://www.skills.sh/mattpocock/skills/writing-shape",
+        "repo": "https://github.com/mattpocock/skills",
+        "path": "skills/in-progress/writing-shape/SKILL.md",
+        "author": "mattpocock",
+        "tags": [],
+        "category": "uncategorized",
+        "frontmatterKeys": [
+          "name",
+          "description",
+          "disable-model-invocation"
+        ],
+        "sources": [
+          {
+            "name": "skills.sh",
+            "url": "https://www.skills.sh/mattpocock/skills/writing-shape"
+          }
+        ],
+        "bins": [],
+        "env": [],
+        "tools": [],
+        "hasScriptsDir": false,
+        "mentionsNetwork": false,
+        "compatibility": {
+          "claude-code": {
+            "status": "compatible",
+            "reasons": [
+              "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name.",
+              "The file sets Claude Code fields such as context, hooks, paths, or when_to_use."
+            ]
+          },
+          "codex": {
+            "status": "compatible",
+            "reasons": [
+              "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+              "Claude Code fields such as context, hooks, or paths are ignored by Codex."
+            ]
+          },
+          "hermes": {
+            "status": "compatible",
+            "reasons": [
+              "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+              "Claude Code fields such as context, hooks, or paths are ignored by Hermes."
+            ]
+          },
+          "openclaw": {
+            "status": "compatible",
+            "reasons": [
+              "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it.",
+              "Claude Code fields such as context, hooks, or paths are ignored by OpenClaw."
+            ]
+          }
+        },
+        "github": {
+          "stars": 294499,
+          "lastPush": "2026-10-13T08:46:40Z",
+          "openIssuesAndPullRequests": 189,
+          "license": "MIT",
+          "archived": false
+        },
+        "health": "active",
+        "scan": {
+          "label": "scanned, no flags",
+          "flags": []
+        },
+        "registry": null,
+        "contentSha": "f5e6c57bdd85178ace4a260c92f46da6b64ddee18215b461d875739c68976f72",
+        "analyzedAt": "2026-10-17T11:25:55.984Z"
+      }
+    },
+    "https://github.com/mattpocock/skills|skills/in-progress/writing-fragments/SKILL.md": {
+      "sha": "c7c889b880cf9c8d289119dea5ff240641b615ca",
+      "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
+      "record": {
+        "id": "gh-mattpocock-skills-skills-in-progress-writing-fragments",
+        "name": "writing-fragments",
+        "description": "Writing, explore: mine raw fragments, no structure yet.",
+        "sourceUrl": "https://www.skills.sh/mattpocock/skills/writing-fragments",
+        "repo": "https://github.com/mattpocock/skills",
+        "path": "skills/in-progress/writing-fragments/SKILL.md",
+        "author": "mattpocock",
+        "tags": [],
+        "category": "uncategorized",
+        "frontmatterKeys": [
+          "name",
+          "description",
+          "disable-model-invocation"
+        ],
+        "sources": [
+          {
+            "name": "skills.sh",
+            "url": "https://www.skills.sh/mattpocock/skills/writing-fragments"
+          }
+        ],
+        "bins": [],
+        "env": [],
+        "tools": [],
+        "hasScriptsDir": false,
+        "mentionsNetwork": false,
+        "compatibility": {
+          "claude-code": {
+            "status": "compatible",
+            "reasons": [
+              "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name.",
+              "The file sets Claude Code fields such as context, hooks, paths, or when_to_use."
+            ]
+          },
+          "codex": {
+            "status": "compatible",
+            "reasons": [
+              "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+              "Claude Code fields such as context, hooks, or paths are ignored by Codex."
+            ]
+          },
+          "hermes": {
+            "status": "compatible",
+            "reasons": [
+              "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+              "Claude Code fields such as context, hooks, or paths are ignored by Hermes."
+            ]
+          },
+          "openclaw": {
+            "status": "compatible",
+            "reasons": [
+              "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it.",
+              "Claude Code fields such as context, hooks, or paths are ignored by OpenClaw."
+            ]
+          }
+        },
+        "github": {
+          "stars": 294499,
+          "lastPush": "2026-10-13T08:46:40Z",
+          "openIssuesAndPullRequests": 189,
+          "license": "MIT",
+          "archived": false
+        },
+        "health": "active",
+        "scan": {
+          "label": "scanned, no flags",
+          "flags": []
+        },
+        "registry": null,
+        "contentSha": "298b0edd23df229183630de592ed8aa4289233560f2040691f6eb77caeaad4ea",
+        "analyzedAt": "2026-10-17T11:25:56.379Z"
+      }
+    },
+    "https://github.com/mattpocock/skills|skills/misc/scaffold-exercises/SKILL.md": {
+      "sha": "d87df28e7d8abb4e57ecc6e47d71c274d16054c7",
+      "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
+      "record": {
+        "id": "gh-mattpocock-skills-skills-misc-scaffold-exercises",
+        "name": "scaffold-exercises",
+        "description": "Create exercise directory structures with sections, problems, solutions, and explainers that pass linting. Use when user wants to scaffold exercises, create exercise stubs, or set up a new course section.",
+        "sourceUrl": "https://www.skills.sh/mattpocock/skills/scaffold-exercises",
+        "repo": "https://github.com/mattpocock/skills",
+        "path": "skills/misc/scaffold-exercises/SKILL.md",
+        "author": "mattpocock",
+        "tags": [],
+        "category": "uncategorized",
+        "frontmatterKeys": [
+          "name",
+          "description"
+        ],
+        "sources": [
+          {
+            "name": "skills.sh",
+            "url": "https://www.skills.sh/mattpocock/skills/scaffold-exercises"
+          }
+        ],
+        "bins": [],
+        "env": [],
+        "tools": [],
+        "hasScriptsDir": false,
+        "mentionsNetwork": false,
+        "compatibility": {
+          "claude-code": {
+            "status": "compatible",
+            "reasons": [
+              "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name."
+            ]
+          },
+          "codex": {
+            "status": "compatible",
+            "reasons": [
+              "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored."
+            ]
+          },
+          "hermes": {
+            "status": "compatible",
+            "reasons": [
+              "Hermes can load this file. The validator requires name, description, and a body after frontmatter."
+            ]
+          },
+          "openclaw": {
+            "status": "compatible",
+            "reasons": [
+              "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it."
+            ]
+          }
+        },
+        "github": {
+          "stars": 294499,
+          "lastPush": "2026-10-13T08:46:40Z",
+          "openIssuesAndPullRequests": 189,
+          "license": "MIT",
+          "archived": false
+        },
+        "health": "active",
+        "scan": {
+          "label": "scanned, no flags",
+          "flags": []
+        },
+        "registry": null,
+        "contentSha": "75f5c9d771606fb9762f16522efc954df11c324f87148d8ff069bce166257de9",
+        "analyzedAt": "2026-10-17T11:25:56.787Z"
+      }
+    },
+    "https://github.com/mattpocock/skills|skills/misc/migrate-to-shoehorn/SKILL.md": {
+      "sha": "ae4f965e204fc93cedbc4e2c306e92829d93f800",
+      "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
+      "record": {
+        "id": "gh-mattpocock-skills-skills-misc-migrate-to-shoehorn",
+        "name": "migrate-to-shoehorn",
+        "description": "Migrate test files from `as` type assertions to @total-typescript/shoehorn. Use when user mentions shoehorn, wants to replace `as` in tests, or needs partial test data.",
+        "sourceUrl": "https://www.skills.sh/mattpocock/skills/migrate-to-shoehorn",
+        "repo": "https://github.com/mattpocock/skills",
+        "path": "skills/misc/migrate-to-shoehorn/SKILL.md",
+        "author": "mattpocock",
+        "tags": [],
+        "category": "uncategorized",
+        "frontmatterKeys": [
+          "name",
+          "description"
+        ],
+        "sources": [
+          {
+            "name": "skills.sh",
+            "url": "https://www.skills.sh/mattpocock/skills/migrate-to-shoehorn"
+          }
+        ],
+        "bins": [],
+        "env": [],
+        "tools": [],
+        "hasScriptsDir": false,
+        "mentionsNetwork": false,
+        "compatibility": {
+          "claude-code": {
+            "status": "compatible",
+            "reasons": [
+              "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name."
+            ]
+          },
+          "codex": {
+            "status": "compatible",
+            "reasons": [
+              "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored."
+            ]
+          },
+          "hermes": {
+            "status": "compatible",
+            "reasons": [
+              "Hermes can load this file. The validator requires name, description, and a body after frontmatter."
+            ]
+          },
+          "openclaw": {
+            "status": "compatible",
+            "reasons": [
+              "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it."
+            ]
+          }
+        },
+        "github": {
+          "stars": 294499,
+          "lastPush": "2026-10-13T08:46:40Z",
+          "openIssuesAndPullRequests": 189,
+          "license": "MIT",
+          "archived": false
+        },
+        "health": "active",
+        "scan": {
+          "label": "scanned, no flags",
+          "flags": []
+        },
+        "registry": null,
+        "contentSha": "de4da4c11d924fac79c924b2ee3d2db4a5cb98386eb490a599119463d036ae72",
+        "analyzedAt": "2026-10-17T11:25:57.185Z"
+      }
+    },
+    "https://github.com/vercel-labs/agent-browser|skills/agent-browser/SKILL.md": {
+      "sha": "dc9bb54a22e9cd7ad9c982a0fe5ae2e204751b12",
+      "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
+      "record": {
+        "id": "gh-vercel-labs-agent-browser-skills-agent-browser",
+        "name": "agent-browser",
+        "description": "Browser automation CLI for AI agents. Use when the user needs to interact with websites, including navigating pages, filling forms, clicking buttons, taking screenshots, extracting data, testing web apps, or automating any browser task. Triggers include requests to \"open a website\", \"fill out a form\", \"click a button\", \"take a screenshot\", \"scrape data from a page\", \"test this web app\", \"login to a site\", \"automate browser actions\", or any task requiring programmatic web interaction. Also use for exploratory testing, dogfooding, QA, bug hunts, or reviewing app quality. Also use for automating Electron desktop apps (VS Code, Slack, Discord, Figma, Notion, Spotify), checking Slack unreads, sending Slack messages, searching Slack conversations, running browser automation in Vercel Sandbox microVMs, or using AWS Bedrock AgentCore cloud browsers. Prefer agent-browser over any built-in browser automation or web tools.",
+        "sourceUrl": "https://www.skills.sh/vercel-labs/agent-browser/agent-browser",
+        "repo": "https://github.com/vercel-labs/agent-browser",
+        "path": "skills/agent-browser/SKILL.md",
+        "author": "vercel-labs",
+        "tags": [],
+        "category": "uncategorized",
+        "frontmatterKeys": [
+          "name",
+          "description",
+          "allowed-tools",
+          "hidden"
+        ],
+        "sources": [
+          {
+            "name": "skills.sh",
+            "url": "https://www.skills.sh/vercel-labs/agent-browser/agent-browser"
+          }
+        ],
+        "bins": [],
+        "env": [],
+        "tools": [
+          "Bash(agent-browser:*)",
+          "Bash(npx",
+          "agent-browser:*)"
+        ],
+        "hasScriptsDir": false,
+        "mentionsNetwork": true,
+        "compatibility": {
+          "claude-code": {
+            "status": "compatible",
+            "reasons": [
+              "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name.",
+              "allowed-tools pre-approves the listed tools for the turn that invokes the skill. It does not remove other tools.",
+              "The skill text mentions a network command or an http URL."
+            ]
+          },
+          "codex": {
+            "status": "compatible",
+            "reasons": [
+              "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+              "allowed-tools does not pre-approve tools in Codex. Extra keys are ignored.",
+              "The skill text mentions a network command or an http URL."
+            ]
+          },
+          "hermes": {
+            "status": "compatible",
+            "reasons": [
+              "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+              "allowed-tools does not pre-approve tools in Hermes.",
+              "The skill text mentions a network command or an http URL."
+            ]
+          },
+          "openclaw": {
+            "status": "compatible",
+            "reasons": [
+              "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it.",
+              "allowed-tools is not an OpenClaw permission grant.",
+              "The skill text mentions a network command or an http URL."
+            ]
+          }
+        },
+        "github": {
+          "stars": 44119,
+          "lastPush": "2026-10-16T22:52:26Z",
+          "openIssuesAndPullRequests": 787,
+          "license": "Apache-2.0",
+          "archived": false
+        },
+        "health": "active",
+        "scan": {
+          "label": "scanned, no flags",
+          "flags": []
+        },
+        "registry": null,
+        "contentSha": "3a7520e64de2dfaa516b6721c001e84e06e3c06a187b82af029ae721540ebfac",
+        "analyzedAt": "2026-10-17T11:25:58.384Z"
+      }
+    },
+    "https://github.com/heygen-com/hyperframes|skills/hyperframes-cli/SKILL.md": {
+      "sha": "711734fd394dc9d22d4dd21a9baaf5e3504f9aa8",
+      "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
+      "record": {
+        "id": "gh-heygen-com-hyperframes-skills-hyperframes-cli",
+        "name": "hyperframes-cli",
+        "description": "Use the HyperFrames CLI development loop: init, add, catalog, capture, lint, check, snapshot, compare, grade-compare, preview, play, present, beats, keyframes, single or batch render, publish, cloud, cloudrun, feedback, lambda, doctor, browser, info, upgrade, skills, compositions, timeline, history, clean, docs, benchmark, telemetry, transcribe, auth, tts, and remove-background. Also use when diagnosing build or render failures. validate, inspect, and layout are deprecated aliases; use check. Covers local, HeyGen-hosted cloud, AWS Lambda, and Google Cloud Run rendering.",
+        "sourceUrl": "https://www.skills.sh/heygen-com/hyperframes/hyperframes-cli",
+        "repo": "https://github.com/heygen-com/hyperframes",
+        "path": "skills/hyperframes-cli/SKILL.md",
+        "author": "heygen-com",
+        "tags": [],
+        "category": "uncategorized",
+        "frontmatterKeys": [
+          "name",
+          "description"
+        ],
+        "sources": [
+          {
+            "name": "skills.sh",
+            "url": "https://www.skills.sh/heygen-com/hyperframes/hyperframes-cli"
+          }
+        ],
+        "bins": [],
+        "env": [],
+        "tools": [],
+        "hasScriptsDir": false,
+        "mentionsNetwork": true,
+        "compatibility": {
+          "claude-code": {
+            "status": "compatible",
+            "reasons": [
+              "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name.",
+              "The skill text mentions a network command or an http URL."
+            ]
+          },
+          "codex": {
+            "status": "compatible",
+            "reasons": [
+              "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+              "The skill text mentions a network command or an http URL."
+            ]
+          },
+          "hermes": {
+            "status": "compatible",
+            "reasons": [
+              "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+              "The skill text mentions a network command or an http URL."
+            ]
+          },
+          "openclaw": {
+            "status": "compatible",
+            "reasons": [
+              "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it.",
+              "The skill text mentions a network command or an http URL."
+            ]
+          }
+        },
+        "github": {
+          "stars": 65598,
+          "lastPush": "2026-10-17T11:17:17Z",
+          "openIssuesAndPullRequests": 362,
+          "license": "Apache-2.0",
+          "archived": false
+        },
+        "health": "active",
+        "scan": {
+          "label": "scanned, no flags",
+          "flags": []
+        },
+        "registry": null,
+        "contentSha": "be481984f8d3c871c353a4ba82bb295a416634e11938de2081b950e9e488a3ff",
+        "analyzedAt": "2026-10-17T11:25:59.752Z"
+      }
+    },
+    "https://github.com/heygen-com/hyperframes|skills/hyperframes/SKILL.md": {
+      "sha": "b84e42b8528cf357eee589dcda2034d60e03cd56",
+      "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
+      "record": {
+        "id": "gh-heygen-com-hyperframes-skills-hyperframes",
+        "name": "hyperframes",
+        "description": "Mandatory entry point: read this first for any request to make, create, edit, animate, or render a video, animation, or motion graphic, including a promo, explainer, captioned clip, title card, overlay, slideshow or interactive deck, Remotion port, or any HyperFrames HTML composition. Also use it to inspect, diagnose, validate, preview, publish, or batch-render an existing HyperFrames project. Inputs may be a website URL, GitHub PR, Figma design or URL, text or brief, existing footage, or music. It resumes project state, captures intent when applicable, selects and installs the owning workflow, and routes domain capabilities. HyperFrames is the default output framework unless the user explicitly chooses another framework for the deliverable or asks only to record a browser session.",
+        "sourceUrl": "https://www.skills.sh/heygen-com/hyperframes/hyperframes",
+        "repo": "https://github.com/heygen-com/hyperframes",
+        "path": "skills/hyperframes/SKILL.md",
+        "author": "heygen-com",
+        "tags": [],
+        "category": "uncategorized",
+        "frontmatterKeys": [
+          "name",
+          "description"
+        ],
+        "sources": [
+          {
+            "name": "skills.sh",
+            "url": "https://www.skills.sh/heygen-com/hyperframes/hyperframes"
+          }
+        ],
+        "bins": [],
+        "env": [],
+        "tools": [],
+        "hasScriptsDir": true,
+        "mentionsNetwork": false,
+        "compatibility": {
+          "claude-code": {
+            "status": "compatible",
+            "reasons": [
+              "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name.",
+              "A scripts directory sits next to SKILL.md. This index did not run those files."
+            ]
+          },
+          "codex": {
+            "status": "compatible",
+            "reasons": [
+              "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+              "A scripts directory sits next to SKILL.md. This index did not run those files."
+            ]
+          },
+          "hermes": {
+            "status": "compatible",
+            "reasons": [
+              "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+              "A scripts directory sits next to SKILL.md. This index did not run those files."
+            ]
+          },
+          "openclaw": {
+            "status": "compatible",
+            "reasons": [
+              "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it.",
+              "A scripts directory sits next to SKILL.md. This index did not run those files."
+            ]
+          }
+        },
+        "github": {
+          "stars": 65598,
+          "lastPush": "2026-10-17T11:17:17Z",
+          "openIssuesAndPullRequests": 362,
+          "license": "Apache-2.0",
+          "archived": false
+        },
+        "health": "active",
+        "scan": {
+          "label": "scanned, no flags",
+          "flags": []
+        },
+        "registry": null,
+        "contentSha": "dd67af24e6ca148769f191abd68e670bade17c4b8c847d1ff9aa847fbd7ffe23",
+        "analyzedAt": "2026-10-17T11:26:02.206Z"
+      }
+    },
+    "https://github.com/heygen-com/hyperframes|skills/media-use/SKILL.md": {
+      "sha": "67ae64d349b7ba2ae7afded5d82db8216679c73c",
+      "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
+      "record": {
+        "id": "gh-heygen-com-hyperframes-skills-media-use",
+        "name": "media-use",
+        "description": "Agent Media OS for a HyperFrames project. Resolve BGM, SFX, image, icon, brand logo, voice, color grade, or LUT into a frozen local file or paste-ready block + ledger record (one verb, `resolve`); generate via TTS / music / image models when the catalog misses; produce voiceover, transcription, captions, and background removal through one shared audio engine; operate on media (cut / reframe / transform); and reuse assets across projects. Also use for vague feedback that real footage looks dark, flat, boring, should feel retro/camcorder/print/ASCII, needs privacy, or needs a media reveal. When the host app provides its own music or sound-effect tools, use those for music and sound effects; `resolve --type bgm|sfx` needs the heygen CLI. When `HEYGEN_API_BASE` is set, HeyGen calls go through that host with no CLI sign-in.",
+        "sourceUrl": "https://www.skills.sh/heygen-com/hyperframes/media-use",
+        "repo": "https://github.com/heygen-com/hyperframes",
+        "path": "skills/media-use/SKILL.md",
+        "author": "heygen-com",
+        "tags": [],
+        "category": "uncategorized",
+        "frontmatterKeys": [
+          "name",
+          "description"
+        ],
+        "sources": [
+          {
+            "name": "skills.sh",
+            "url": "https://www.skills.sh/heygen-com/hyperframes/media-use"
+          }
+        ],
+        "bins": [],
+        "env": [],
+        "tools": [],
+        "hasScriptsDir": true,
+        "mentionsNetwork": false,
+        "compatibility": {
+          "claude-code": {
+            "status": "compatible",
+            "reasons": [
+              "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name.",
+              "A scripts directory sits next to SKILL.md. This index did not run those files."
+            ]
+          },
+          "codex": {
+            "status": "compatible",
+            "reasons": [
+              "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+              "A scripts directory sits next to SKILL.md. This index did not run those files."
+            ]
+          },
+          "hermes": {
+            "status": "compatible",
+            "reasons": [
+              "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+              "A scripts directory sits next to SKILL.md. This index did not run those files."
+            ]
+          },
+          "openclaw": {
+            "status": "compatible",
+            "reasons": [
+              "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it.",
+              "A scripts directory sits next to SKILL.md. This index did not run those files."
+            ]
+          }
+        },
+        "github": {
+          "stars": 65598,
+          "lastPush": "2026-10-17T11:17:17Z",
+          "openIssuesAndPullRequests": 362,
+          "license": "Apache-2.0",
+          "archived": false
+        },
+        "health": "active",
+        "scan": {
+          "label": "scanned, no flags",
+          "flags": []
+        },
+        "registry": null,
+        "contentSha": "0f08ff6b493a46e0505dcc9c0c607e517e0eb70e7dc2b7b5c1f51b4f27bb6181",
+        "analyzedAt": "2026-10-17T11:26:05.946Z"
+      }
+    },
+    "https://github.com/heygen-com/hyperframes|skills/hyperframes-animation/SKILL.md": {
+      "sha": "e5299de70e3c7339fcc4b8870f195b6f2e0069af",
+      "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
+      "record": {
+        "id": "gh-heygen-com-hyperframes-skills-hyperframes-animation",
+        "name": "hyperframes-animation",
+        "description": "All animation knowledge for HyperFrames — atomic motion rules, multi-phase scene blueprints, scene transitions, broader motion-design techniques, AND the seven runtime adapters (GSAP default, plus Lottie, Three.js, Anime.js, CSS keyframes, Web Animations API, TypeGPU). Use for any motion or animation task: pick 2-4 rules and compose, or load a blueprint, or look up runtime-specific API (e.g. GSAP eases / Lottie player / Three.js mixer). Also covers auditing an existing composition's choreography (animation map) and 24 named text-animation effects. HyperFrames-native: single paused timeline, seek-safe, deterministic.",
+        "sourceUrl": "https://www.skills.sh/heygen-com/hyperframes/hyperframes-animation",
+        "repo": "https://github.com/heygen-com/hyperframes",
+        "path": "skills/hyperframes-animation/SKILL.md",
+        "author": "heygen-com",
+        "tags": [],
+        "category": "uncategorized",
+        "frontmatterKeys": [
+          "name",
+          "description"
+        ],
+        "sources": [
+          {
+            "name": "skills.sh",
+            "url": "https://www.skills.sh/heygen-com/hyperframes/hyperframes-animation"
+          }
+        ],
+        "bins": [],
+        "env": [],
+        "tools": [],
+        "hasScriptsDir": true,
+        "mentionsNetwork": false,
+        "compatibility": {
+          "claude-code": {
+            "status": "compatible",
+            "reasons": [
+              "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name.",
+              "A scripts directory sits next to SKILL.md. This index did not run those files."
+            ]
+          },
+          "codex": {
+            "status": "compatible",
+            "reasons": [
+              "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+              "A scripts directory sits next to SKILL.md. This index did not run those files."
+            ]
+          },
+          "hermes": {
+            "status": "compatible",
+            "reasons": [
+              "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+              "A scripts directory sits next to SKILL.md. This index did not run those files."
+            ]
+          },
+          "openclaw": {
+            "status": "compatible",
+            "reasons": [
+              "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it.",
+              "A scripts directory sits next to SKILL.md. This index did not run those files."
+            ]
+          }
+        },
+        "github": {
+          "stars": 65598,
+          "lastPush": "2026-10-17T11:17:17Z",
+          "openIssuesAndPullRequests": 362,
+          "license": "Apache-2.0",
+          "archived": false
+        },
+        "health": "active",
+        "scan": {
+          "label": "scanned, no flags",
+          "flags": []
+        },
+        "registry": null,
+        "contentSha": "b35f1f8eff68e9ff480a5d5d343a1bf5a40ebb7d0d9be20b0b980cfdb36047f3",
+        "analyzedAt": "2026-10-17T11:26:08.753Z"
+      }
     }
   }
 }
