@@ -19,14 +19,16 @@ ClawHub: `GET https://clawhub.ai/api/v1/skills` with cursor pagination, `sort=do
 
 skills.sh: the v1 API exists and requires a Vercel OIDC token. This repo does not connect a Vercel account. `robots.txt` also disallows `/api/` and `/search`. The ingest reads the public sitemap (allowed) at about one request per second, then reads `SKILL.md` from the GitHub repo the sitemap URL points at.
 
-Limits for a local run:
+The committed catalog used to stop at 36 skills because the script defaulted to 24 ClawHub rows and 12 skills.sh rows. ClawHub cursor pagination itself advances. The skills.sh sitemap is readable. Those caps, not a broken source, were the limit. Nightly used 80 and 40 and wrote `data/` on `bot/nightly-ingest`, so `main` stayed at 36.
 
-- `INGEST_CLAWHUB_MAX` (default 24)
-- `INGEST_SKILLSSH_MAX` (default 12)
+Limits for a full run:
 
-Set either value to `0` to skip that source. The nightly workflow uses 80 and 40.
+- `INGEST_CLAWHUB_MAX` (default 520)
+- `INGEST_SKILLSSH_MAX` (default 80)
 
-`GITHUB_TOKEN` is optional. With it, GitHub enrichment can read more repos before the rate limit. Without it, the script uses the public rate limit.
+Set either value to `0` to skip that source. The nightly workflow uses 800 and 200. If a run returns fewer skills than a catalog that already has 500, the script leaves `data/skills.json` unchanged.
+
+`GITHUB_TOKEN` is optional locally. GitHub Actions sets it on the nightly job. With it, enrichment can read more repos before the rate limit. Stars and last push come from the GitHub repo API. A ClawHub listing with no GitHub repo stays unenriched. The script stops skills.sh enrichment when the rate limit is spent and keeps the skills already read.
 
 GitHub fields are stars, last push, open issues and pull requests (GitHub's `open_issues_count` includes pull requests), license, and archived. Health:
 
@@ -58,7 +60,13 @@ npm run preview
 
 Search on the built site uses Pagefind. Filters for agent, reading, category, health, and scan run in the browser on the static table.
 
-Cloudflare Web Analytics is off unless `PUBLIC_CF_BEACON_TOKEN` is set. No token is set in this repo.
+Pageview analytics is off unless you set an env var. GitHub Pages does not count pageviews on its own, and every hosted counter needs an account. Nothing is loaded when the vars are unset.
+
+- `PUBLIC_CF_BEACON_TOKEN`: Cloudflare Web Analytics. Needs a free Cloudflare account. Create a site and copy the beacon token.
+- `PUBLIC_GOATCOUNTER_SRC`: GoatCounter, for example `https://skillcheck.goatcounter.com/count`. Needs a free GoatCounter account. No cookies.
+- `PUBLIC_PLAUSIBLE_DOMAIN`: Plausible. Needs a Plausible account (their hosted product is paid) or a self-hosted Plausible. Optional `PUBLIC_PLAUSIBLE_SCRIPT` overrides `https://plausible.io/js/script.js`.
+
+No analytics account is connected in this repo.
 
 ## Deploy
 
@@ -78,7 +86,7 @@ The nightly branch is not merged into `main` by the workflow. Review it and merg
 
 ### Cloudflare Pages later
 
-Connect the GitHub repo in Cloudflare when you are ready. Use the Astro preset, build command `npm run build`, and output directory `dist`. Leave `BASE_PATH` unset so the site is served from `/`. Leave the custom domain empty. You can set `PUBLIC_CF_BEACON_TOKEN` there if you want the analytics snippet.
+Connect the GitHub repo in Cloudflare when you are ready. Use the Astro preset, build command `npm run build`, and output directory `dist`. Leave `BASE_PATH` unset so the site is served from `/`. Leave the custom domain empty. You can set one of the analytics env vars there if you want pageview counts.
 
 ### Vercel later
 

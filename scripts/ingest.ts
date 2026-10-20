@@ -1,15 +1,25 @@
-import { mkdirSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { cachedRecord, loadAnalysisCache, saveAnalysisCache, storeRecord } from "./lib/analysis-cache.js";
 import { listClawhub, fetchClawhubSkill, clawhubPageUrl } from "./lib/clawhub.js";
 import { loadRules } from "./lib/compat.js";
-import { fetchRaw, loadGithubCache, loadRepo, matchSkillPath, saveGithubCache, scriptPaths } from "./lib/github.js";
+import {
+  GithubRateLimitError,
+  fetchRaw,
+  githubShouldStop,
+  loadGithubCache,
+  loadRepo,
+  matchSkillPath,
+  saveGithubCache,
+  scriptPaths,
+} from "./lib/github.js";
 import { healthFor } from "./lib/health.js";
+import { DEFAULT_CLAWHUB_MAX, DEFAULT_SKILLSSH_MAX, numberEnv } from "./lib/limits.js";
 import { analyzeSkill, dedupeSkills, makeId } from "./lib/record.js";
 import { listSkillsSh } from "./lib/skillssh.js";
 import type { SkillRecord } from "./lib/types.js";
 
-const clawhubMax = numberEnv("INGEST_CLAWHUB_MAX", 24);
-const skillsShMax = numberEnv("INGEST_SKILLSSH_MAX", 12);
+const clawhubMax = numberEnv("INGEST_CLAWHUB_MAX", DEFAULT_CLAWHUB_MAX);
+const skillsShMax = numberEnv("INGEST_SKILLSSH_MAX", DEFAULT_SKILLSSH_MAX);
 
 async function main(): Promise<void> {
   const records: SkillRecord[] = [];
@@ -22,22 +32,29 @@ async function main(): Promise<void> {
   saveAnalysisCache(analysis);
   const skills = dedupeSkills(records);
   if (skills.length === 0) throw new Error("Ingest produced no skills. Existing data was left untouched.");
+  const previousCount = existingCount();
+  if (previousCount >= 500 && skills.length < previousCount) {
+    throw new Error(
+      `Ingest produced ${skills.length} skills, fewer than the ${previousCount} already stored. Left the file unchanged.`,
+    );
+  }
   mkdirSync("data", { recursive: true });
   writeFileSync("data/skills.json", `${JSON.stringify(skills, null, 2)}\n`);
-  console.log(`Wrote ${skills.length} skills to data/skills.json`);
+  const clawhubCount = skills.filter((skill) => skill.sources.some((source) => source.name === "clawhub")).length;
+  const skillsShCount = skills.filter((skill) => skill.sources.some((source) => source.name === "skills.sh")).length;
+  console.log(`Wrote ${skills.length} skills to data/skills.json (clawhub ${clawhubCount}, skills.sh ${skillsShCount})`);
 }
 
 async function ingestClawhub(): Promise<SkillRecord[]> {
   if (clawhubMax <= 0) return [];
-  const items = await listClawhub(clawhubMax);
-  const records: SkillRecord[] = [];
-  for (const item of items) {
-    const pageUrl = clawhubPageUrl(item);
-    if (!pageUrl || !item.slug) continue;
-    const text = await fetchClawhubSkill(item);
-    if (!text || !text.includes("---")) continue;
-    records.push(
-      analyzeSkill({
+  const items = await listClawhub(clawhubMax + 80);
+  const records = (
+    await mapPool(items, 6, async (item) => {
+      const pageUrl = clawhubPageUrl(item);
+      if (!pageUrl || !item.slug) return null;
+      const text = await fetchClawhubSkill(item);
+      if (!text || !text.includes("---")) return null;
+      return analyzeSkill({
         text,
         fallbackName: item.displayName || item.slug,
         sourceUrl: pageUrl,
@@ -52,9 +69,10 @@ async function ingestClawhub(): Promise<SkillRecord[]> {
           stars: item.stats?.stars ?? 0,
         },
         id: makeId(["claw", item.ownerHandle ?? "owner", item.slug]),
-      }),
-    );
-  }
+      });
+    })
+  ).slice(0, clawhubMax);
+  console.log(`ClawHub progress: ${records.length}`);
   console.log(`ClawHub skills analyzed: ${records.length}`);
   return records;
 }
@@ -65,7 +83,7 @@ async function ingestSkillsSh(
   rulesVersion: string,
 ): Promise<SkillRecord[]> {
   if (skillsShMax <= 0) return [];
-  const listings = await listSkillsSh(skillsShMax * 4);
+  const listings = await listSkillsSh(Math.max(skillsShMax * 20, skillsShMax));
   const records: SkillRecord[] = [];
   const byRepo = new Map<string, typeof listings>();
   for (const listing of listings) {
@@ -79,6 +97,10 @@ async function ingestSkillsSh(
     try {
       repo = await loadRepo(repoUrl, cache);
     } catch (error) {
+      if (error instanceof GithubRateLimitError || githubShouldStop()) {
+        console.warn(`Stopped skills.sh enrichment: ${(error as Error).message}`);
+        break;
+      }
       console.warn(`Skipped ${repoUrl}: ${(error as Error).message}`);
       continue;
     }
@@ -118,16 +140,31 @@ async function ingestSkillsSh(
       if (blob) storeRecord(analysis, cacheKey, blob.sha, rulesVersion, record);
       records.push(record);
     }
+    if (githubShouldStop()) break;
   }
   console.log(`skills.sh skills analyzed: ${records.length}`);
   return records;
 }
 
-function numberEnv(name: string, fallback: number): number {
-  const raw = process.env[name];
-  if (raw === undefined || raw === "") return fallback;
-  const value = Number(raw);
-  return Number.isFinite(value) ? value : fallback;
+async function mapPool<T, R>(items: T[], size: number, fn: (item: T) => Promise<R | null>): Promise<R[]> {
+  const results: R[] = [];
+  let index = 0;
+  async function worker(): Promise<void> {
+    while (index < items.length && results.length < clawhubMax) {
+      const current = index;
+      index += 1;
+      const value = await fn(items[current]);
+      if (value) results.push(value);
+    }
+  }
+  await Promise.all(Array.from({ length: Math.min(size, items.length) }, () => worker()));
+  return results;
+}
+
+function existingCount(): number {
+  if (!existsSync("data/skills.json")) return 0;
+  const parsed = JSON.parse(readFileSync("data/skills.json", "utf8")) as unknown;
+  return Array.isArray(parsed) ? parsed.length : 0;
 }
 
 main().catch((error: unknown) => {

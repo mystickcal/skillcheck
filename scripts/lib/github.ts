@@ -1,6 +1,6 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { dirname } from "node:path";
-import { fetchJson, fetchText } from "./http.js";
+import { fetchText } from "./http.js";
 import type { GithubInfo } from "./types.js";
 
 export type TreeFile = { path: string; sha: string; type: string };
@@ -15,6 +15,30 @@ type RepoCache = {
 type CacheFile = { repos: Record<string, RepoCache> };
 
 const CACHE_PATH = "data/cache/github.json";
+
+let paused = false;
+
+export class GithubRateLimitError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = "GithubRateLimitError";
+  }
+}
+
+export function githubShouldStop(): boolean {
+  return paused;
+}
+
+export function rateLimitHit(status: number, body: string, remaining: string | null): boolean {
+  if (status === 429) return true;
+  if (status === 403 && /rate limit/i.test(body)) return true;
+  if (remaining === "0") return true;
+  return false;
+}
+
+function noteBudget(status: number, body: string, remaining: string | null): void {
+  if (rateLimitHit(status, body, remaining)) paused = true;
+}
 
 export function loadGithubCache(): CacheFile {
   if (!existsSync(CACHE_PATH)) return { repos: {} };
@@ -33,6 +57,7 @@ export async function loadRepo(
 ): Promise<RepoCache | null> {
   const slug = repoSlug(repoUrl);
   if (!slug) return null;
+  if (paused) throw new GithubRateLimitError("GitHub rate limit already reached");
   const cached = cache.repos[repoUrl];
   const headers: Record<string, string> = {
     accept: "application/vnd.github+json",
@@ -43,8 +68,12 @@ export async function loadRepo(
 
   const repoResponse = await fetchText(`https://api.github.com/repos/${slug}`, {
     headers,
-    minDelayMs: 400,
+    minDelayMs: 250,
   });
+  noteBudget(repoResponse.status, repoResponse.text, repoResponse.headers.get("x-ratelimit-remaining"));
+  if (repoResponse.status === 429 || (repoResponse.status === 403 && /rate limit/i.test(repoResponse.text))) {
+    throw new GithubRateLimitError(`GitHub rate limit while reading ${slug}`);
+  }
   if (repoResponse.status === 304 && cached) return cached;
   if (repoResponse.status === 404) return null;
   if (repoResponse.status !== 200) {
@@ -68,11 +97,19 @@ export async function loadRepo(
   const branch = repo.default_branch || "HEAD";
   const treeHeaders = { ...headers };
   delete treeHeaders["if-none-match"];
-  const tree = await fetchJson<{ tree?: TreeFile[]; truncated?: boolean }>(
+  const treeResponse = await fetchText(
     `https://api.github.com/repos/${slug}/git/trees/${encodeURIComponent(branch)}?recursive=1`,
-    { headers: treeHeaders, minDelayMs: 400 },
+    { headers: treeHeaders, minDelayMs: 250 },
   );
-  const files = (tree.data.tree ?? []).filter((file) => file.type === "blob");
+  noteBudget(treeResponse.status, treeResponse.text, treeResponse.headers.get("x-ratelimit-remaining"));
+  if (treeResponse.status === 429 || (treeResponse.status === 403 && /rate limit/i.test(treeResponse.text))) {
+    throw new GithubRateLimitError(`GitHub rate limit while listing ${slug}`);
+  }
+  if (treeResponse.status !== 200) {
+    throw new Error(`GitHub tree ${slug} returned ${treeResponse.status}`);
+  }
+  const tree = JSON.parse(treeResponse.text) as { tree?: TreeFile[]; truncated?: boolean };
+  const files = (tree.tree ?? []).filter((file) => file.type === "blob");
   const entry: RepoCache = {
     etag: repoResponse.headers.get("etag") ?? undefined,
     info,
@@ -96,7 +133,7 @@ export async function fetchRaw(repoUrl: string, path: string): Promise<string | 
   const slug = repoSlug(repoUrl);
   if (!slug) return null;
   const url = `https://raw.githubusercontent.com/${slug}/HEAD/${path}`;
-  const response = await fetchText(url, { minDelayMs: 400 });
+  const response = await fetchText(url, { minDelayMs: 150 });
   if (response.status !== 200) return null;
   return response.text;
 }

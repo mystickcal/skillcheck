@@ -27,8 +27,8 @@ jobs:
       - name: Ingest and enrich
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          INGEST_CLAWHUB_MAX: "80"
-          INGEST_SKILLSSH_MAX: "40"
+          INGEST_CLAWHUB_MAX: "800"
+          INGEST_SKILLSSH_MAX: "200"
         run: npm run ingest
       - name: Commit data on the bot branch
         run: |
