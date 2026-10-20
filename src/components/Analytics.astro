@@ -6,6 +6,8 @@ const analytics = analyticsConfig({
   goatcounter: import.meta.env.PUBLIC_GOATCOUNTER_SRC,
   plausibleDomain: import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN,
   plausibleScript: import.meta.env.PUBLIC_PLAUSIBLE_SCRIPT,
+  umamiSrc: import.meta.env.PUBLIC_UMAMI_SRC,
+  umamiWebsiteId: import.meta.env.PUBLIC_UMAMI_WEBSITE_ID,
 });
 ---
 
@@ -27,5 +29,16 @@ const analytics = analyticsConfig({
 {
   analytics.plausible && (
     <script is:inline defer data-domain={analytics.plausible.domain} src={analytics.plausible.src} />
+  )
+}
+{
+  analytics.umami && (
+    <script
+      is:inline
+      defer
+      src={analytics.umami.src}
+      data-website-id={analytics.umami.websiteId}
+      data-domains="mystickcal.github.io"
+    />
   )
 }
