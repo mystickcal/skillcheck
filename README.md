@@ -19,7 +19,7 @@ ClawHub: `GET https://clawhub.ai/api/v1/skills` with cursor pagination, `sort=do
 
 skills.sh: the v1 API exists and requires a Vercel OIDC token. This repo does not connect a Vercel account. `robots.txt` also disallows `/api/` and `/search`. The ingest reads the public sitemap (allowed) at about one request per second, then reads `SKILL.md` from the GitHub repo the sitemap URL points at.
 
-The committed catalog used to stop at 36 skills because the script defaulted to 24 ClawHub rows and 12 skills.sh rows. ClawHub cursor pagination itself advances. The skills.sh sitemap is readable. Those caps, not a broken source, were the limit. Nightly used 80 and 40 and wrote `data/` on `bot/nightly-ingest`, so `main` stayed at 36.
+The committed catalog used to stop at 36 skills because the script defaulted to 24 ClawHub rows and 12 skills.sh rows. ClawHub cursor pagination itself advances. The skills.sh sitemap is readable. Those caps, not a broken source, were the limit. An older nightly wrote `data/` on `bot/nightly-ingest` and left `main` at 36.
 
 Limits for a full run:
 
@@ -84,11 +84,9 @@ Workflows:
 
 - `.github/workflows/ci.yml` runs tests and a build on pull requests.
 - `.github/workflows/pages.yml` builds `main` and deploys with `actions/deploy-pages`. The job uses the default `GITHUB_TOKEN` only.
-- `.github/workflows/nightly.yml` runs ingest, commits `data/` on `bot/nightly-ingest`, builds, and deploys that snapshot to GitHub Pages.
+- `.github/workflows/nightly.yml` runs on a schedule from `main`. It ingests, commits `data/` straight to `main`, builds, and deploys that build with `actions/deploy-pages`. The ingest script refuses to replace a catalog of 500 or more with a smaller file, so a short run does not get committed or deployed. The workflow only pushes when it is running on `main`. A `GITHUB_TOKEN` push does not start other workflows, so this nightly job deploys the site itself instead of waiting for the Pages workflow. Both workflows share the `pages` concurrency group so two deploys do not run at once.
 
-After merge, set the repository Pages source to GitHub Actions. The project site base path is `/skillcheck`. The workflows set `BASE_PATH=/skillcheck` and `SITE=https://mystickcal.github.io`.
-
-The nightly branch is not merged into `main` by the workflow. Review it and merge when you want `main` to carry the new metadata.
+After merge, set the repository Pages source to GitHub Actions. The project site base path is `/skillcheck`. The workflows set `BASE_PATH=/skillcheck` and `SITE=https://mystickcal.github.io`. The live site is `https://mystickcal.github.io/skillcheck/`.
 
 ### Cloudflare Pages later
 

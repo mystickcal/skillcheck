@@ -11,7 +11,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: nightly-ingest
+  group: pages
   cancel-in-progress: false
 
 jobs:
@@ -19,6 +19,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 20
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -30,17 +32,22 @@ jobs:
           INGEST_CLAWHUB_MAX: "800"
           INGEST_SKILLSSH_MAX: "200"
         run: npm run ingest
-      - name: Commit data on the bot branch
+      - name: Commit data to main
         run: |
+          if [ "$GITHUB_REF" != "refs/heads/main" ]; then
+            echo "Refusing to publish ingested data from $GITHUB_REF. Nightly publish runs on main."
+            exit 1
+          fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git checkout -B bot/nightly-ingest
           git add data
           if git diff --cached --quiet; then
             echo "No data changes."
           else
             git commit -m "Update ingested skill metadata"
-            git push --force origin bot/nightly-ingest
+            git fetch origin main
+            git rebase origin/main
+            git push origin HEAD:main
           fi
       - run: npm test
       - run: npm run build
