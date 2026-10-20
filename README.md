@@ -19,14 +19,16 @@ ClawHub: `GET https://clawhub.ai/api/v1/skills` with cursor pagination, `sort=do
 
 skills.sh: the v1 API exists and requires a Vercel OIDC token. This repo does not connect a Vercel account. `robots.txt` also disallows `/api/` and `/search`. The ingest reads the public sitemap (allowed) at about one request per second, then reads `SKILL.md` from the GitHub repo the sitemap URL points at.
 
-Limits for a local run:
+The committed catalog used to stop at 36 skills because the script defaulted to 24 ClawHub rows and 12 skills.sh rows. ClawHub cursor pagination itself advances. The skills.sh sitemap is readable. Those caps, not a broken source, were the limit. An older nightly wrote `data/` on `bot/nightly-ingest` and left `main` at 36.
 
-- `INGEST_CLAWHUB_MAX` (default 24)
-- `INGEST_SKILLSSH_MAX` (default 12)
+Limits for a full run:
 
-Set either value to `0` to skip that source. The nightly workflow uses 80 and 40.
+- `INGEST_CLAWHUB_MAX` (default 520)
+- `INGEST_SKILLSSH_MAX` (default 80)
 
-`GITHUB_TOKEN` is optional. With it, GitHub enrichment can read more repos before the rate limit. Without it, the script uses the public rate limit.
+Set either value to `0` to skip that source. The nightly workflow uses 800 and 200. If a run returns fewer skills than a catalog that already has 500, the script leaves `data/skills.json` unchanged.
+
+`GITHUB_TOKEN` is optional locally. GitHub Actions sets it on the nightly job. With it, enrichment can read more repos before the rate limit. Stars and last push come from the GitHub repo API. A ClawHub listing with no GitHub repo stays unenriched. The script stops skills.sh enrichment when the rate limit is spent and keeps the skills already read.
 
 GitHub fields are stars, last push, open issues and pull requests (GitHub's `open_issues_count` includes pull requests), license, and archived. Health:
 
@@ -54,11 +56,23 @@ npm run build
 npm run preview
 ```
 
-`npm test` does not call the network. `npm run build` runs Pagefind after the Astro build.
+`npm test` does not call the network. `npm run build` checks the sitemap, copies `sitemap-index.xml` to `sitemap.xml`, then runs Pagefind.
+
+## Sitemap
+
+GitHub Pages builds set `SITE=https://mystickcal.github.io` and `BASE_PATH=/skillcheck`. Astro writes `sitemap-index.xml` and `sitemap-0.xml` with absolute `https://mystickcal.github.io/skillcheck/` URLs. The build copies the index to `sitemap.xml`, so both `/sitemap-index.xml` and `/sitemap.xml` are the same sitemap index. GitHub Pages already serves those `.xml` files as `application/xml`. `public/_headers` sets that type for Cloudflare Pages.
+
+`https://mystickcal.github.io/robots.txt` is not this repository. A project site cannot replace the host root robots file. Search Console still reads robots.txt from the host root, and that file is outside SkillCheck.
 
 Search on the built site uses Pagefind. Filters for agent, reading, category, health, and scan run in the browser on the static table.
 
-Cloudflare Web Analytics is off unless `PUBLIC_CF_BEACON_TOKEN` is set. No token is set in this repo.
+Pageview analytics is off unless you set an env var. GitHub Pages does not count pageviews on its own, and every hosted counter needs an account. Nothing is loaded when the vars are unset.
+
+- `PUBLIC_CF_BEACON_TOKEN`: Cloudflare Web Analytics. Needs a free Cloudflare account. Create a site and copy the beacon token.
+- `PUBLIC_GOATCOUNTER_SRC`: GoatCounter, for example `https://skillcheck.goatcounter.com/count`. Needs a free GoatCounter account. No cookies.
+- `PUBLIC_PLAUSIBLE_DOMAIN`: Plausible. Needs a Plausible account (their hosted product is paid) or a self-hosted Plausible. Optional `PUBLIC_PLAUSIBLE_SCRIPT` overrides `https://plausible.io/js/script.js`.
+
+No analytics account is connected in this repo.
 
 ## Deploy
 
@@ -70,15 +84,13 @@ Workflows:
 
 - `.github/workflows/ci.yml` runs tests and a build on pull requests.
 - `.github/workflows/pages.yml` builds `main` and deploys with `actions/deploy-pages`. The job uses the default `GITHUB_TOKEN` only.
-- `.github/workflows/nightly.yml` runs ingest, commits `data/` on `bot/nightly-ingest`, builds, and deploys that snapshot to GitHub Pages.
+- `.github/workflows/nightly.yml` runs on a schedule from `main`. It ingests, commits `data/` straight to `main`, builds, and deploys that build with `actions/deploy-pages`. The ingest script refuses to replace a catalog of 500 or more with a smaller file, so a short run does not get committed or deployed. The workflow only pushes when it is running on `main`. A `GITHUB_TOKEN` push does not start other workflows, so this nightly job deploys the site itself instead of waiting for the Pages workflow. Both workflows share the `pages` concurrency group so two deploys do not run at once.
 
-After merge, set the repository Pages source to GitHub Actions. The project site base path is `/skillcheck`. The workflows set `BASE_PATH=/skillcheck` and `SITE=https://mystickcal.github.io`.
-
-The nightly branch is not merged into `main` by the workflow. Review it and merge when you want `main` to carry the new metadata.
+After merge, set the repository Pages source to GitHub Actions. The project site base path is `/skillcheck`. The workflows set `BASE_PATH=/skillcheck` and `SITE=https://mystickcal.github.io`. The live site is `https://mystickcal.github.io/skillcheck/`.
 
 ### Cloudflare Pages later
 
-Connect the GitHub repo in Cloudflare when you are ready. Use the Astro preset, build command `npm run build`, and output directory `dist`. Leave `BASE_PATH` unset so the site is served from `/`. Leave the custom domain empty. You can set `PUBLIC_CF_BEACON_TOKEN` there if you want the analytics snippet.
+Connect the GitHub repo in Cloudflare when you are ready. Use the Astro preset, build command `npm run build`, and output directory `dist`. Leave `BASE_PATH` unset so the site is served from `/`. Leave the custom domain empty. You can set one of the analytics env vars there if you want pageview counts.
 
 ### Vercel later
 

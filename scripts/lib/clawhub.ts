@@ -22,7 +22,7 @@ export async function listClawhub(maxItems: number): Promise<ClawhubItem[]> {
     });
     if (cursor) params.set("cursor", cursor);
     const page = await fetchJson<ClawhubPage>(`https://clawhub.ai/api/v1/skills?${params}`, {
-      minDelayMs: 300,
+      minDelayMs: 80,
     });
     const batch = page.data.items ?? [];
     items.push(...batch);
@@ -37,7 +37,7 @@ export async function fetchClawhubSkill(item: ClawhubItem): Promise<string | nul
   const params = new URLSearchParams({ path: "SKILL.md", preview: "1" });
   if (item.ownerHandle) params.set("ownerHandle", item.ownerHandle);
   const response = await fetchText(`https://clawhub.ai/api/v1/skills/${encodeURIComponent(item.slug)}/file?${params}`, {
-    minDelayMs: 300,
+    minDelayMs: 40,
   });
   if (response.status !== 200) return null;
   return response.text;

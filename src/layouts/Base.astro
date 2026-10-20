@@ -1,4 +1,5 @@
 ---
+import Analytics from "../components/Analytics.astro";
 import "../styles/global.css";
 import { repoUrl } from "../lib/links";
 
@@ -8,8 +9,6 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
-const beacon = import.meta.env.PUBLIC_CF_BEACON_TOKEN ?? "";
-const safeBeacon = /^[A-Za-z0-9_-]{8,128}$/.test(beacon) ? beacon : "";
 const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -42,15 +41,6 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <footer class="site-footer">
       <p>SkillCheck stores metadata and links. It does not host skill files.</p>
     </footer>
-    {
-      safeBeacon && (
-        <script
-          is:inline
-          defer
-          src="https://static.cloudflareinsights.com/beacon.min.js"
-          data-cf-beacon={`{"token":"${safeBeacon}"}`}
-        />
-      )
-    }
+    <Analytics />
   </body>
 </html>

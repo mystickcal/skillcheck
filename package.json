@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
-    "build": "ASTRO_TELEMETRY_DISABLED=1 astro build && pagefind --site dist",
+    "build": "ASTRO_TELEMETRY_DISABLED=1 astro build && tsx scripts/finalize-sitemap.ts && pagefind --site dist",
     "preview": "astro preview --host 0.0.0.0 --port 4321",
     "test": "vitest run",
     "ingest": "tsx scripts/ingest.ts",
