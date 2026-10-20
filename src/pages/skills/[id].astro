@@ -2,7 +2,7 @@
 import NewsletterSignup from "../../components/NewsletterSignup.astro";
 import Base from "../../layouts/Base.astro";
 import { claimUrl } from "../../lib/links";
-import { agentLabels, agentOrder, healthLabels, skills, statusLabels } from "../../lib/skills";
+import { agentLabels, agentOrder, healthLabels, popularityLabel, skills, statusLabels } from "../../lib/skills";
 
 export function getStaticPaths() {
   return skills.map((skill) => ({ params: { id: skill.id }, props: { skill } }));
@@ -17,6 +17,7 @@ const title = `${skill.name} | SkillCheck`;
     <p class="lede">{skill.sources.map((source) => source.name).join(", ")}</p>
     <h1 class="page-title">{skill.name}</h1>
     <p>{skill.description}</p>
+    <p>{popularityLabel(skill)}. Quality score {skill.qualityScore}. <a href={`${import.meta.env.BASE_URL}about/`}>How this score works</a>.</p>
     <p>
       <a href={skill.sourceUrl}>Open the source</a>
       {skill.repo && (

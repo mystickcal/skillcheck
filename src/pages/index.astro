@@ -1,7 +1,11 @@
 ---
 import NewsletterSignup from "../components/NewsletterSignup.astro";
 import Base from "../layouts/Base.astro";
-import { agentLabels, agentOrder, categories, healthLabels, skills, statusLabels } from "../lib/skills";
+import { agentLabels, agentOrder, categories, healthLabels, popularityLabel, skills, statusLabels } from "../lib/skills";
+
+const ranked = [...skills].sort(
+  (a, b) => (b.qualityScore ?? 0) - (a.qualityScore ?? 0) || a.name.localeCompare(b.name),
+);
 
 const description =
   "A directory of agent skills with compatibility readings for Hermes, OpenClaw, Claude Code, and Codex.";
@@ -12,7 +16,8 @@ const description =
     <h1>Check a skill before you install it.</h1>
     <p class="lede">
       SkillCheck lists public skills and reads each SKILL.md against published rules for four agents.
-      You get a label and the reason. The skill file stays at the source.
+      The table starts with the highest quality score. Flagged skills stay out of this list until you choose them in Scan.
+      Search still finds them, with the warning on the skill page.
     </p>
     <div id="search" class="search"></div>
   </section>
@@ -52,7 +57,7 @@ const description =
       Scan
       <select id="filter-scan" name="scan">
         <option value="">Any</option>
-        <option value="clear">Scanned, no flags</option>
+        <option value="clear" selected>Scanned, no flags</option>
         <option value="flags">Flags found</option>
       </select>
     </label>
@@ -67,13 +72,15 @@ const description =
           <th>Agents</th>
           <th>Category</th>
           <th>Health</th>
+          <th>Popularity</th>
           <th>Scan</th>
         </tr>
       </thead>
       <tbody id="skill-rows">
         {
-          skills.map((skill) => (
+          ranked.map((skill) => (
             <tr
+              hidden={skill.scan.flags.length > 0}
               data-category={skill.category}
               data-health={skill.health}
               data-scan={skill.scan.flags.length ? "flags" : "clear"}
@@ -94,6 +101,7 @@ const description =
               </td>
               <td>{skill.category}</td>
               <td>{healthLabels[skill.health]}</td>
+              <td>{popularityLabel(skill)}</td>
               <td>{skill.scan.label}</td>
             </tr>
           ))
@@ -141,6 +149,7 @@ const description =
   for (const control of [agent, status, category, health, scan]) {
     control?.addEventListener("change", applyFilters);
   }
+  applyFilters();
 
   if (import.meta.env.PROD) {
     const link = document.createElement("link");

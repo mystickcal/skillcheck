@@ -9,6 +9,8 @@ type RepoCache = {
   etag?: string;
   info: GithubInfo;
   files: TreeFile[];
+  defaultBranch?: string;
+  treeLoaded?: boolean;
   fetchedAt: string;
 };
 
@@ -54,6 +56,7 @@ export async function loadRepo(
   repoUrl: string,
   cache: CacheFile,
   token = process.env.GITHUB_TOKEN,
+  options: { tree?: boolean } = {},
 ): Promise<RepoCache | null> {
   const slug = repoSlug(repoUrl);
   if (!slug) return null;
@@ -74,7 +77,14 @@ export async function loadRepo(
   if (repoResponse.status === 429 || (repoResponse.status === 403 && /rate limit/i.test(repoResponse.text))) {
     throw new GithubRateLimitError(`GitHub rate limit while reading ${slug}`);
   }
-  if (repoResponse.status === 304 && cached) return cached;
+  const wantTree = options.tree !== false;
+  if (repoResponse.status === 304 && cached && (!wantTree || cached.treeLoaded !== false)) return cached;
+  if (repoResponse.status === 304 && cached && wantTree) {
+    const withTree = await fetchTree(slug, cached.defaultBranch || "HEAD", headers);
+    const entry: RepoCache = { ...cached, files: withTree, treeLoaded: true, fetchedAt: new Date().toISOString() };
+    cache.repos[repoUrl] = entry;
+    return entry;
+  }
   if (repoResponse.status === 404) return null;
   if (repoResponse.status !== 200) {
     throw new Error(`GitHub repo ${slug} returned ${repoResponse.status}`);
@@ -95,6 +105,20 @@ export async function loadRepo(
     archived: Boolean(repo.archived),
   };
   const branch = repo.default_branch || "HEAD";
+  const files = wantTree ? await fetchTree(slug, branch, headers) : (cached?.files ?? []);
+  const entry: RepoCache = {
+    etag: repoResponse.headers.get("etag") ?? undefined,
+    info,
+    files,
+    defaultBranch: branch,
+    treeLoaded: wantTree,
+    fetchedAt: new Date().toISOString(),
+  };
+  cache.repos[repoUrl] = entry;
+  return entry;
+}
+
+async function fetchTree(slug: string, branch: string, headers: Record<string, string>): Promise<TreeFile[]> {
   const treeHeaders = { ...headers };
   delete treeHeaders["if-none-match"];
   const treeResponse = await fetchText(
@@ -108,16 +132,8 @@ export async function loadRepo(
   if (treeResponse.status !== 200) {
     throw new Error(`GitHub tree ${slug} returned ${treeResponse.status}`);
   }
-  const tree = JSON.parse(treeResponse.text) as { tree?: TreeFile[]; truncated?: boolean };
-  const files = (tree.tree ?? []).filter((file) => file.type === "blob");
-  const entry: RepoCache = {
-    etag: repoResponse.headers.get("etag") ?? undefined,
-    info,
-    files,
-    fetchedAt: new Date().toISOString(),
-  };
-  cache.repos[repoUrl] = entry;
-  return entry;
+  const tree = JSON.parse(treeResponse.text) as { tree?: TreeFile[] };
+  return (tree.tree ?? []).filter((file) => file.type === "blob");
 }
 
 export function matchSkillPath(files: TreeFile[], slug: string): string | null {

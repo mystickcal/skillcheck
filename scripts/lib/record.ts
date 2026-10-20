@@ -28,6 +28,7 @@ export function analyzeSkill(input: {
   registry?: RegistryStat | null;
   id: string;
   now?: string;
+  updatedAt?: string | null;
 }): SkillRecord {
   const parsed = parseSkillMarkdown(input.text);
   const facts = buildFacts(parsed, Boolean(input.hasScriptsDir));
@@ -65,6 +66,8 @@ export function analyzeSkill(input: {
     registry: input.registry ?? null,
     contentSha: createHash("sha256").update(input.text).digest("hex"),
     analyzedAt: input.now ?? new Date().toISOString(),
+    updatedAt: input.updatedAt ?? null,
+    qualityScore: 0,
   };
 }
 

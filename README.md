@@ -21,10 +21,12 @@ skills.sh: the v1 API exists and requires a Vercel OIDC token. This repo does no
 
 The committed catalog used to stop at 36 skills because the script defaulted to 24 ClawHub rows and 12 skills.sh rows. ClawHub cursor pagination itself advances. The skills.sh sitemap is readable. Those caps, not a broken source, were the limit. An older nightly wrote `data/` on `bot/nightly-ingest` and left `main` at 36.
 
-Limits for a full run:
+Limits for a full run, applied after the quality filters:
 
-- `INGEST_CLAWHUB_MAX` (default 520)
-- `INGEST_SKILLSSH_MAX` (default 80)
+- `INGEST_CLAWHUB_MAX` (default 520): highest ClawHub download counts, keeping only skills with at least 1,000 downloads and a description plus a body of at least 80 characters
+- `INGEST_SKILLSSH_MAX` (default 200): after a larger sitemap pool (`INGEST_SKILLSSH_POOL`, default 20 times the max, at least 2,500), keep the highest GitHub star counts among repos with at least 10 stars, not archived, and pushed within 18 months (540 days)
+
+The home page sorts by `qualityScore`. See the about page for the formula: log popularity scaled inside each source (70), recency (20 or 12), a clear description (10), minus 15 per scan flag (up to 40).
 
 Set either value to `0` to skip that source. The nightly workflow uses 800 and 200. If a run returns fewer skills than a catalog that already has 500, the script leaves `data/skills.json` unchanged.
 
