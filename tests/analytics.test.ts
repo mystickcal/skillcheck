@@ -7,6 +7,7 @@ describe("pageview analytics", () => {
       cloudflareToken: null,
       goatcounter: null,
       plausible: null,
+      umami: null,
     });
   });
 
@@ -31,6 +32,21 @@ describe("pageview analytics", () => {
       plausibleDomain: "bad domain",
       plausibleScript: "http://insecure.example/script.js",
     });
-    expect(config).toEqual({ cloudflareToken: null, goatcounter: null, plausible: null });
+    expect(config).toEqual({ cloudflareToken: null, goatcounter: null, plausible: null, umami: null });
+  });
+
+  it("accepts an https Umami script with a UUID website id and rejects anything else", () => {
+    expect(
+      analyticsConfig({
+        umamiSrc: "https://newsletter.clickconsultants.com/u/script.js",
+        umamiWebsiteId: "b69f59fe-cb2c-4241-9011-2aa78b8ff69e",
+      }).umami,
+    ).toEqual({
+      src: "https://newsletter.clickconsultants.com/u/script.js",
+      websiteId: "b69f59fe-cb2c-4241-9011-2aa78b8ff69e",
+    });
+    expect(analyticsConfig({ umamiSrc: "http://insecure.example/script.js", umamiWebsiteId: "b69f59fe-cb2c-4241-9011-2aa78b8ff69e" }).umami).toBeNull();
+    expect(analyticsConfig({ umamiSrc: "https://newsletter.clickconsultants.com/u/script.js", umamiWebsiteId: "not-a-uuid\" onload=\"x" }).umami).toBeNull();
+    expect(analyticsConfig({ umamiSrc: "https://newsletter.clickconsultants.com/u/script.js" }).umami).toBeNull();
   });
 });

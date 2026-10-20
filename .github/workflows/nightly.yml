@@ -56,6 +56,8 @@ jobs:
           BASE_PATH: /skillcheck
           PUBLIC_NEWSLETTER_ENABLED: "true"
           PUBLIC_NEWSLETTER_GATEWAY: https://newsletter.clickconsultants.com
+          PUBLIC_UMAMI_SRC: ${{ vars.PUBLIC_UMAMI_SRC }}
+          PUBLIC_UMAMI_WEBSITE_ID: ${{ vars.PUBLIC_UMAMI_WEBSITE_ID }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
