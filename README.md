@@ -56,7 +56,13 @@ npm run build
 npm run preview
 ```
 
-`npm test` does not call the network. `npm run build` runs Pagefind after the Astro build.
+`npm test` does not call the network. `npm run build` checks the sitemap, copies `sitemap-index.xml` to `sitemap.xml`, then runs Pagefind.
+
+## Sitemap
+
+GitHub Pages builds set `SITE=https://mystickcal.github.io` and `BASE_PATH=/skillcheck`. Astro writes `sitemap-index.xml` and `sitemap-0.xml` with absolute `https://mystickcal.github.io/skillcheck/` URLs. The build copies the index to `sitemap.xml`, so both `/sitemap-index.xml` and `/sitemap.xml` are the same sitemap index. GitHub Pages already serves those `.xml` files as `application/xml`. `public/_headers` sets that type for Cloudflare Pages.
+
+`https://mystickcal.github.io/robots.txt` is not this repository. A project site cannot replace the host root robots file. Search Console still reads robots.txt from the host root, and that file is outside SkillCheck.
 
 Search on the built site uses Pagefind. Filters for agent, reading, category, health, and scan run in the browser on the static table.
 
