@@ -7,6 +7,7 @@ export type ClawhubItem = {
   summary?: string;
   topics?: string[];
   stats?: { downloads?: number; stars?: number };
+  updatedAt?: number;
 };
 
 type ClawhubPage = { items?: ClawhubItem[]; nextCursor?: string | null };

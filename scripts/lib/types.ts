@@ -106,6 +106,8 @@ export type SkillRecord = {
   registry: RegistryStat | null;
   contentSha: string | null;
   analyzedAt: string;
+  updatedAt: string | null;
+  qualityScore: number;
 };
 
 export type Analysis = {

@@ -31,6 +31,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           INGEST_CLAWHUB_MAX: "800"
           INGEST_SKILLSSH_MAX: "200"
+          INGEST_SKILLSSH_POOL: "4000"
         run: npm run ingest
       - name: Commit data to main
         run: |

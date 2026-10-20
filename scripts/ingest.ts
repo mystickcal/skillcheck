@@ -14,6 +14,7 @@ import {
 } from "./lib/github.js";
 import { healthFor } from "./lib/health.js";
 import { DEFAULT_CLAWHUB_MAX, DEFAULT_SKILLSSH_MAX, numberEnv } from "./lib/limits.js";
+import { clawhubKept, isStubMarkdown, scoreSkills, skillsShKept, sortByQuality } from "./lib/quality.js";
 import { analyzeSkill, dedupeSkills, makeId } from "./lib/record.js";
 import { listSkillsSh } from "./lib/skillssh.js";
 import type { SkillRecord } from "./lib/types.js";
@@ -30,7 +31,7 @@ async function main(): Promise<void> {
   records.push(...(await ingestSkillsSh(cache, analysis, rulesVersion)));
   saveGithubCache(cache);
   saveAnalysisCache(analysis);
-  const skills = dedupeSkills(records);
+  const skills = sortByQuality(scoreSkills(dedupeSkills(records)));
   if (skills.length === 0) throw new Error("Ingest produced no skills. Existing data was left untouched.");
   const previousCount = existingCount();
   if (previousCount >= 500 && skills.length < previousCount) {
@@ -47,13 +48,14 @@ async function main(): Promise<void> {
 
 async function ingestClawhub(): Promise<SkillRecord[]> {
   if (clawhubMax <= 0) return [];
-  const items = await listClawhub(clawhubMax + 80);
+  const items = await listClawhub(clawhubMax + 250);
   const records = (
     await mapPool(items, 6, async (item) => {
       const pageUrl = clawhubPageUrl(item);
       if (!pageUrl || !item.slug) return null;
+      if (!clawhubKept(item.stats?.downloads ?? 0)) return null;
       const text = await fetchClawhubSkill(item);
-      if (!text || !text.includes("---")) return null;
+      if (!text || !text.includes("---") || isStubMarkdown(text)) return null;
       return analyzeSkill({
         text,
         fallbackName: item.displayName || item.slug,
@@ -69,6 +71,7 @@ async function ingestClawhub(): Promise<SkillRecord[]> {
           stars: item.stats?.stars ?? 0,
         },
         id: makeId(["claw", item.ownerHandle ?? "owner", item.slug]),
+        updatedAt: typeof item.updatedAt === "number" ? new Date(item.updatedAt).toISOString() : null,
       });
     })
   ).slice(0, clawhubMax);
@@ -83,7 +86,8 @@ async function ingestSkillsSh(
   rulesVersion: string,
 ): Promise<SkillRecord[]> {
   if (skillsShMax <= 0) return [];
-  const listings = await listSkillsSh(Math.max(skillsShMax * 20, skillsShMax));
+  const poolSize = numberEnv("INGEST_SKILLSSH_POOL", Math.max(skillsShMax * 20, 2500));
+  const listings = await listSkillsSh(poolSize);
   const records: SkillRecord[] = [];
   const byRepo = new Map<string, typeof listings>();
   for (const listing of listings) {
@@ -91,8 +95,25 @@ async function ingestSkillsSh(
     group.push(listing);
     byRepo.set(listing.repoUrl, group);
   }
+  const ranked: Array<{ repoUrl: string; group: typeof listings; stars: number }> = [];
   for (const [repoUrl, group] of byRepo) {
-    if (records.length >= skillsShMax) break;
+    if (githubShouldStop()) break;
+    try {
+      const preview = await loadRepo(repoUrl, cache, process.env.GITHUB_TOKEN, { tree: false });
+      if (!preview || !skillsShKept(preview.info)) continue;
+      ranked.push({ repoUrl, group, stars: preview.info.stars });
+    } catch (error) {
+      if (error instanceof GithubRateLimitError || githubShouldStop()) {
+        console.warn(`Stopped skills.sh repo scan: ${(error as Error).message}`);
+        break;
+      }
+      console.warn(`Skipped ${repoUrl}: ${(error as Error).message}`);
+    }
+  }
+  ranked.sort((a, b) => b.stars - a.stars || a.repoUrl.localeCompare(b.repoUrl));
+  console.log(`skills.sh repos above the star and recency bar: ${ranked.length}`);
+  for (const { repoUrl, group } of ranked) {
+    if (records.length >= skillsShMax || githubShouldStop()) break;
     let repo: Awaited<ReturnType<typeof loadRepo>>;
     try {
       repo = await loadRepo(repoUrl, cache);
@@ -113,7 +134,13 @@ async function ingestSkillsSh(
       const cacheKey = `${repoUrl}|${path}`;
       const previous = blob ? cachedRecord(analysis, cacheKey, blob.sha, rulesVersion) : null;
       if (previous) {
-        records.push({ ...previous, github: repo.info, health: healthFor(repo.info) });
+        records.push({
+          ...previous,
+          github: repo.info,
+          health: healthFor(repo.info),
+          updatedAt: previous.updatedAt ?? repo.info.lastPush,
+          qualityScore: 0,
+        });
         continue;
       }
       const text = await fetchRaw(repoUrl, path);

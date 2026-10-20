@@ -35,6 +35,25 @@ const description = "How SkillCheck reads skills, what it stores, and how the la
   </section>
 
   <section class="card panel" style="margin-top: 1rem">
+    <h2>Quality score</h2>
+    <p>
+      The home table sorts by a score from 0 to 100. It is a reading of public numbers, not a judgment that a skill is good to run.
+    </p>
+    <p>
+      Popularity is 70 points. ClawHub skills use download counts. skills.sh skills use GitHub stars. Each source is scaled on its own with a log, so one very popular listing does not flatten the rest of that source. A skill at the top of its source gets the full 70. A skill with none of that signal gets 0.
+    </p>
+    <p>
+      Recency is 20 points when the date we have is within 90 days, and 12 points when it is within 18 months (540 days). ClawHub uses the catalog update time. skills.sh uses the GitHub last push. No date means no recency points.
+    </p>
+    <p>
+      A description of at least 40 characters adds 10 points. Each scan flag subtracts 15, up to 40. The score does not go below 0.
+    </p>
+    <p>
+      Ingest keeps ClawHub skills with at least 1,000 downloads and a real description plus a body of at least 80 characters. It keeps up to 200 skills.sh skills from repos with at least 10 GitHub stars, not archived, and pushed within 18 months. Flagged skills stay in the catalog. The home list hides them until you set Scan to "Flags found" or "Any". Search still opens their pages.
+    </p>
+  </section>
+
+  <section class="card panel" style="margin-top: 1rem">
     <h2>What this is for</h2>
     <p>
       The reading is neutral across Hermes, OpenClaw, Claude Code, and Codex. You can see why a skill landed on

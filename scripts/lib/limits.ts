@@ -1,6 +1,6 @@
-/** Default catalog size for a full ingest. Combined target is above 500. */
+/** Kept after quality filters. Combined target stays above 500. */
 export const DEFAULT_CLAWHUB_MAX = 520;
-export const DEFAULT_SKILLSSH_MAX = 80;
+export const DEFAULT_SKILLSSH_MAX = 200;
 
 export function numberEnv(name: string, fallback: number): number {
   const raw = process.env[name];
