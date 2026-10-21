@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
-    "build": "ASTRO_TELEMETRY_DISABLED=1 astro build && tsx scripts/finalize-sitemap.ts && pagefind --site dist",
+    "build": "ASTRO_TELEMETRY_DISABLED=1 tsx scripts/og-image.ts && astro build && tsx scripts/finalize-sitemap.ts && pagefind --site dist",
     "preview": "astro preview --host 0.0.0.0 --port 4321",
     "test": "vitest run",
     "ingest": "tsx scripts/ingest.ts",
@@ -21,6 +21,9 @@
     "yaml": "^2.8.1"
   },
   "devDependencies": {
+    "@fontsource/libre-baskerville": "^5.3.0",
+    "@fontsource/source-sans-3": "^5.3.1",
+    "@resvg/resvg-js": "^2.6.2",
     "@types/node": "^22.15.0",
     "tsx": "^4.20.5",
     "typescript": "^5.9.2",
