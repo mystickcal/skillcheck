@@ -6537,7 +6537,7 @@
       }
     },
     "https://github.com/morluto/rea|.agents/skills/reverse-engineer-anything/SKILL.md": {
-      "sha": "510ddb97fc41f853a68e947370f9fcc5fd8f817c",
+      "sha": "6583fb15a261d16c9f2825e4806dcca0652eb873",
       "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
       "record": {
         "id": "gh-morluto-rea-agents-skills-reverse-engineer-anything",
@@ -6597,9 +6597,9 @@
           }
         },
         "github": {
-          "stars": 346515,
-          "lastPush": "2026-10-20T19:29:33Z",
-          "openIssuesAndPullRequests": 1484,
+          "stars": 353757,
+          "lastPush": "2026-10-21T12:53:32Z",
+          "openIssuesAndPullRequests": 1637,
           "license": "MIT",
           "archived": false
         },
@@ -6609,8 +6609,8 @@
           "flags": []
         },
         "registry": null,
-        "contentSha": "641a710312ca66e99d3ca5e837793e40cad4619a2c2066f71f44f5e8442b1fb8",
-        "analyzedAt": "2026-10-20T19:32:14.751Z",
+        "contentSha": "6368f7440023d2285f7878836d2ce92bcf6d2f7c0f37c8d3bf4febf9cd014e36",
+        "analyzedAt": "2026-10-21T12:53:47.364Z",
         "updatedAt": null,
         "qualityScore": 0
       }
@@ -7651,7 +7651,7 @@
       }
     },
     "https://github.com/obra/superpowers|skills/diagnosing-superpowers/SKILL.md": {
-      "sha": "f1d479fbc49e29b1984ef5ffa00ad20334445a14",
+      "sha": "dda2692d528574c410b118a6de545d6afc7eb047",
       "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
       "record": {
         "id": "gh-obra-superpowers-skills-diagnosing-superpowers",
@@ -7705,9 +7705,9 @@
           }
         },
         "github": {
-          "stars": 302529,
-          "lastPush": "2026-10-20T15:30:53Z",
-          "openIssuesAndPullRequests": 393,
+          "stars": 302888,
+          "lastPush": "2026-10-21T02:14:16Z",
+          "openIssuesAndPullRequests": 348,
           "license": "MIT",
           "archived": false
         },
@@ -7717,8 +7717,8 @@
           "flags": []
         },
         "registry": null,
-        "contentSha": "5a652f8132cc901eb5ca61f89157839f87a2f20aed037fc7a2b51051bc37cd19",
-        "analyzedAt": "2026-10-20T19:32:25.500Z",
+        "contentSha": "3143de8695c5a2d63e8b1675f33837578076f464deb127c2ebdd0b46fceef886",
+        "analyzedAt": "2026-10-21T12:53:48.014Z",
         "updatedAt": null,
         "qualityScore": 0
       }
