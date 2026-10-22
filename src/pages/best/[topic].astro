@@ -1,0 +1,83 @@
+---
+import NewsletterSignup from "../../components/NewsletterSignup.astro";
+import Base from "../../layouts/Base.astro";
+import { bestTopics, installHints, resolvePicks, type BestTopic } from "../../lib/best";
+import { agentLabels, agentOrder, popularityLabel, statusLabels } from "../../lib/skills";
+
+export function getStaticPaths() {
+  return bestTopics.map((topic) => ({ params: { topic: topic.slug }, props: { topic } }));
+}
+
+const { topic } = Astro.props as { topic: BestTopic };
+const picks = resolvePicks(topic);
+const base = import.meta.env.BASE_URL;
+const others = bestTopics.filter((other) => other.slug !== topic.slug);
+---
+
+<Base title={`${topic.title} | SkillCheck`} description={topic.description}>
+  <article class="best">
+    <p class="crumb"><a href={`${base}best/`}>Best skills</a> / {topic.label}</p>
+    <h1 class="page-title">{topic.title}</h1>
+    <p class="lede">{topic.intro}</p>
+    <p class="best-meta">
+      {picks.length} picks from the SkillCheck catalog. Each note restates the skill's own description.
+      Read the SKILL.md before you install anything. A clean scan is not a promise that a skill is safe.
+    </p>
+
+    <ol class="pick-list">
+      {
+        picks.map(({ skill, note }) => (
+          <li class="pick panel">
+            <h2>
+              <a href={`${base}skills/${skill.id}/`}>{skill.name}</a>
+            </h2>
+            <p class="pick-note">{note}</p>
+            <p class="pick-facts">
+              {skill.sources.map((source) => source.name).join(", ")} · {popularityLabel(skill)} · {skill.scan.label}
+            </p>
+            <div class="badges">
+              {agentOrder.map((agent) => (
+                <span class={`badge ${skill.compatibility[agent].status}`}>
+                  {agentLabels[agent]} {statusLabels[skill.compatibility[agent].status]}
+                </span>
+              ))}
+            </div>
+            {installHints(skill).length > 0 && (
+              <div class="install">
+                <p class="install-h">Install</p>
+                {installHints(skill).map((hint) => (
+                  <p class="install-row">
+                    <span>{hint.label}</span>
+                    <code>{hint.command}</code>
+                  </p>
+                ))}
+              </div>
+            )}
+            <p class="pick-links">
+              <a href={`${base}skills/${skill.id}/`}>SkillCheck page</a>
+              {" · "}
+              <a href={skill.sourceUrl}>Source listing</a>
+              {skill.repo && (
+                <>
+                  {" · "}
+                  <a href={skill.repo}>Repo</a>
+                </>
+              )}
+            </p>
+          </li>
+        ))
+      }
+    </ol>
+    {picks.length === 0 && <p class="empty">None of the picks for this topic are in the catalog right now.</p>}
+
+    <section class="card panel other-topics">
+      <h2>More lists</h2>
+      <ul class="topic-links">
+        {others.map((other) => (
+          <li><a href={`${base}best/${other.slug}/`}>{other.label}</a></li>
+        ))}
+      </ul>
+    </section>
+  </article>
+  <NewsletterSignup />
+</Base>

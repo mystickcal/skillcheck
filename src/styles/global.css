@@ -148,3 +148,35 @@ th { font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; colo
   .filters, .grid { grid-template-columns: 1fr; }
   .site-header { align-items: flex-start; flex-direction: column; }
 }
+.crumb { font-size: 0.85rem; color: var(--muted); margin: 0 0 0.4rem; }
+.best-meta { color: var(--muted); font-size: 0.9rem; max-width: 42rem; margin: 0.8rem 0 0; }
+.pick-list { list-style: none; padding: 0; margin: 1.2rem 0; display: grid; gap: 0.8rem; counter-reset: pick; }
+.pick { padding: 1rem 1.1rem; counter-increment: pick; }
+.pick h2 { margin: 0 0 0.3rem; font-size: 1.15rem; }
+.pick h2::before { content: counter(pick) ". "; color: var(--muted); font-weight: 400; }
+.pick h2 a { color: var(--ink); text-decoration: none; }
+.pick h2 a:hover { text-decoration: underline; }
+.pick-note { margin: 0 0 0.4rem; max-width: 46rem; }
+.pick-facts { color: var(--muted); font-size: 0.85rem; margin: 0 0 0.5rem; }
+.install { margin: 0.7rem 0 0; border-top: 1px solid var(--line); padding-top: 0.6rem; }
+.install-h { margin: 0 0 0.3rem; font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+.install-row { display: flex; flex-wrap: wrap; gap: 0.3rem 0.7rem; align-items: baseline; margin: 0 0 0.3rem; font-size: 0.85rem; }
+.install-row span { color: var(--muted); min-width: 6.5rem; }
+.install-row code {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0.15rem 0.45rem;
+  overflow-wrap: anywhere;
+}
+.pick-links { margin: 0.5rem 0 0; font-size: 0.9rem; }
+.topic-links { display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; list-style: none; padding: 0; margin: 0; }
+.other-topics { margin: 1.2rem 0 0; }
+.topic-grid { list-style: none; padding: 0; margin: 1.2rem 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); gap: 0.8rem; }
+.topic-grid li { padding: 0.9rem 1rem; }
+.topic-grid a { color: var(--ink); font-weight: 600; text-decoration: none; }
+.topic-grid a:hover { text-decoration: underline; }
+.topic-count { color: var(--muted); font-size: 0.8rem; margin: 0.4rem 0 0; }
+.best-strip { margin: 0.4rem 0 0.2rem; }
+.best-strip h2 { font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); margin: 0 0 0.4rem; font-weight: 600; }

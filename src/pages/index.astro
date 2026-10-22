@@ -1,6 +1,7 @@
 ---
 import NewsletterSignup from "../components/NewsletterSignup.astro";
 import Base from "../layouts/Base.astro";
+import { bestTopics } from "../lib/best";
 import { agentLabels, agentOrder, categories, healthLabels, popularityLabel, skills, statusLabels } from "../lib/skills";
 
 const ranked = [...skills].sort(
@@ -20,6 +21,14 @@ const description =
       Search still finds them, with the warning on the skill page.
     </p>
     <div id="search" class="search"></div>
+  </section>
+
+  <section class="best-strip" aria-label="Best skills by task">
+    <h2>Best skills for</h2>
+    <ul class="topic-links">
+      {bestTopics.map((topic) => <li><a href={`${import.meta.env.BASE_URL}best/${topic.slug}/`}>{topic.label}</a></li>)}
+      <li><a href={`${import.meta.env.BASE_URL}best/`}>All lists</a></li>
+    </ul>
   </section>
 
   <form class="filters panel" id="filters">

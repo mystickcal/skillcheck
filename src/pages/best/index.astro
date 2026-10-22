@@ -1,0 +1,28 @@
+---
+import NewsletterSignup from "../../components/NewsletterSignup.astro";
+import Base from "../../layouts/Base.astro";
+import { bestTopics, resolvePicks } from "../../lib/best";
+
+const base = import.meta.env.BASE_URL;
+const description = "Short, hand-picked lists of agent skills by job: code review, frontend design, writing, PDFs, testing, Git, browsers, security, deploys and web search.";
+---
+
+<Base title="Best agent skills by task | SkillCheck" description={description}>
+  <h1 class="page-title">Best skills by task</h1>
+  <p class="lede">
+    Short lists for common jobs, picked from the catalog. Each one links to the skill's SkillCheck page with its
+    compatibility reading, GitHub health and scan result, and shows how to install it.
+  </p>
+  <ul class="topic-grid">
+    {
+      bestTopics.map((topic) => (
+        <li class="panel">
+          <a href={`${base}best/${topic.slug}/`}>{topic.title}</a>
+          <p class="desc">{topic.description}</p>
+          <p class="topic-count">{resolvePicks(topic).length} skills</p>
+        </li>
+      ))
+    }
+  </ul>
+  <NewsletterSignup />
+</Base>
