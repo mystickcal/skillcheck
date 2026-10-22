@@ -4,7 +4,7 @@ import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { Resvg } from "@resvg/resvg-js";
-import { catalogSkillCount, shareImageDescription } from "../src/lib/share.js";
+import { catalogSkillCount, shareImageByline, shareImageDescription } from "../src/lib/share.js";
 import { woffToSfnt } from "./lib/woff.js";
 
 const WIDTH = 1200;
@@ -39,6 +39,7 @@ export function shareCardSvg(skillCount: number | null): string {
   <text x="80" y="304" font-family="Libre Baskerville" font-size="84" fill="#1c1915" letter-spacing="-2">SkillCheck</text>
   <text x="80" y="374" font-family="Source Sans 3" font-size="30" fill="#5f584e">${xml(shareImageDescription)}</text>
   ${count}
+  <text x="1120" y="476" text-anchor="end" font-family="Source Sans 3" font-size="26" fill="#5f584e">${xml(shareImageByline)}</text>
 </svg>`;
 }
 

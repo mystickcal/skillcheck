@@ -1,6 +1,8 @@
 export const shareImageDescription =
   "See which agent skills work in Claude Code, Codex, OpenClaw and Hermes";
 
+export const shareImageByline = "by @omgitsderek";
+
 export function shareImageUrl(site: URL | string, base: string): string {
   const prefix = base.endsWith("/") ? base : `${base}/`;
   const origin = typeof site === "string" ? site : site.href;

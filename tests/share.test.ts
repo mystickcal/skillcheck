@@ -2,7 +2,7 @@ import { readdirSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { renderSharePng, shareCardSvg } from "../scripts/og-image.js";
-import { catalogSkillCount, shareImageDescription, shareImageUrl } from "../src/lib/share.js";
+import { catalogSkillCount, shareImageByline, shareImageDescription, shareImageUrl } from "../src/lib/share.js";
 
 function walk(dir: string, found: string[] = []): string[] {
   for (const entry of readdirSync(dir)) {
@@ -39,6 +39,8 @@ describe("share image", () => {
   it("puts the description and the build-time count on the card", () => {
     const svg = shareCardSvg(720);
     expect(svg).toContain(shareImageDescription);
+    expect(svg).toContain(`>${shareImageByline}<`);
+    expect(shareCardSvg(null)).toContain(shareImageByline);
     expect(svg).toContain(">720 skills<");
     expect(shareCardSvg(1)).toContain(">1 skill<");
     expect(shareCardSvg(null)).not.toContain("skills</text>");
