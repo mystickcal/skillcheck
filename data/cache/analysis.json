@@ -6537,12 +6537,12 @@
       }
     },
     "https://github.com/morluto/rea|.agents/skills/reverse-engineer-anything/SKILL.md": {
-      "sha": "b23248073ec7dd4700ec9cec52adabb250153302",
+      "sha": "d75f5548bba454f9993b8563797afdb9ea7aa4b2",
       "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
       "record": {
         "id": "gh-morluto-rea-agents-skills-reverse-engineer-anything",
         "name": "reverse-engineer-anything",
-        "description": "Reverse engineer native, managed, Electron/JavaScript, packaged, firmware, and browser targets with REA. Use shipped-artifact or requested runtime evidence to explain features, compare versions, decompile code, or guide a reconstruction. Skip REA for ordinary source-repository architecture analysis.",
+        "description": "Reverse engineer native, managed, Electron/JavaScript, packaged, firmware, and browser targets with REA, and build agent environments (AgentEnv bundles) of web applications from a live instance or a capture. Use shipped-artifact or requested runtime evidence to explain features, compare versions, decompile code, or guide a reconstruction. Skip REA for ordinary source-repository architecture analysis.",
         "sourceUrl": "https://www.skills.sh/morluto/rea/reverse-engineer-anything",
         "repo": "https://github.com/morluto/rea",
         "path": ".agents/skills/reverse-engineer-anything/SKILL.md",
@@ -6597,9 +6597,9 @@
           }
         },
         "github": {
-          "stars": 375679,
-          "lastPush": "2026-10-24T11:54:16Z",
-          "openIssuesAndPullRequests": 1223,
+          "stars": 381587,
+          "lastPush": "2026-10-25T12:27:17Z",
+          "openIssuesAndPullRequests": 1055,
           "license": "MIT",
           "archived": false
         },
@@ -6609,8 +6609,8 @@
           "flags": []
         },
         "registry": null,
-        "contentSha": "883d7e599d5d578899f80fe2e2a84c098fc662f7bbbede7eca501d9bb1558fe8",
-        "analyzedAt": "2026-10-24T11:58:20.546Z",
+        "contentSha": "8d766911b3d3c6ced4d8928643d1d6d3826686aedcae56fe56a865b869398110",
+        "analyzedAt": "2026-10-25T12:28:18.009Z",
         "updatedAt": null,
         "qualityScore": 0
       }
