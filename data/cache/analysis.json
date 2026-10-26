@@ -6537,7 +6537,7 @@
       }
     },
     "https://github.com/morluto/rea|.agents/skills/reverse-engineer-anything/SKILL.md": {
-      "sha": "d75f5548bba454f9993b8563797afdb9ea7aa4b2",
+      "sha": "d173763599565029f5266ba28c4f6b7b0ddd35ec",
       "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
       "record": {
         "id": "gh-morluto-rea-agents-skills-reverse-engineer-anything",
@@ -6597,9 +6597,9 @@
           }
         },
         "github": {
-          "stars": 381587,
-          "lastPush": "2026-10-25T12:27:17Z",
-          "openIssuesAndPullRequests": 1055,
+          "stars": 389044,
+          "lastPush": "2026-10-26T14:03:58Z",
+          "openIssuesAndPullRequests": 1114,
           "license": "MIT",
           "archived": false
         },
@@ -6609,8 +6609,8 @@
           "flags": []
         },
         "registry": null,
-        "contentSha": "8d766911b3d3c6ced4d8928643d1d6d3826686aedcae56fe56a865b869398110",
-        "analyzedAt": "2026-10-25T12:28:18.009Z",
+        "contentSha": "8866a9102de4ca5d6110e280a5d53fa67f0600d26b75cfaff4e9b252af631bcf",
+        "analyzedAt": "2026-10-26T14:06:41.499Z",
         "updatedAt": null,
         "qualityScore": 0
       }
@@ -9085,7 +9085,7 @@
       }
     },
     "https://github.com/affaan-m/ecc|.kiro/skills/django-security/SKILL.md": {
-      "sha": "0049e6601500e651223ecc4cfc41ee108bcbda0b",
+      "sha": "f5cd27d9e80e64cdaf76e1c3e870ce4eeca6120f",
       "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
       "record": {
         "id": "gh-affaan-m-ecc-kiro-skills-django-security",
@@ -9144,9 +9144,9 @@
           }
         },
         "github": {
-          "stars": 284730,
-          "lastPush": "2026-10-20T14:51:29Z",
-          "openIssuesAndPullRequests": 245,
+          "stars": 289328,
+          "lastPush": "2026-10-26T04:56:56Z",
+          "openIssuesAndPullRequests": 240,
           "license": "MIT",
           "archived": false
         },
@@ -9156,8 +9156,8 @@
           "flags": []
         },
         "registry": null,
-        "contentSha": "401b9210ccd90e7c041a1bf58c11804a10510187179834bc421b844705cc11a7",
-        "analyzedAt": "2026-10-20T19:32:29.585Z",
+        "contentSha": "e6c06735b29c198eda3e8efcdcfd055fc66474660e802ea2555e09d3f5d59dbf",
+        "analyzedAt": "2026-10-26T14:06:43.615Z",
         "updatedAt": null,
         "qualityScore": 0
       }
@@ -18492,6 +18492,80 @@
         "registry": null,
         "contentSha": "fded3af46949db8366d8e7267446f5c1769aed27622f1ff14419bf9682a38089",
         "analyzedAt": "2026-10-20T19:32:48.066Z",
+        "updatedAt": null,
+        "qualityScore": 0
+      }
+    },
+    "https://github.com/affaan-m/ecc|docs/ja-JP/skills/dotnet-patterns/SKILL.md": {
+      "sha": "84a8fd5868941a41a75d39e46e8b332461c55f06",
+      "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
+      "record": {
+        "id": "gh-affaan-m-ecc-docs-ja-jp-skills-dotnet-patterns",
+        "name": "dotnet-patterns",
+        "description": "C#と.NET言語固有のパターン、規約、依存性注入、async/await、およびロバストで保守可能な.NETアプリケーション構築のためのベストプラクティス。",
+        "sourceUrl": "https://www.skills.sh/affaan-m/ecc/dotnet-patterns",
+        "repo": "https://github.com/affaan-m/ecc",
+        "path": "docs/ja-JP/skills/dotnet-patterns/SKILL.md",
+        "author": "affaan-m",
+        "tags": [],
+        "category": "uncategorized",
+        "frontmatterKeys": [
+          "name",
+          "description",
+          "origin"
+        ],
+        "sources": [
+          {
+            "name": "skills.sh",
+            "url": "https://www.skills.sh/affaan-m/ecc/dotnet-patterns"
+          }
+        ],
+        "bins": [],
+        "env": [],
+        "tools": [],
+        "hasScriptsDir": false,
+        "mentionsNetwork": false,
+        "compatibility": {
+          "claude-code": {
+            "status": "compatible",
+            "reasons": [
+              "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name."
+            ]
+          },
+          "codex": {
+            "status": "compatible",
+            "reasons": [
+              "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored."
+            ]
+          },
+          "hermes": {
+            "status": "compatible",
+            "reasons": [
+              "Hermes can load this file. The validator requires name, description, and a body after frontmatter."
+            ]
+          },
+          "openclaw": {
+            "status": "compatible",
+            "reasons": [
+              "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it."
+            ]
+          }
+        },
+        "github": {
+          "stars": 289328,
+          "lastPush": "2026-10-26T04:56:56Z",
+          "openIssuesAndPullRequests": 240,
+          "license": "MIT",
+          "archived": false
+        },
+        "health": "active",
+        "scan": {
+          "label": "scanned, no flags",
+          "flags": []
+        },
+        "registry": null,
+        "contentSha": "c021b4c36e59c0589f6eb8cbcb902f26c514005ae76275e12d4bd6cf2a5d3aa5",
+        "analyzedAt": "2026-10-26T14:06:43.782Z",
         "updatedAt": null,
         "qualityScore": 0
       }
