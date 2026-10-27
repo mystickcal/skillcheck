@@ -3,16 +3,29 @@ import Analytics from "../components/Analytics.astro";
 import "../styles/global.css";
 import { repoUrl } from "../lib/links";
 import { shareImageDescription, shareImageUrl } from "../lib/share";
+import { buildPublicSchema, serializeJsonLd } from "../lib/schema";
 
 interface Props {
   title: string;
   description: string;
+  noindex?: boolean;
 }
 
-const { title, description } = Astro.props;
+const { title, description, noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const image = shareImageUrl(Astro.site ?? canonical.origin, import.meta.env.BASE_URL);
 const imageAlt = `SkillCheck. ${shareImageDescription}`;
+const jsonLd = noindex
+  ? null
+  : serializeJsonLd(
+      buildPublicSchema({
+        site: Astro.site ?? canonical.origin,
+        basePath: import.meta.env.BASE_URL,
+        pathname: Astro.url.pathname,
+        title,
+        description,
+      }),
+    );
 ---
 
 <!doctype html>
@@ -23,6 +36,8 @@ const imageAlt = `SkillCheck. ${shareImageDescription}`;
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical.href} />
+    {noindex && <meta name="robots" content="noindex" />}
+    {jsonLd && <script type="application/ld+json" set:html={jsonLd}></script>}
     <link rel="icon" href={`${import.meta.env.BASE_URL}favicon.svg`} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
