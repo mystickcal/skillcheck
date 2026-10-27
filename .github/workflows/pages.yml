@@ -33,6 +33,7 @@ jobs:
           PUBLIC_NEWSLETTER_GATEWAY: https://newsletter.clickconsultants.com
           PUBLIC_UMAMI_SRC: ${{ vars.PUBLIC_UMAMI_SRC }}
           PUBLIC_UMAMI_WEBSITE_ID: ${{ vars.PUBLIC_UMAMI_WEBSITE_ID }}
+          PUBLIC_GA4_MEASUREMENT_ID: G-BNS7F8KX6P
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

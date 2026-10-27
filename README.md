@@ -68,13 +68,14 @@ GitHub Pages builds set `SITE=https://mystickcal.github.io` and `BASE_PATH=/skil
 
 Search on the built site uses Pagefind. Filters for agent, reading, category, health, and scan run in the browser on the static table.
 
-Pageview analytics is off unless you set an env var. GitHub Pages does not count pageviews on its own, and every hosted counter needs an account. Nothing is loaded when the vars are unset.
+Pageview analytics is off unless you set an env var. GitHub Pages does not count pageviews on its own, and every hosted counter needs an account. Nothing is loaded before a visitor explicitly chooses ΓÇ£Allow analyticsΓÇ¥; the choice is saved locally and can be reopened or revoked. GA4 is configured without Google advertising signals or personalization and uses the path without URL query strings.
 
 - `PUBLIC_CF_BEACON_TOKEN`: Cloudflare Web Analytics. Needs a free Cloudflare account. Create a site and copy the beacon token.
 - `PUBLIC_GOATCOUNTER_SRC`: GoatCounter, for example `https://skillcheck.goatcounter.com/count`. Needs a free GoatCounter account. No cookies.
 - `PUBLIC_PLAUSIBLE_DOMAIN`: Plausible. Needs a Plausible account (their hosted product is paid) or a self-hosted Plausible. Optional `PUBLIC_PLAUSIBLE_SCRIPT` overrides `https://plausible.io/js/script.js`.
+- `PUBLIC_GA4_MEASUREMENT_ID`: Google Analytics 4 measurement ID. GitHub Pages uses `G-BNS7F8KX6P` for property `561002793` and web stream `16213778490`.
 
-No analytics account is connected in this repo.
+GA4 is connected for GitHub Pages. Other supported providers remain disabled unless their corresponding environment variables are set.
 
 ## Deploy
 

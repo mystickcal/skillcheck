@@ -8,37 +8,87 @@ const analytics = analyticsConfig({
   plausibleScript: import.meta.env.PUBLIC_PLAUSIBLE_SCRIPT,
   umamiSrc: import.meta.env.PUBLIC_UMAMI_SRC,
   umamiWebsiteId: import.meta.env.PUBLIC_UMAMI_WEBSITE_ID,
+  ga4MeasurementId: import.meta.env.PUBLIC_GA4_MEASUREMENT_ID,
 });
 ---
 
 {
-  analytics.cloudflareToken && (
-    <script
-      is:inline
-      defer
-      src="https://static.cloudflareinsights.com/beacon.min.js"
-      data-cf-beacon={`{"token":"${analytics.cloudflareToken}"}`}
-    />
-  )
-}
-{
-  analytics.goatcounter && (
-    <script is:inline async data-goatcounter={analytics.goatcounter} src="https://gc.zgo.at/count.js" />
-  )
-}
-{
-  analytics.plausible && (
-    <script is:inline defer data-domain={analytics.plausible.domain} src={analytics.plausible.src} />
-  )
-}
-{
-  analytics.umami && (
-    <script
-      is:inline
-      defer
-      src={analytics.umami.src}
-      data-website-id={analytics.umami.websiteId}
-      data-domains="mystickcal.github.io"
-    />
+  (analytics.cloudflareToken || analytics.goatcounter || analytics.plausible || analytics.umami || analytics.ga4MeasurementId) && (
+    <aside class="analytics-consent" data-analytics-consent aria-label="Analytics preference">
+      <p data-analytics-message>
+        SkillCheck can use privacy-limited analytics to understand site visits. No analytics load until you choose.
+      </p>
+      <div class="analytics-actions" data-analytics-actions>
+        <button type="button" data-analytics-allow>Allow analytics</button>
+        <button type="button" class="analytics-secondary" data-analytics-decline>No thanks</button>
+      </div>
+      <button type="button" class="analytics-manage" data-analytics-manage hidden>Manage analytics preference</button>
+      <script is:inline define:vars={{ analytics }}>
+        const storageKey = "skillcheck.analytics-consent";
+        const root = document.querySelector("[data-analytics-consent]");
+        const message = root?.querySelector("[data-analytics-message]");
+        const actions = root?.querySelector("[data-analytics-actions]");
+        const manage = root?.querySelector("[data-analytics-manage]");
+        const choice = localStorage.getItem(storageKey);
+        const safePath = () => `${location.origin}${location.pathname}`;
+        const addScript = (src, attributes = {}) => {
+          const script = document.createElement("script");
+          script.src = src;
+          script.async = true;
+          Object.entries(attributes).forEach(([name, value]) => script.setAttribute(name, value));
+          document.head.append(script);
+        };
+        const stopGa4 = () => {
+          if (analytics.ga4MeasurementId) window[`ga-disable-${analytics.ga4MeasurementId}`] = true;
+        };
+        const start = () => {
+          if (root?.dataset.started) return;
+          root.dataset.started = "true";
+          if (analytics.ga4MeasurementId) {
+            window[`ga-disable-${analytics.ga4MeasurementId}`] = false;
+            window.dataLayer = window.dataLayer || [];
+            window.gtag = (...args) => window.dataLayer.push(args);
+            window.gtag("consent", "default", { analytics_storage: "denied", ad_storage: "denied", ad_user_data: "denied", ad_personalization: "denied" });
+            window.gtag("consent", "update", { analytics_storage: "granted" });
+            window.gtag("js", new Date());
+            window.gtag("config", analytics.ga4MeasurementId, { allow_google_signals: false, allow_ad_personalization_signals: false, page_location: safePath() });
+            addScript(`https://www.googletagmanager.com/gtag/js?id=${analytics.ga4MeasurementId}`);
+          }
+          if (analytics.cloudflareToken) addScript("https://static.cloudflareinsights.com/beacon.min.js", { "data-cf-beacon": JSON.stringify({ token: analytics.cloudflareToken }) });
+          if (analytics.goatcounter) {
+            window.goatcounter = { path: () => location.pathname };
+            addScript("https://gc.zgo.at/count.js", { "data-goatcounter": analytics.goatcounter });
+          }
+          if (analytics.plausible) addScript(analytics.plausible.src, { "data-domain": analytics.plausible.domain });
+          if (analytics.umami) addScript(analytics.umami.src, { "data-website-id": analytics.umami.websiteId, "data-domains": location.hostname });
+        };
+        const showChoice = (text) => {
+          if (message) message.textContent = text;
+          if (actions) actions.hidden = false;
+          if (manage) manage.hidden = true;
+        };
+        const setChoice = (next) => {
+          const wasStarted = root?.dataset.started === "true";
+          localStorage.setItem(storageKey, next);
+          if (next === "allowed") {
+            start();
+            if (message) message.textContent = "Analytics are enabled. You can change this choice at any time.";
+          } else {
+            stopGa4();
+            if (message) message.textContent = "Analytics are off. You can change this choice at any time.";
+          }
+          if (actions) actions.hidden = true;
+          if (manage) manage.hidden = false;
+          if (next === "declined" && wasStarted) location.reload();
+        };
+        root?.querySelector("[data-analytics-allow]")?.addEventListener("click", () => setChoice("allowed"));
+        root?.querySelector("[data-analytics-decline]")?.addEventListener("click", () => setChoice("declined"));
+        manage?.addEventListener("click", () => showChoice("Change your analytics preference. Choosing No thanks stops future analytics collection."));
+        stopGa4();
+        if (choice === "allowed") setChoice("allowed");
+        else if (choice === "declined") setChoice("declined");
+        else showChoice("SkillCheck can use privacy-limited analytics to understand site visits. No analytics load until you choose.");
+      </script>
+    </aside>
   )
 }

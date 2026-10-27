@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { analyticsConfig } from "../src/lib/analytics";
+import { analyticsConfig, analyticsConsent } from "../src/lib/analytics";
 
 describe("pageview analytics", () => {
   it("is a no-op when nothing is configured", () => {
@@ -8,7 +8,15 @@ describe("pageview analytics", () => {
       goatcounter: null,
       plausible: null,
       umami: null,
+      ga4MeasurementId: null,
     });
+  });
+
+  it("accepts a GA4 measurement ID and rejects unsafe IDs", () => {
+    expect(analyticsConfig({ ga4MeasurementId: "G-BNS7F8KX6P" }).ga4MeasurementId).toBe("G-BNS7F8KX6P");
+    expect(analyticsConfig({ ga4MeasurementId: "g-bns7f8kx6p" }).ga4MeasurementId).toBe("G-BNS7F8KX6P");
+    expect(analyticsConfig({ ga4MeasurementId: "G-ABC\" onload=alert(1)" }).ga4MeasurementId).toBeNull();
+    expect(analyticsConfig({ ga4MeasurementId: "UA-12345" }).ga4MeasurementId).toBeNull();
   });
 
   it("accepts a Cloudflare token, GoatCounter count URL, or Plausible domain", () => {
@@ -32,7 +40,7 @@ describe("pageview analytics", () => {
       plausibleDomain: "bad domain",
       plausibleScript: "http://insecure.example/script.js",
     });
-    expect(config).toEqual({ cloudflareToken: null, goatcounter: null, plausible: null, umami: null });
+    expect(config).toEqual({ cloudflareToken: null, goatcounter: null, plausible: null, umami: null, ga4MeasurementId: null });
   });
 
   it("accepts an https Umami script with a UUID website id and rejects anything else", () => {
@@ -48,5 +56,12 @@ describe("pageview analytics", () => {
     expect(analyticsConfig({ umamiSrc: "http://insecure.example/script.js", umamiWebsiteId: "b69f59fe-cb2c-4241-9011-2aa78b8ff69e" }).umami).toBeNull();
     expect(analyticsConfig({ umamiSrc: "https://newsletter.clickconsultants.com/u/script.js", umamiWebsiteId: "not-a-uuid\" onload=\"x" }).umami).toBeNull();
     expect(analyticsConfig({ umamiSrc: "https://newsletter.clickconsultants.com/u/script.js" }).umami).toBeNull();
+  });
+
+  it("only recognizes explicit analytics consent or revocation", () => {
+    expect(analyticsConsent(null)).toBeNull();
+    expect(analyticsConsent("anything else")).toBeNull();
+    expect(analyticsConsent("allowed")).toBe("allowed");
+    expect(analyticsConsent("declined")).toBe("declined");
   });
 });
