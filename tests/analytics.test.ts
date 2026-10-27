@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { analyticsConfig, analyticsConsent } from "../src/lib/analytics";
+import { analyticsConfig, analyticsConsent, readAnalyticsConsent, sanitizeAnalyticsReferrer, writeAnalyticsConsent } from "../src/lib/analytics";
+import { createAnalyticsConsentRuntime } from "../src/lib/analytics-consent";
 
 describe("pageview analytics", () => {
   it("is a no-op when nothing is configured", () => {
@@ -63,5 +64,65 @@ describe("pageview analytics", () => {
     expect(analyticsConsent("anything else")).toBeNull();
     expect(analyticsConsent("allowed")).toBe("allowed");
     expect(analyticsConsent("declined")).toBe("declined");
+  });
+
+  it("defaults analytics off when storage is unavailable and keeps a successful choice", () => {
+    expect(readAnalyticsConsent(() => { throw new Error("blocked"); })).toBeNull();
+    expect(readAnalyticsConsent(() => "allowed")).toBe("allowed");
+    expect(writeAnalyticsConsent(() => { throw new Error("blocked"); }, "declined")).toBe(false);
+    let stored = "";
+    expect(writeAnalyticsConsent((value) => { stored = value; }, "declined")).toBe(true);
+    expect(stored).toBe("declined");
+  });
+
+  it("removes query data from GA referrers and rejects invalid URLs", () => {
+    expect(sanitizeAnalyticsReferrer("https://example.com/private/path?email=me@example.com#section")).toBe("https://example.com/private/path");
+    expect(sanitizeAnalyticsReferrer("not a URL")).toBe("");
+    expect(sanitizeAnalyticsReferrer("javascript:alert(1)")).toBe("");
+  });
+
+  it("does not load analytics until allowed, and revocation disables then reloads", () => {
+    const events: string[] = [];
+    const runtime = createAnalyticsConsentRuntime({
+      initialChoice: null,
+      persist: (choice) => { events.push(`persist:${choice}`); return true; },
+      onAllow: () => events.push("load"),
+      onDecline: () => events.push("disable"),
+      onReload: () => events.push("reload"),
+    });
+    runtime.applyInitialChoice();
+    expect(events).toEqual([]);
+    runtime.choose("declined");
+    expect(events).toEqual(["persist:declined", "disable"]);
+    runtime.choose("allowed");
+    runtime.choose("allowed");
+    expect(events.filter((event) => event === "load")).toHaveLength(1);
+    runtime.choose("declined");
+    expect(events.slice(-3)).toEqual(["persist:declined", "disable", "reload"]);
+  });
+
+  it("does not reload for an initial decline or failed revoke persistence", () => {
+    const initialEvents: string[] = [];
+    createAnalyticsConsentRuntime({
+      initialChoice: "declined",
+      persist: () => true,
+      onAllow: () => initialEvents.push("load"),
+      onDecline: () => initialEvents.push("disable"),
+      onReload: () => initialEvents.push("reload"),
+    }).applyInitialChoice();
+    expect(initialEvents).toEqual(["disable"]);
+
+    const events: string[] = [];
+    const storedAllowed = readAnalyticsConsent(() => "allowed");
+    const runtime = createAnalyticsConsentRuntime({
+      initialChoice: storedAllowed,
+      persist: (choice) => writeAnalyticsConsent(() => { throw new Error("blocked"); }, choice),
+      onAllow: () => events.push("load"),
+      onDecline: () => events.push("disable"),
+      onReload: () => events.push("reload"),
+    });
+    runtime.applyInitialChoice();
+    expect(runtime.choose("declined")).toEqual({ persisted: false });
+    expect(events).toEqual(["load", "disable"]);
   });
 });

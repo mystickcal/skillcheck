@@ -14,7 +14,7 @@ const analytics = analyticsConfig({
 
 {
   (analytics.cloudflareToken || analytics.goatcounter || analytics.plausible || analytics.umami || analytics.ga4MeasurementId) && (
-    <aside class="analytics-consent" data-analytics-consent aria-label="Analytics preference">
+    <aside class="analytics-consent" data-analytics-consent data-analytics={JSON.stringify(analytics)} aria-label="Analytics preference">
       <p data-analytics-message>
         SkillCheck can use privacy-limited analytics to understand site visits. No analytics load until you choose.
       </p>
@@ -23,13 +23,19 @@ const analytics = analyticsConfig({
         <button type="button" class="analytics-secondary" data-analytics-decline>No thanks</button>
       </div>
       <button type="button" class="analytics-manage" data-analytics-manage hidden>Manage analytics preference</button>
-      <script is:inline define:vars={{ analytics }}>
+      <script>
+        import { readAnalyticsConsent, sanitizeAnalyticsReferrer, writeAnalyticsConsent } from "../lib/analytics";
+        import { createAnalyticsConsentRuntime } from "../lib/analytics-consent";
+
         const storageKey = "skillcheck.analytics-consent";
+        const sessionStorageKey = "skillcheck.analytics-consent-session";
         const root = document.querySelector("[data-analytics-consent]");
+        const analytics = JSON.parse(root?.getAttribute("data-analytics") || "{}");
         const message = root?.querySelector("[data-analytics-message]");
         const actions = root?.querySelector("[data-analytics-actions]");
         const manage = root?.querySelector("[data-analytics-manage]");
-        const choice = localStorage.getItem(storageKey);
+        const choice = readAnalyticsConsent(() => sessionStorage.getItem(sessionStorageKey))
+          ?? readAnalyticsConsent(() => localStorage.getItem(storageKey));
         const safePath = () => `${location.origin}${location.pathname}`;
         const addScript = (src, attributes = {}) => {
           const script = document.createElement("script");
@@ -51,7 +57,7 @@ const analytics = analyticsConfig({
             window.gtag("consent", "default", { analytics_storage: "denied", ad_storage: "denied", ad_user_data: "denied", ad_personalization: "denied" });
             window.gtag("consent", "update", { analytics_storage: "granted" });
             window.gtag("js", new Date());
-            window.gtag("config", analytics.ga4MeasurementId, { allow_google_signals: false, allow_ad_personalization_signals: false, page_location: safePath() });
+            window.gtag("config", analytics.ga4MeasurementId, { allow_google_signals: false, allow_ad_personalization_signals: false, page_location: safePath(), page_referrer: sanitizeAnalyticsReferrer(document.referrer) });
             addScript(`https://www.googletagmanager.com/gtag/js?id=${analytics.ga4MeasurementId}`);
           }
           if (analytics.cloudflareToken) addScript("https://static.cloudflareinsights.com/beacon.min.js", { "data-cf-beacon": JSON.stringify({ token: analytics.cloudflareToken }) });
@@ -67,26 +73,44 @@ const analytics = analyticsConfig({
           if (actions) actions.hidden = false;
           if (manage) manage.hidden = true;
         };
+        const runtime = createAnalyticsConsentRuntime({
+          initialChoice: choice,
+          persist: (next) => {
+            const sessionSaved = writeAnalyticsConsent((value) => sessionStorage.setItem(sessionStorageKey, value), next);
+            const localSaved = writeAnalyticsConsent((value) => localStorage.setItem(storageKey, value), next);
+            return sessionSaved || localSaved;
+          },
+          onAllow: start,
+          onDecline: stopGa4,
+          onReload: () => location.reload(),
+        });
         const setChoice = (next) => {
-          const wasStarted = root?.dataset.started === "true";
-          localStorage.setItem(storageKey, next);
+          const { persisted } = runtime.choose(next);
           if (next === "allowed") {
-            start();
             if (message) message.textContent = "Analytics are enabled. You can change this choice at any time.";
           } else {
-            stopGa4();
-            if (message) message.textContent = "Analytics are off. You can change this choice at any time.";
+            if (message) message.textContent = persisted
+              ? "Analytics are off. You can change this choice at any time."
+              : "GA4 is off for this page, but your browser blocked saving that choice. Previously loaded analytics may finish current-page work.";
           }
           if (actions) actions.hidden = true;
           if (manage) manage.hidden = false;
-          if (next === "declined" && wasStarted) location.reload();
         };
         root?.querySelector("[data-analytics-allow]")?.addEventListener("click", () => setChoice("allowed"));
         root?.querySelector("[data-analytics-decline]")?.addEventListener("click", () => setChoice("declined"));
-        manage?.addEventListener("click", () => showChoice("Change your analytics preference. Choosing No thanks stops future analytics collection."));
+        manage?.addEventListener("click", () => showChoice("Change your analytics preference. No thanks prevents analytics from loading on future pages."));
         stopGa4();
-        if (choice === "allowed") setChoice("allowed");
-        else if (choice === "declined") setChoice("declined");
+        runtime.applyInitialChoice();
+        if (choice === "allowed") {
+          if (message) message.textContent = "Analytics are enabled. You can change this choice at any time.";
+          if (actions) actions.hidden = true;
+          if (manage) manage.hidden = false;
+        }
+        else if (choice === "declined") {
+          if (message) message.textContent = "Analytics are off. You can change this choice at any time.";
+          if (actions) actions.hidden = true;
+          if (manage) manage.hidden = false;
+        }
         else showChoice("SkillCheck can use privacy-limited analytics to understand site visits. No analytics load until you choose.");
       </script>
     </aside>

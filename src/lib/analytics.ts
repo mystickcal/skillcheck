@@ -45,3 +45,29 @@ export function analyticsConfig(env: {
 export function analyticsConsent(value: string | null | undefined): AnalyticsConsent {
   return value === "allowed" || value === "declined" ? value : null;
 }
+
+export function readAnalyticsConsent(read: () => string | null): AnalyticsConsent {
+  try {
+    return analyticsConsent(read());
+  } catch {
+    return null;
+  }
+}
+
+export function writeAnalyticsConsent(write: (value: Exclude<AnalyticsConsent, null>) => void, value: Exclude<AnalyticsConsent, null>): boolean {
+  try {
+    write(value);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+export function sanitizeAnalyticsReferrer(value: string): string {
+  try {
+    const url = new URL(value);
+    return url.protocol === "http:" || url.protocol === "https:" ? `${url.origin}${url.pathname}` : "";
+  } catch {
+    return "";
+  }
+}
