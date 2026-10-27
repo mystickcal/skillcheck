@@ -132,6 +132,7 @@ th { font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; colo
 .site-footer { padding: 2rem 0 3rem; color: var(--muted); }
 .analytics-consent { position: fixed; right: 1rem; bottom: 1rem; z-index: 10; width: min(25rem, calc(100% - 2rem)); padding: 0.85rem; border: 1px solid var(--line); border-radius: 12px; background: var(--paper-2); box-shadow: 0 6px 24px rgba(28, 25, 21, 0.16); font-size: 0.9rem; }
 .analytics-consent p { margin: 0; color: var(--muted); }
+.analytics-consent [hidden] { display: none !important; }
 .analytics-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
 .analytics-secondary, .analytics-manage { background: var(--paper-2); color: var(--ink); border: 1px solid var(--line); }
 .analytics-manage { margin-top: 0.75rem; }
