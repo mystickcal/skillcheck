@@ -67,6 +67,12 @@ export function honorStoredAnalyticsConsent(value: AnalyticsConsent, refresh: (v
   return value === "allowed" && !refresh("allowed") ? null : value;
 }
 
+export function createGoogleTagCommand(queue: { push: (value: IArguments) => unknown }) {
+  return function (..._args: unknown[]) {
+    queue.push(arguments);
+  };
+}
+
 export function sanitizeAnalyticsReferrer(value: string): string {
   try {
     const url = new URL(value);

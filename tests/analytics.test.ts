@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { analyticsConfig, analyticsConsent, honorStoredAnalyticsConsent, readAnalyticsConsent, sanitizeAnalyticsReferrer, writeAnalyticsConsent } from "../src/lib/analytics";
+import { analyticsConfig, analyticsConsent, createGoogleTagCommand, honorStoredAnalyticsConsent, readAnalyticsConsent, sanitizeAnalyticsReferrer, writeAnalyticsConsent } from "../src/lib/analytics";
 import { createAnalyticsConsentRuntime } from "../src/lib/analytics-consent";
 
 describe("pageview analytics", () => {
@@ -106,6 +106,23 @@ describe("pageview analytics", () => {
     expect(sanitizeAnalyticsReferrer("https://example.com/private/path?email=me@example.com#section")).toBe("https://example.com/private/path");
     expect(sanitizeAnalyticsReferrer("not a URL")).toBe("");
     expect(sanitizeAnalyticsReferrer("javascript:alert(1)")).toBe("");
+  });
+
+  it("queues Google tag commands as Arguments objects in command order", () => {
+    const queue: IArguments[] = [];
+    const gtag = createGoogleTagCommand(queue);
+    const timestamp = new Date("2026-10-27T00:00:00.000Z");
+    const config = { page_location: "https://mystickcal.github.io/skillcheck/" };
+    gtag("js", timestamp);
+    gtag("config", "G-BNS7F8KX6P", config);
+    gtag("event", "page_view", { source: "consent" });
+
+    expect(queue).toHaveLength(3);
+    expect(Array.isArray(queue[0])).toBe(false);
+    expect(Object.prototype.toString.call(queue[0])).toBe("[object Arguments]");
+    expect(Array.from(queue[0])).toEqual(["js", timestamp]);
+    expect(Array.from(queue[1])).toEqual(["config", "G-BNS7F8KX6P", config]);
+    expect(Array.from(queue[2])).toEqual(["event", "page_view", { source: "consent" }]);
   });
 
   it("does not load analytics until allowed, and revocation disables then reloads", () => {
