@@ -63,6 +63,10 @@ export function writeAnalyticsConsent(write: (value: Exclude<AnalyticsConsent, n
   }
 }
 
+export function honorStoredAnalyticsConsent(value: AnalyticsConsent, refresh: (value: "allowed") => boolean): AnalyticsConsent {
+  return value === "allowed" && !refresh("allowed") ? null : value;
+}
+
 export function sanitizeAnalyticsReferrer(value: string): string {
   try {
     const url = new URL(value);

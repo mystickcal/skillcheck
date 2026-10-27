@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { analyticsConfig, analyticsConsent, readAnalyticsConsent, sanitizeAnalyticsReferrer, writeAnalyticsConsent } from "../src/lib/analytics";
+import { analyticsConfig, analyticsConsent, honorStoredAnalyticsConsent, readAnalyticsConsent, sanitizeAnalyticsReferrer, writeAnalyticsConsent } from "../src/lib/analytics";
 import { createAnalyticsConsentRuntime } from "../src/lib/analytics-consent";
 
 describe("pageview analytics", () => {
@@ -73,6 +73,33 @@ describe("pageview analytics", () => {
     let stored = "";
     expect(writeAnalyticsConsent((value) => { stored = value; }, "declined")).toBe(true);
     expect(stored).toBe("declined");
+  });
+
+  it("fails closed across navigation when a stored allow cannot be refreshed", () => {
+    const blockedRefresh = () => writeAnalyticsConsent(() => { throw new Error("blocked"); }, "allowed");
+    const firstChoice = honorStoredAnalyticsConsent(readAnalyticsConsent(() => "allowed"), blockedRefresh);
+    const firstEvents: string[] = [];
+    const first = createAnalyticsConsentRuntime({
+      initialChoice: firstChoice,
+      persist: () => false,
+      onAllow: () => firstEvents.push("load"),
+      onDecline: () => firstEvents.push("disable"),
+      onReload: () => firstEvents.push("reload"),
+    });
+    first.applyInitialChoice();
+    expect(first.choose("declined")).toEqual({ persisted: false });
+    expect(firstEvents).toEqual(["disable"]);
+
+    const secondChoice = honorStoredAnalyticsConsent(readAnalyticsConsent(() => "allowed"), blockedRefresh);
+    const secondEvents: string[] = [];
+    createAnalyticsConsentRuntime({
+      initialChoice: secondChoice,
+      persist: () => false,
+      onAllow: () => secondEvents.push("load"),
+      onDecline: () => secondEvents.push("disable"),
+      onReload: () => secondEvents.push("reload"),
+    }).applyInitialChoice();
+    expect(secondEvents).toEqual([]);
   });
 
   it("removes query data from GA referrers and rejects invalid URLs", () => {

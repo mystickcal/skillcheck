@@ -24,7 +24,7 @@ const analytics = analyticsConfig({
       </div>
       <button type="button" class="analytics-manage" data-analytics-manage hidden>Manage analytics preference</button>
       <script>
-        import { readAnalyticsConsent, sanitizeAnalyticsReferrer, writeAnalyticsConsent } from "../lib/analytics";
+        import { honorStoredAnalyticsConsent, readAnalyticsConsent, sanitizeAnalyticsReferrer, writeAnalyticsConsent } from "../lib/analytics";
         import { createAnalyticsConsentRuntime } from "../lib/analytics-consent";
 
         const storageKey = "skillcheck.analytics-consent";
@@ -34,8 +34,14 @@ const analytics = analyticsConfig({
         const message = root?.querySelector("[data-analytics-message]");
         const actions = root?.querySelector("[data-analytics-actions]");
         const manage = root?.querySelector("[data-analytics-manage]");
-        const choice = readAnalyticsConsent(() => sessionStorage.getItem(sessionStorageKey))
+        const storedChoice = readAnalyticsConsent(() => sessionStorage.getItem(sessionStorageKey))
           ?? readAnalyticsConsent(() => localStorage.getItem(storageKey));
+        const persistChoice = (next) => {
+          const sessionSaved = writeAnalyticsConsent((value) => sessionStorage.setItem(sessionStorageKey, value), next);
+          const localSaved = writeAnalyticsConsent((value) => localStorage.setItem(storageKey, value), next);
+          return sessionSaved || localSaved;
+        };
+        const choice = honorStoredAnalyticsConsent(storedChoice, persistChoice);
         const safePath = () => `${location.origin}${location.pathname}`;
         const addScript = (src, attributes = {}) => {
           const script = document.createElement("script");
@@ -75,11 +81,7 @@ const analytics = analyticsConfig({
         };
         const runtime = createAnalyticsConsentRuntime({
           initialChoice: choice,
-          persist: (next) => {
-            const sessionSaved = writeAnalyticsConsent((value) => sessionStorage.setItem(sessionStorageKey, value), next);
-            const localSaved = writeAnalyticsConsent((value) => localStorage.setItem(storageKey, value), next);
-            return sessionSaved || localSaved;
-          },
+          persist: persistChoice,
           onAllow: start,
           onDecline: stopGa4,
           onReload: () => location.reload(),
