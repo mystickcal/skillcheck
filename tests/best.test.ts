@@ -44,4 +44,15 @@ describe("best skills lists", () => {
       "npx skills add https://github.com/mattpocock/skills --skill tdd",
     ]);
   });
+
+  it("gives every list a unique title and description with no em dashes in the copy", () => {
+    const titles = bestTopics.map((topic) => topic.title);
+    const descriptions = bestTopics.map((topic) => topic.description);
+    expect(new Set(titles).size).toBe(titles.length);
+    expect(new Set(descriptions).size).toBe(descriptions.length);
+    for (const topic of bestTopics) {
+      const copy = [topic.label, topic.title, topic.description, topic.intro, ...topic.picks.map((pick) => pick.note)].join(" ");
+      expect(copy, topic.slug).not.toContain("\u2014");
+    }
+  });
 });

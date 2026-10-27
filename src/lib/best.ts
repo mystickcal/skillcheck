@@ -182,6 +182,57 @@ export const bestTopics: BestTopic[] = [
       { id: "claw-uroboros1205-prismfy-search", note: "Searches 10 engines including Google, Reddit, GitHub and arXiv through Prismfy. Needs a Prismfy API key; its description says it sets itself as OpenClaw's default search on install." },
     ],
   },
+  {
+    slug: "debugging",
+    label: "Debugging",
+    title: "Best agent skills for debugging",
+    description: "Agent skills that make a coding agent find the root cause before it patches, read logs, look into its own failed runs, and prove a fix works.",
+    intro:
+      "Left alone, an agent tends to guess at a fix, watch one test pass and call it done. These skills slow that down: find the cause first, pull evidence from logs, and run the checks before claiming success.",
+    picks: [
+      { id: "claw-runesleo-runesleo-systematic-debugging", note: "A four-phase method that investigates the root cause before any fix is attempted." },
+      { id: "gh-mattpocock-skills-skills-engineering-diagnosing-bugs", note: "A diagnosis loop for hard bugs and performance regressions. Loads when you say \"debug this\" or report something broken, throwing, failing or slow." },
+      { id: "gh-obra-superpowers-skills-verification-before-completion", note: "Makes the agent run verification commands and read the output before it says work is fixed or passing, commits, or opens a PR." },
+      { id: "claw-gitgoodordietrying-log-analyzer", note: "Parses and searches logs across formats, finds error patterns, reads stack traces and correlates events across services." },
+      { id: "claw-ivangdavila-api", note: "For third-party REST and GraphQL calls that return 401, 403 or 429, time out, hit CORS errors or return wrong data. Includes notes on 147 services." },
+      { id: "gh-affaan-m-ecc-agents-skills-agent-introspection-debugging", note: "For when the agent run itself fails: capture, diagnosis, contained recovery and a written report, instead of a blind retry." },
+      { id: "claw-steipete-oracle", note: "Bundles a prompt and the relevant files with the @steipete/oracle CLI to get a second model's review of a bug, refactor or design." },
+    ],
+  },
+  {
+    slug: "agent-memory",
+    label: "Agent memory",
+    title: "Best agent skills for memory and self-improvement",
+    description: "Agent skills that save corrections and lessons, set up long-term memory, and clean it out, so an agent stops repeating the same mistakes.",
+    intro:
+      "An agent starts each session with no memory of the last one unless something writes it down. These skills log what went wrong, turn on memory search, or prune memory that has filled with junk. Several are built for OpenClaw or Clawdbot, and the notes say which.",
+    picks: [
+      { id: "claw-pskoett-self-improving-agent", note: "Logs errors, corrections and better approaches as they come up, and reviews the saved guidance before major tasks." },
+      { id: "claw-ivangdavila-self-improving", note: "Has the agent check its own work, catch mistakes and keep what it learns in self-organizing memory. Triggers on failures, corrections and rejected work." },
+      { id: "claw-stevengonsalvez-reflect-learn", note: "Pulls lessons from your corrections and from patterns that worked, then proposes edits to agent files or new skills. Runs on /reflect or at session end." },
+      { id: "claw-oswalpalash-ontology", note: "Stores memory as a typed knowledge graph of people, projects, tasks, events and documents, so skills can share state and link related items." },
+      { id: "claw-syajask-memory-setup-openclaw", note: "For OpenClaw: turns on and checks memory_search and memory_get, and sets up MEMORY.md and memory/*.md files when recall is poor." },
+      { id: "claw-marmikcfc-memory-manager", note: "Local memory for agents: warns when context compression could lose memory, saves snapshots, and searches past memories." },
+      { id: "claw-dylanbaker24-memory-hygiene", note: "For Clawdbot: audits and cleans its LanceDB vector memory when it fills with junk or irrelevant recalls push up token use." },
+    ],
+  },
+  {
+    slug: "email",
+    label: "Email",
+    title: "Best agent skills for email",
+    description: "Agent skills that let an agent read, search, draft and send email in Gmail, Outlook or any IMAP inbox, or give it an inbox of its own.",
+    intro:
+      "Email is where an agent can handle real admin work for you, and also where a mistake goes out under your name. Most of these skills can send mail, so check what access each one needs and have it draft before you let it send.",
+    picks: [
+      { id: "claw-steipete-gog", note: "A Google Workspace CLI that covers Gmail along with Calendar, Drive, Contacts, Sheets and Docs." },
+      { id: "claw-hith3sh-gmail-email", note: "Searches, reads, drafts and replies to Gmail through the Gmail API, and handles labels, archiving and attachments." },
+      { id: "claw-hith3sh-outlook-inbox", note: "Outlook mail, drafts and replies, plus calendar events, contacts and tasks, through Microsoft Graph." },
+      { id: "claw-lamelas-himalaya", note: "Lists, reads, writes, replies to and searches mail from the terminal over IMAP and SMTP with the himalaya CLI. Supports multiple accounts." },
+      { id: "claw-gzlicanyi-imap-smtp-email", note: "Checks unread mail, searches mailboxes and sends with attachments on any IMAP or SMTP server. Needs Node and asks for your provider, username and password." },
+      { id: "claw-adboio-agentmail", note: "Gives an agent its own inboxes through the AgentMail API, with webhooks for incoming mail." },
+      { id: "claw-tonimelisma-email-to-calendar", note: "Finds meetings, RSVPs and deadlines in Gmail and creates Google Calendar events after you confirm. Works through the gog CLI." },
+    ],
+  },
 ];
 
 export interface ResolvedPick {
