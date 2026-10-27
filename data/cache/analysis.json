@@ -790,7 +790,7 @@
       }
     },
     "https://github.com/mattpocock/skills|skills/engineering/setup-matt-pocock-skills/SKILL.md": {
-      "sha": "293c25b75590119794af03b037ba4288054a32b3",
+      "sha": "2df0b07981718fa5d9a51526dfbcaee87e3a543d",
       "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
       "record": {
         "id": "gh-mattpocock-skills-skills-engineering-setup-matt-pocock-skills",
@@ -853,9 +853,9 @@
           }
         },
         "github": {
-          "stars": 293096,
-          "lastPush": "2026-10-13T08:46:40Z",
-          "openIssuesAndPullRequests": 187,
+          "stars": 304553,
+          "lastPush": "2026-10-27T07:44:25Z",
+          "openIssuesAndPullRequests": 199,
           "license": "MIT",
           "archived": false
         },
@@ -865,8 +865,10 @@
           "flags": []
         },
         "registry": null,
-        "contentSha": "f148858ffb7f63c03c06fca06e6fdb1d91a35c6b293244b8fdfacd5f4cc028c4",
-        "analyzedAt": "2026-10-16T04:45:42.407Z"
+        "contentSha": "b01e05bfe8c323171275c6ceec78b12f1bd4c62dfd26c2cfe8be806d3883f1ed",
+        "analyzedAt": "2026-10-27T13:09:58.952Z",
+        "updatedAt": null,
+        "qualityScore": 0
       }
     },
     "https://github.com/mattpocock/skills|skills/productivity/handoff/SKILL.md": {
@@ -6537,7 +6539,7 @@
       }
     },
     "https://github.com/morluto/rea|.agents/skills/reverse-engineer-anything/SKILL.md": {
-      "sha": "d173763599565029f5266ba28c4f6b7b0ddd35ec",
+      "sha": "1073b9b68d08f3a8813c8395682d0c40dc1e686f",
       "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
       "record": {
         "id": "gh-morluto-rea-agents-skills-reverse-engineer-anything",
@@ -6597,9 +6599,9 @@
           }
         },
         "github": {
-          "stars": 389044,
-          "lastPush": "2026-10-26T14:03:58Z",
-          "openIssuesAndPullRequests": 1114,
+          "stars": 395001,
+          "lastPush": "2026-10-27T10:57:29Z",
+          "openIssuesAndPullRequests": 1234,
           "license": "MIT",
           "archived": false
         },
@@ -6609,8 +6611,8 @@
           "flags": []
         },
         "registry": null,
-        "contentSha": "8866a9102de4ca5d6110e280a5d53fa67f0600d26b75cfaff4e9b252af631bcf",
-        "analyzedAt": "2026-10-26T14:06:41.499Z",
+        "contentSha": "547bffd9dcbb88378a488bada8ea32c60bddd561ccee5246be996e993c5a7113",
+        "analyzedAt": "2026-10-27T13:09:55.299Z",
         "updatedAt": null,
         "qualityScore": 0
       }
@@ -18566,6 +18568,81 @@
         "registry": null,
         "contentSha": "c021b4c36e59c0589f6eb8cbcb902f26c514005ae76275e12d4bd6cf2a5d3aa5",
         "analyzedAt": "2026-10-26T14:06:43.782Z",
+        "updatedAt": null,
+        "qualityScore": 0
+      }
+    },
+    "https://github.com/affaan-m/ecc|docs/ja-JP/skills/security-bounty-hunter/SKILL.md": {
+      "sha": "a84f66992ebe3c60a9796cc833a2869a2c0620bf",
+      "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
+      "record": {
+        "id": "gh-affaan-m-ecc-docs-ja-jp-skills-security-bounty-hunter",
+        "name": "security-bounty-hunter",
+        "description": "リポジトリ内の悪用可能なバウンティ対象のセキュリティ問題を発見します。ノイズの多いローカルのみの発見ではなく、実際のレポートに適格なリモートから到達可能な脆弱性に焦点を当てます。",
+        "sourceUrl": "https://www.skills.sh/affaan-m/ecc/security-bounty-hunter",
+        "repo": "https://github.com/affaan-m/ecc",
+        "path": "docs/ja-JP/skills/security-bounty-hunter/SKILL.md",
+        "author": "affaan-m",
+        "tags": [],
+        "category": "uncategorized",
+        "frontmatterKeys": [
+          "name",
+          "description",
+          "origin",
+          "version"
+        ],
+        "sources": [
+          {
+            "name": "skills.sh",
+            "url": "https://www.skills.sh/affaan-m/ecc/security-bounty-hunter"
+          }
+        ],
+        "bins": [],
+        "env": [],
+        "tools": [],
+        "hasScriptsDir": false,
+        "mentionsNetwork": false,
+        "compatibility": {
+          "claude-code": {
+            "status": "compatible",
+            "reasons": [
+              "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name."
+            ]
+          },
+          "codex": {
+            "status": "compatible",
+            "reasons": [
+              "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored."
+            ]
+          },
+          "hermes": {
+            "status": "compatible",
+            "reasons": [
+              "Hermes can load this file. The validator requires name, description, and a body after frontmatter."
+            ]
+          },
+          "openclaw": {
+            "status": "compatible",
+            "reasons": [
+              "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it."
+            ]
+          }
+        },
+        "github": {
+          "stars": 290400,
+          "lastPush": "2026-10-26T04:56:56Z",
+          "openIssuesAndPullRequests": 252,
+          "license": "MIT",
+          "archived": false
+        },
+        "health": "active",
+        "scan": {
+          "label": "scanned, no flags",
+          "flags": []
+        },
+        "registry": null,
+        "contentSha": "be44d0cad30ce2ea946b1bf983483cc9a867a45744f622d433ddcdaa275b1047",
+        "analyzedAt": "2026-10-27T13:09:59.994Z",
         "updatedAt": null,
         "qualityScore": 0
       }
