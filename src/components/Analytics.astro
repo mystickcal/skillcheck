@@ -24,7 +24,7 @@ const analytics = analyticsConfig({
       </div>
       <button type="button" class="analytics-manage" data-analytics-manage hidden>Manage analytics preference</button>
       <script>
-        import { honorStoredAnalyticsConsent, readAnalyticsConsent, sanitizeAnalyticsReferrer, writeAnalyticsConsent } from "../lib/analytics";
+        import { createGoogleTagCommand, honorStoredAnalyticsConsent, readAnalyticsConsent, sanitizeAnalyticsReferrer, writeAnalyticsConsent } from "../lib/analytics";
         import { createAnalyticsConsentRuntime } from "../lib/analytics-consent";
 
         const storageKey = "skillcheck.analytics-consent";
@@ -59,7 +59,7 @@ const analytics = analyticsConfig({
           if (analytics.ga4MeasurementId) {
             window[`ga-disable-${analytics.ga4MeasurementId}`] = false;
             window.dataLayer = window.dataLayer || [];
-            window.gtag = (...args) => window.dataLayer.push(args);
+            window.gtag = createGoogleTagCommand(window.dataLayer);
             window.gtag("consent", "default", { analytics_storage: "denied", ad_storage: "denied", ad_user_data: "denied", ad_personalization: "denied" });
             window.gtag("consent", "update", { analytics_storage: "granted" });
             window.gtag("js", new Date());
