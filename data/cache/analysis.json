@@ -643,7 +643,7 @@
       }
     },
     "https://github.com/mattpocock/skills|skills/engineering/improve-codebase-architecture/SKILL.md": {
-      "sha": "44cc7d3136c44534d68ac523fa6cd37e759d2846",
+      "sha": "f1eabb568464f03ae79a3346fc1918fdde6d8285",
       "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
       "record": {
         "id": "gh-mattpocock-skills-skills-engineering-improve-codebase-architecture",
@@ -702,9 +702,9 @@
           }
         },
         "github": {
-          "stars": 293096,
-          "lastPush": "2026-10-13T08:46:40Z",
-          "openIssuesAndPullRequests": 187,
+          "stars": 306264,
+          "lastPush": "2026-10-29T10:43:06Z",
+          "openIssuesAndPullRequests": 204,
           "license": "MIT",
           "archived": false
         },
@@ -714,8 +714,10 @@
           "flags": []
         },
         "registry": null,
-        "contentSha": "552240a5ab5cec6b67c15dd1ad6e9f6962b1bca6ce870059a8c2713760c20392",
-        "analyzedAt": "2026-10-16T04:45:41.615Z"
+        "contentSha": "35b03a3db61e0f5aa333ea59b54963e45a3d2ace6649b2ef4f9576603e2582a6",
+        "analyzedAt": "2026-10-29T14:08:22.703Z",
+        "updatedAt": null,
+        "qualityScore": 0
       }
     },
     "https://github.com/mattpocock/skills|skills/engineering/tdd/SKILL.md": {
@@ -2849,7 +2851,7 @@
       }
     },
     "https://github.com/mattpocock/skills|skills/productivity/grilling/SKILL.md": {
-      "sha": "df69d9936880cd3314c28858c6c52f48db23b856",
+      "sha": "d2f09a18e6a6c65c55f1271ba08dfeaf06f0bed3",
       "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
       "record": {
         "id": "gh-mattpocock-skills-skills-productivity-grilling",
@@ -2903,9 +2905,9 @@
           }
         },
         "github": {
-          "stars": 298449,
-          "lastPush": "2026-10-19T15:52:15Z",
-          "openIssuesAndPullRequests": 200,
+          "stars": 306264,
+          "lastPush": "2026-10-29T10:43:06Z",
+          "openIssuesAndPullRequests": 204,
           "license": "MIT",
           "archived": false
         },
@@ -2915,8 +2917,10 @@
           "flags": []
         },
         "registry": null,
-        "contentSha": "befdff1e27a1dfe2a294d5871169ac1afe16d983911daa4f32627514a48c1e15",
-        "analyzedAt": "2026-10-20T18:47:18.830Z"
+        "contentSha": "a146842ed93ca43d833550fa9adf02e58cb63c83fea9d4b4522995b82242d4e2",
+        "analyzedAt": "2026-10-29T14:08:22.903Z",
+        "updatedAt": null,
+        "qualityScore": 0
       }
     },
     "https://github.com/mattpocock/skills|skills/engineering/domain-modeling/SKILL.md": {
@@ -3218,7 +3222,7 @@
       }
     },
     "https://github.com/mattpocock/skills|skills/engineering/code-review/SKILL.md": {
-      "sha": "373a4f26e6cfa3617778397945bb069d9cb184bc",
+      "sha": "83183e0ad36fd0eef25d37c7e483284b7e34c1f0",
       "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
       "record": {
         "id": "gh-mattpocock-skills-skills-engineering-code-review",
@@ -3272,9 +3276,9 @@
           }
         },
         "github": {
-          "stars": 298449,
-          "lastPush": "2026-10-19T15:52:15Z",
-          "openIssuesAndPullRequests": 200,
+          "stars": 306264,
+          "lastPush": "2026-10-29T10:43:06Z",
+          "openIssuesAndPullRequests": 204,
           "license": "MIT",
           "archived": false
         },
@@ -3284,8 +3288,10 @@
           "flags": []
         },
         "registry": null,
-        "contentSha": "09eb147f793e4647949edd32dbad278f0554dfb56e0d46b699cd4c2c55bf0357",
-        "analyzedAt": "2026-10-20T18:47:19.742Z"
+        "contentSha": "9c921a8d88138a41401d8897ca1bb852088ab1b7b605cdd04edc13e3e8aab6dd",
+        "analyzedAt": "2026-10-29T14:08:23.003Z",
+        "updatedAt": null,
+        "qualityScore": 0
       }
     },
     "https://github.com/mattpocock/skills|skills/engineering/implement/SKILL.md": {
@@ -3445,7 +3451,7 @@
       }
     },
     "https://github.com/mattpocock/skills|skills/engineering/wayfinder/SKILL.md": {
-      "sha": "e28cf3018906d6d60fc5b25390b4eeea035dd290",
+      "sha": "975d6bf9c0a49d18a651f3335e0b4dcf8650fe31",
       "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
       "record": {
         "id": "gh-mattpocock-skills-skills-engineering-wayfinder",
@@ -3504,9 +3510,9 @@
           }
         },
         "github": {
-          "stars": 298449,
-          "lastPush": "2026-10-19T15:52:15Z",
-          "openIssuesAndPullRequests": 200,
+          "stars": 306264,
+          "lastPush": "2026-10-29T10:43:06Z",
+          "openIssuesAndPullRequests": 204,
           "license": "MIT",
           "archived": false
         },
@@ -3516,8 +3522,10 @@
           "flags": []
         },
         "registry": null,
-        "contentSha": "9be7b478c389605a24517d27752f278933588da97a1b5921b165f455edf4c5b7",
-        "analyzedAt": "2026-10-20T18:47:20.175Z"
+        "contentSha": "0c9fa96791aebf3b7d654cf35c6aadde97d81f57c17b07d13b27c14d9c46561f",
+        "analyzedAt": "2026-10-29T14:08:23.155Z",
+        "updatedAt": null,
+        "qualityScore": 0
       }
     },
     "https://github.com/mattpocock/skills|skills/engineering/to-spec/SKILL.md": {
@@ -3597,7 +3605,7 @@
       }
     },
     "https://github.com/mattpocock/skills|skills/engineering/research/SKILL.md": {
-      "sha": "fecee97e9457ba039678d2fcf1b1bc9fca78307d",
+      "sha": "ffc9eb89849cc4cf74962ce93d786ffd17c6a5dc",
       "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
       "record": {
         "id": "gh-mattpocock-skills-skills-engineering-research",
@@ -3651,9 +3659,9 @@
           }
         },
         "github": {
-          "stars": 298449,
-          "lastPush": "2026-10-19T15:52:15Z",
-          "openIssuesAndPullRequests": 200,
+          "stars": 306264,
+          "lastPush": "2026-10-29T10:43:06Z",
+          "openIssuesAndPullRequests": 204,
           "license": "MIT",
           "archived": false
         },
@@ -3663,8 +3671,10 @@
           "flags": []
         },
         "registry": null,
-        "contentSha": "985569f15739c713d6784887c3d186d4ef9ac85bec5ad9c068d25bf0739928e4",
-        "analyzedAt": "2026-10-20T18:47:20.475Z"
+        "contentSha": "1f629e18ab899412683bc6a1c4efb4339999e27c2fdac328f26ee10a8c031d33",
+        "analyzedAt": "2026-10-29T14:08:23.305Z",
+        "updatedAt": null,
+        "qualityScore": 0
       }
     },
     "https://github.com/mattpocock/skills|skills/engineering/to-tickets/SKILL.md": {
@@ -4788,7 +4798,7 @@
       }
     },
     "https://github.com/mattpocock/skills|skills/engineering/implement-spec/SKILL.md": {
-      "sha": "183923797ab58f1b3ef09e03bc1f1f203c309f37",
+      "sha": "73d36c23958bd04423ba3ded1c90ff0d0b858b72",
       "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
       "record": {
         "id": "gh-mattpocock-skills-skills-engineering-implement-spec",
@@ -4847,9 +4857,9 @@
           }
         },
         "github": {
-          "stars": 298449,
-          "lastPush": "2026-10-19T15:52:15Z",
-          "openIssuesAndPullRequests": 200,
+          "stars": 306264,
+          "lastPush": "2026-10-29T10:43:06Z",
+          "openIssuesAndPullRequests": 204,
           "license": "MIT",
           "archived": false
         },
@@ -4859,8 +4869,10 @@
           "flags": []
         },
         "registry": null,
-        "contentSha": "7a22dd2e60b8fcece478ced9d2533582adf3520d695acd3ab715341535c9e56d",
-        "analyzedAt": "2026-10-20T18:47:23.025Z"
+        "contentSha": "1993a473cec40ac85d081c112cdffdc63ec3267c2e412055ad09e013a2f623d1",
+        "analyzedAt": "2026-10-29T14:08:23.512Z",
+        "updatedAt": null,
+        "qualityScore": 0
       }
     },
     "https://github.com/mattpocock/skills|skills/engineering/retro/SKILL.md": {
@@ -5017,7 +5029,7 @@
       }
     },
     "https://github.com/mattpocock/skills|skills/in-progress/chief-of-staff/SKILL.md": {
-      "sha": "6dbdd4da9296e7dd3ef7cd8c7fd498be6e834620",
+      "sha": "8ea0f468c8c05fb14f0e4d0cfa282c78b92a3319",
       "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
       "record": {
         "id": "gh-mattpocock-skills-skills-in-progress-chief-of-staff",
@@ -5076,9 +5088,9 @@
           }
         },
         "github": {
-          "stars": 298449,
-          "lastPush": "2026-10-19T15:52:15Z",
-          "openIssuesAndPullRequests": 200,
+          "stars": 306264,
+          "lastPush": "2026-10-29T10:43:06Z",
+          "openIssuesAndPullRequests": 204,
           "license": "MIT",
           "archived": false
         },
@@ -5088,8 +5100,10 @@
           "flags": []
         },
         "registry": null,
-        "contentSha": "a187d9e36e65373d2d1f469790858dd57d6eb72b6ea16932df9c40616ac9f720",
-        "analyzedAt": "2026-10-20T18:47:23.493Z"
+        "contentSha": "d13f3a542a4664f27bf14977811ee9dcd83fae03655b20720b3441850a2008a4",
+        "analyzedAt": "2026-10-29T14:08:23.655Z",
+        "updatedAt": null,
+        "qualityScore": 0
       }
     },
     "https://github.com/heygen-com/hyperframes|skills/hyperframes-cli/SKILL.md": {
@@ -6539,7 +6553,7 @@
       }
     },
     "https://github.com/morluto/rea|.agents/skills/reverse-engineer-anything/SKILL.md": {
-      "sha": "f0792352f2e36d3e5167aac5f00588562eda2265",
+      "sha": "3c6f4e7e06d7f78d1a5da69c9bae31ac29d6487b",
       "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
       "record": {
         "id": "gh-morluto-rea-agents-skills-reverse-engineer-anything",
@@ -6599,9 +6613,9 @@
           }
         },
         "github": {
-          "stars": 400473,
-          "lastPush": "2026-10-28T13:56:51Z",
-          "openIssuesAndPullRequests": 1417,
+          "stars": 405902,
+          "lastPush": "2026-10-29T13:30:59Z",
+          "openIssuesAndPullRequests": 1275,
           "license": "MIT",
           "archived": false
         },
@@ -6611,8 +6625,8 @@
           "flags": []
         },
         "registry": null,
-        "contentSha": "e588e02ba9579942d77df15a4ba5f8773a59b033aa96e5b57eb22b4244250baf",
-        "analyzedAt": "2026-10-28T13:59:35.076Z",
+        "contentSha": "cbe7c0e94e1cc130ff8d2b9c7a3c4c585a010c572c384eb6948c136b00bdd485",
+        "analyzedAt": "2026-10-29T14:08:19.657Z",
         "updatedAt": null,
         "qualityScore": 0
       }
