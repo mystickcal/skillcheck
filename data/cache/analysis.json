@@ -6553,7 +6553,7 @@
       }
     },
     "https://github.com/morluto/rea|.agents/skills/reverse-engineer-anything/SKILL.md": {
-      "sha": "3c6f4e7e06d7f78d1a5da69c9bae31ac29d6487b",
+      "sha": "9da1eed639fc08d1e8063dd2f19f7dfbd5086a1c",
       "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
       "record": {
         "id": "gh-morluto-rea-agents-skills-reverse-engineer-anything",
@@ -6613,9 +6613,9 @@
           }
         },
         "github": {
-          "stars": 405902,
-          "lastPush": "2026-10-29T13:30:59Z",
-          "openIssuesAndPullRequests": 1275,
+          "stars": 410682,
+          "lastPush": "2026-10-30T13:25:22Z",
+          "openIssuesAndPullRequests": 1319,
           "license": "MIT",
           "archived": false
         },
@@ -6625,8 +6625,8 @@
           "flags": []
         },
         "registry": null,
-        "contentSha": "cbe7c0e94e1cc130ff8d2b9c7a3c4c585a010c572c384eb6948c136b00bdd485",
-        "analyzedAt": "2026-10-29T14:08:19.657Z",
+        "contentSha": "5e074e4b9b01358291aba1d2119b3766b360be5b64483ce1d3fe5f2649b363c1",
+        "analyzedAt": "2026-10-30T14:04:55.107Z",
         "updatedAt": null,
         "qualityScore": 0
       }
@@ -10471,7 +10471,7 @@
       }
     },
     "https://github.com/affaan-m/ecc|.agents/skills/verification-loop/SKILL.md": {
-      "sha": "b936bc9646e3b286dbe89ab2b2a7fb47bf3ad28e",
+      "sha": "1a0dca129ea345708f94d237890e40e7caf18d13",
       "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
       "record": {
         "id": "gh-affaan-m-ecc-agents-skills-verification-loop",
@@ -10526,9 +10526,9 @@
           }
         },
         "github": {
-          "stars": 284730,
-          "lastPush": "2026-10-20T14:51:29Z",
-          "openIssuesAndPullRequests": 245,
+          "stars": 293101,
+          "lastPush": "2026-10-30T03:06:42Z",
+          "openIssuesAndPullRequests": 183,
           "license": "MIT",
           "archived": false
         },
@@ -10538,8 +10538,8 @@
           "flags": []
         },
         "registry": null,
-        "contentSha": "6d4a399d856207297168cc03f3f8c90d4085ff14566bb928af3c97d9a31f2650",
-        "analyzedAt": "2026-10-20T19:32:32.287Z",
+        "contentSha": "f6e87522c6ca40473c005a87225344760be632ff363eb9343b675db11a584583",
+        "analyzedAt": "2026-10-30T14:04:59.867Z",
         "updatedAt": null,
         "qualityScore": 0
       }
@@ -14927,7 +14927,7 @@
       }
     },
     "https://github.com/affaan-m/ecc|docs/ja-JP/skills/remotion-video-creation/SKILL.md": {
-      "sha": "01dcbb3d802d431ceb5e5efd8b4b23cfdbe154e8",
+      "sha": "e9569e902cebee02f46fff4aa2ba3d8d0961f83c",
       "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
       "record": {
         "id": "gh-affaan-m-ecc-docs-ja-jp-skills-remotion-video-creation",
@@ -14983,9 +14983,9 @@
           }
         },
         "github": {
-          "stars": 284730,
-          "lastPush": "2026-10-20T14:51:29Z",
-          "openIssuesAndPullRequests": 245,
+          "stars": 293101,
+          "lastPush": "2026-10-30T03:06:42Z",
+          "openIssuesAndPullRequests": 183,
           "license": "MIT",
           "archived": false
         },
@@ -14995,8 +14995,8 @@
           "flags": []
         },
         "registry": null,
-        "contentSha": "8500da217bcb16e42f9585076f41e555f8bbba6c85b3ac8e23ba9c591f3f7491",
-        "analyzedAt": "2026-10-20T19:32:41.153Z",
+        "contentSha": "ec3528b73f1a08a5969a1bcdb9fe2805655038d3bf9e92fb943fb95b64f11cb8",
+        "analyzedAt": "2026-10-30T14:05:00.187Z",
         "updatedAt": null,
         "qualityScore": 0
       }
@@ -18131,7 +18131,7 @@
       }
     },
     "https://github.com/affaan-m/ecc|docs/ja-JP/skills/agent-payment-x402/SKILL.md": {
-      "sha": "84d7623113e6b487619a4e6736cbcbec0f896961",
+      "sha": "c44e7330785d8fb6926c94f8135082343d08da6e",
       "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
       "record": {
         "id": "gh-affaan-m-ecc-docs-ja-jp-skills-agent-payment-x402",
@@ -18190,9 +18190,9 @@
           }
         },
         "github": {
-          "stars": 284730,
-          "lastPush": "2026-10-20T14:51:29Z",
-          "openIssuesAndPullRequests": 245,
+          "stars": 293101,
+          "lastPush": "2026-10-30T03:06:42Z",
+          "openIssuesAndPullRequests": 183,
           "license": "MIT",
           "archived": false
         },
@@ -18202,8 +18202,8 @@
           "flags": []
         },
         "registry": null,
-        "contentSha": "1731b847e80e66220c40f9a14f843ca559f66e7c9df57ad8bb21c588609d6c33",
-        "analyzedAt": "2026-10-20T19:32:47.467Z",
+        "contentSha": "8b1ca20888e3bf95663621297e86261b2337fbf8ccba416a4f0cbcc240a3d644",
+        "analyzedAt": "2026-10-30T14:05:00.524Z",
         "updatedAt": null,
         "qualityScore": 0
       }
