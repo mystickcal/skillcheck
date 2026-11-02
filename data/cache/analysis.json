@@ -5029,7 +5029,7 @@
       }
     },
     "https://github.com/mattpocock/skills|skills/in-progress/chief-of-staff/SKILL.md": {
-      "sha": "8ea0f468c8c05fb14f0e4d0cfa282c78b92a3319",
+      "sha": "22f0b6626f07bfdfa78b70d006742dfa2260e9c4",
       "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
       "record": {
         "id": "gh-mattpocock-skills-skills-in-progress-chief-of-staff",
@@ -5088,8 +5088,8 @@
           }
         },
         "github": {
-          "stars": 306264,
-          "lastPush": "2026-10-29T10:43:06Z",
+          "stars": 309956,
+          "lastPush": "2026-11-01T11:42:33Z",
           "openIssuesAndPullRequests": 204,
           "license": "MIT",
           "archived": false
@@ -5100,8 +5100,8 @@
           "flags": []
         },
         "registry": null,
-        "contentSha": "d13f3a542a4664f27bf14977811ee9dcd83fae03655b20720b3441850a2008a4",
-        "analyzedAt": "2026-10-29T14:08:23.655Z",
+        "contentSha": "f4c1d6533edece6b275155911cb627154a6b13e2bc19934f77330f3afdd07987",
+        "analyzedAt": "2026-11-02T16:58:39.595Z",
         "updatedAt": null,
         "qualityScore": 0
       }
@@ -6553,7 +6553,7 @@
       }
     },
     "https://github.com/morluto/rea|.agents/skills/reverse-engineer-anything/SKILL.md": {
-      "sha": "4877b2a7bab18510e7a995e5dc091ec2b56437af",
+      "sha": "2bafebfe53bff8962389ae40b685b53af42f99b9",
       "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
       "record": {
         "id": "gh-morluto-rea-agents-skills-reverse-engineer-anything",
@@ -6613,9 +6613,9 @@
           }
         },
         "github": {
-          "stars": 414138,
-          "lastPush": "2026-10-31T13:33:54Z",
-          "openIssuesAndPullRequests": 1409,
+          "stars": 421894,
+          "lastPush": "2026-11-02T16:37:15Z",
+          "openIssuesAndPullRequests": 1640,
           "license": "MIT",
           "archived": false
         },
@@ -6625,8 +6625,8 @@
           "flags": []
         },
         "registry": null,
-        "contentSha": "77043af7865cb53c38e7702dc63159516f7bf4f4ab54d169216454630242a217",
-        "analyzedAt": "2026-10-31T13:33:59.065Z",
+        "contentSha": "0b86284fad27631968c5fb54a2ae8ef55f88f4d20615b0ba45fba5f47f193192",
+        "analyzedAt": "2026-11-02T16:58:36.439Z",
         "updatedAt": null,
         "qualityScore": 0
       }
