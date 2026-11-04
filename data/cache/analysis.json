@@ -6553,7 +6553,7 @@
       }
     },
     "https://github.com/morluto/rea|.agents/skills/reverse-engineer-anything/SKILL.md": {
-      "sha": "2bafebfe53bff8962389ae40b685b53af42f99b9",
+      "sha": "a974b8c698ba3a226087eda66823e5da116789d5",
       "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
       "record": {
         "id": "gh-morluto-rea-agents-skills-reverse-engineer-anything",
@@ -6613,9 +6613,9 @@
           }
         },
         "github": {
-          "stars": 421894,
-          "lastPush": "2026-11-02T16:37:15Z",
-          "openIssuesAndPullRequests": 1640,
+          "stars": 429675,
+          "lastPush": "2026-11-04T12:45:10Z",
+          "openIssuesAndPullRequests": 1677,
           "license": "MIT",
           "archived": false
         },
@@ -6625,14 +6625,14 @@
           "flags": []
         },
         "registry": null,
-        "contentSha": "0b86284fad27631968c5fb54a2ae8ef55f88f4d20615b0ba45fba5f47f193192",
-        "analyzedAt": "2026-11-02T16:58:36.439Z",
+        "contentSha": "908d5fe51d3f9e51fc6f0d5d3d20eef70429166c0b2408ebe5049fced48481b7",
+        "analyzedAt": "2026-11-04T15:14:22.001Z",
         "updatedAt": null,
         "qualityScore": 0
       }
     },
     "https://github.com/obra/superpowers|skills/brainstorming/SKILL.md": {
-      "sha": "7f5eef02f894c4f24cea313660c0465ce9c084ed",
+      "sha": "9eb0edc7fedf26e1d3e2f3f223e5bcc5058aed6a",
       "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
       "record": {
         "id": "gh-obra-superpowers-skills-brainstorming",
@@ -6690,9 +6690,9 @@
           }
         },
         "github": {
-          "stars": 303443,
-          "lastPush": "2026-10-21T21:34:31Z",
-          "openIssuesAndPullRequests": 345,
+          "stars": 312248,
+          "lastPush": "2026-11-03T23:24:58Z",
+          "openIssuesAndPullRequests": 326,
           "license": "MIT",
           "archived": false
         },
@@ -6702,8 +6702,8 @@
           "flags": []
         },
         "registry": null,
-        "contentSha": "61a7ef918652108c76a3fd01e02dd92d39996c6b46d4cb2819cbd03f6c45e46a",
-        "analyzedAt": "2026-10-22T12:57:05.175Z",
+        "contentSha": "2c9ca71f94886f9ca9f4aef055f7cafb3e1a9bdf3aeebf8f4cb547c69405d207",
+        "analyzedAt": "2026-11-04T15:14:26.276Z",
         "updatedAt": null,
         "qualityScore": 0
       }
@@ -7152,7 +7152,7 @@
       }
     },
     "https://github.com/obra/superpowers|skills/executing-plans/SKILL.md": {
-      "sha": "ac77129d7c695734105004b6da10169de8d13df3",
+      "sha": "ea23196d745043eefb0287387112825d2ca99f05",
       "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
       "record": {
         "id": "gh-obra-superpowers-skills-executing-plans",
@@ -7206,9 +7206,9 @@
           }
         },
         "github": {
-          "stars": 303443,
-          "lastPush": "2026-10-21T21:34:31Z",
-          "openIssuesAndPullRequests": 345,
+          "stars": 312248,
+          "lastPush": "2026-11-03T23:24:58Z",
+          "openIssuesAndPullRequests": 326,
           "license": "MIT",
           "archived": false
         },
@@ -7218,14 +7218,14 @@
           "flags": []
         },
         "registry": null,
-        "contentSha": "e4649e59880ef2643d1da128e3d607e87e3f969410d72095a5bf65811b6036dc",
-        "analyzedAt": "2026-10-22T12:57:05.279Z",
+        "contentSha": "deaf176fa179827e80f2ea3101db3ea90fdf562ebef340eba761e4687940f5f5",
+        "analyzedAt": "2026-11-04T15:14:26.436Z",
         "updatedAt": null,
         "qualityScore": 0
       }
     },
     "https://github.com/obra/superpowers|skills/subagent-driven-development/SKILL.md": {
-      "sha": "ea170ed101d61a52fdee0ade8368ec0723980a5c",
+      "sha": "45195787cb3f5d141af203e2fdc12f158be14522",
       "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
       "record": {
         "id": "gh-obra-superpowers-skills-subagent-driven-development",
@@ -7279,9 +7279,9 @@
           }
         },
         "github": {
-          "stars": 303443,
-          "lastPush": "2026-10-21T21:34:31Z",
-          "openIssuesAndPullRequests": 345,
+          "stars": 312248,
+          "lastPush": "2026-11-03T23:24:58Z",
+          "openIssuesAndPullRequests": 326,
           "license": "MIT",
           "archived": false
         },
@@ -7291,8 +7291,8 @@
           "flags": []
         },
         "registry": null,
-        "contentSha": "ba41f697136cba88a7962d60c8e2f97488ba04a8688b1d0fbeb27f6953808e75",
-        "analyzedAt": "2026-10-22T12:57:05.426Z",
+        "contentSha": "1baf70e307bde682c462513c86116333f1f066168c6710f45145bf5f0b00828d",
+        "analyzedAt": "2026-11-04T15:14:26.563Z",
         "updatedAt": null,
         "qualityScore": 0
       }
@@ -18657,6 +18657,81 @@
         "registry": null,
         "contentSha": "be44d0cad30ce2ea946b1bf983483cc9a867a45744f622d433ddcdaa275b1047",
         "analyzedAt": "2026-10-27T13:09:59.994Z",
+        "updatedAt": null,
+        "qualityScore": 0
+      }
+    },
+    "https://github.com/affaan-m/ecc|docs/ja-JP/skills/healthcare-cdss-patterns/SKILL.md": {
+      "sha": "36a47dc7ae581e891dbf04e1b5d50bf5fd29b2dc",
+      "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
+      "record": {
+        "id": "gh-affaan-m-ecc-docs-ja-jp-skills-healthcare-cdss-patterns",
+        "name": "healthcare-cdss-patterns",
+        "description": "臨床意思決定支援システム（CDSS）パターン、医学的推論、およびエビデンスベースの実装。",
+        "sourceUrl": "https://www.skills.sh/affaan-m/ecc/healthcare-cdss-patterns",
+        "repo": "https://github.com/affaan-m/ecc",
+        "path": "docs/ja-JP/skills/healthcare-cdss-patterns/SKILL.md",
+        "author": "affaan-m",
+        "tags": [],
+        "category": "uncategorized",
+        "frontmatterKeys": [
+          "name",
+          "description",
+          "origin",
+          "version"
+        ],
+        "sources": [
+          {
+            "name": "skills.sh",
+            "url": "https://www.skills.sh/affaan-m/ecc/healthcare-cdss-patterns"
+          }
+        ],
+        "bins": [],
+        "env": [],
+        "tools": [],
+        "hasScriptsDir": false,
+        "mentionsNetwork": false,
+        "compatibility": {
+          "claude-code": {
+            "status": "compatible",
+            "reasons": [
+              "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name."
+            ]
+          },
+          "codex": {
+            "status": "compatible",
+            "reasons": [
+              "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored."
+            ]
+          },
+          "hermes": {
+            "status": "compatible",
+            "reasons": [
+              "Hermes can load this file. The validator requires name, description, and a body after frontmatter."
+            ]
+          },
+          "openclaw": {
+            "status": "compatible",
+            "reasons": [
+              "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it."
+            ]
+          }
+        },
+        "github": {
+          "stars": 296961,
+          "lastPush": "2026-11-02T04:56:08Z",
+          "openIssuesAndPullRequests": 229,
+          "license": "MIT",
+          "archived": false
+        },
+        "health": "active",
+        "scan": {
+          "label": "scanned, no flags",
+          "flags": []
+        },
+        "registry": null,
+        "contentSha": "b29b73239b19ae67573e3ce148a59500bfaefc97fc028cfc442590ae02ec62cf",
+        "analyzedAt": "2026-11-04T15:14:27.562Z",
         "updatedAt": null,
         "qualityScore": 0
       }
