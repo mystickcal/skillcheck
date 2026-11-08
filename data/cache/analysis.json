@@ -6553,7 +6553,7 @@
       }
     },
     "https://github.com/morluto/rea|.agents/skills/reverse-engineer-anything/SKILL.md": {
-      "sha": "da90c287a60c20806049d55018f784c323420c10",
+      "sha": "e5514ffc16fe05be9b55e03e6e576439c690a8f2",
       "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
       "record": {
         "id": "gh-morluto-rea-agents-skills-reverse-engineer-anything",
@@ -6613,9 +6613,9 @@
           }
         },
         "github": {
-          "stars": 439725,
-          "lastPush": "2026-11-07T12:23:00Z",
-          "openIssuesAndPullRequests": 1621,
+          "stars": 442571,
+          "lastPush": "2026-11-08T13:32:11Z",
+          "openIssuesAndPullRequests": 1624,
           "license": "MIT",
           "archived": false
         },
@@ -6625,8 +6625,8 @@
           "flags": []
         },
         "registry": null,
-        "contentSha": "b4dc0acb76b0c2bee7acb72a5909d3121f586814a55715a92a03b23a800e8a50",
-        "analyzedAt": "2026-11-07T13:52:02.775Z",
+        "contentSha": "a9dae7fd12d9eeaf5aa26f1c22efb70f5db40c15957321bc2d263ce54b82ac47",
+        "analyzedAt": "2026-11-08T14:11:13.446Z",
         "updatedAt": null,
         "qualityScore": 0
       }
