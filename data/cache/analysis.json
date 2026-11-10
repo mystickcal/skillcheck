@@ -6553,12 +6553,12 @@
       }
     },
     "https://github.com/morluto/rea|.agents/skills/reverse-engineer-anything/SKILL.md": {
-      "sha": "e5514ffc16fe05be9b55e03e6e576439c690a8f2",
+      "sha": "e956f88ce85ca26bfa33260b94c407778278a6c3",
       "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
       "record": {
         "id": "gh-morluto-rea-agents-skills-reverse-engineer-anything",
         "name": "reverse-engineer-anything",
-        "description": "Reverse engineer native, managed, Electron/JavaScript, packaged, firmware, and browser targets with REA, and build agent environments (AgentEnv bundles) of web applications from a live instance or a capture. Use shipped-artifact or requested runtime evidence to explain features, compare versions, decompile code, or guide a reconstruction. Skip REA for ordinary source-repository architecture analysis.",
+        "description": "Reverse engineer native, managed, Electron/JavaScript, packaged, firmware, and browser targets with REA, and build agent environments (AgentEnv bundles) of web applications from a live instance or a capture, and of Linux desktop apps with a task from a request. Use shipped-artifact or requested runtime evidence to explain features, compare versions, decompile code, or guide a reconstruction. Skip REA for ordinary source-repository architecture analysis.",
         "sourceUrl": "https://www.skills.sh/morluto/rea/reverse-engineer-anything",
         "repo": "https://github.com/morluto/rea",
         "path": ".agents/skills/reverse-engineer-anything/SKILL.md",
@@ -6613,9 +6613,9 @@
           }
         },
         "github": {
-          "stars": 442571,
-          "lastPush": "2026-11-08T13:32:11Z",
-          "openIssuesAndPullRequests": 1624,
+          "stars": 449076,
+          "lastPush": "2026-11-10T13:53:46Z",
+          "openIssuesAndPullRequests": 1722,
           "license": "MIT",
           "archived": false
         },
@@ -6625,8 +6625,8 @@
           "flags": []
         },
         "registry": null,
-        "contentSha": "a9dae7fd12d9eeaf5aa26f1c22efb70f5db40c15957321bc2d263ce54b82ac47",
-        "analyzedAt": "2026-11-08T14:11:13.446Z",
+        "contentSha": "4b8689a602732f7b731794dd8c63745c8bc533bb4f75982bd5c65f58e4e5e50e",
+        "analyzedAt": "2026-11-10T15:33:21.271Z",
         "updatedAt": null,
         "qualityScore": 0
       }
