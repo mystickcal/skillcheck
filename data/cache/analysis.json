@@ -6553,7 +6553,7 @@
       }
     },
     "https://github.com/morluto/rea|.agents/skills/reverse-engineer-anything/SKILL.md": {
-      "sha": "2f53469783257c682aa34ee535e4a3319fc3f34c",
+      "sha": "910f961fc2416cd650e858cac23ae56cc3a1f694",
       "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
       "record": {
         "id": "gh-morluto-rea-agents-skills-reverse-engineer-anything",
@@ -6613,9 +6613,9 @@
           }
         },
         "github": {
-          "stars": 463578,
-          "lastPush": "2026-11-16T15:10:57Z",
-          "openIssuesAndPullRequests": 1521,
+          "stars": 465733,
+          "lastPush": "2026-11-17T14:43:03Z",
+          "openIssuesAndPullRequests": 1545,
           "license": "MIT",
           "archived": false
         },
@@ -6625,8 +6625,8 @@
           "flags": []
         },
         "registry": null,
-        "contentSha": "bca2b4594eb3279db14578b9437741ebc6733f72fd1231bd33db77514034c1f9",
-        "analyzedAt": "2026-11-16T16:50:27.819Z",
+        "contentSha": "f4a725ddb3b5d3afe757a20e204760463f9305677f3204ce11bbe17aa7c5b754",
+        "analyzedAt": "2026-11-17T16:46:16.756Z",
         "updatedAt": null,
         "qualityScore": 0
       }
@@ -7740,12 +7740,12 @@
       }
     },
     "https://github.com/affaan-m/ecc|.agents/skills/security-review/SKILL.md": {
-      "sha": "cb0cca0c810a903be1cda7b59e7029e6046765cb",
+      "sha": "97e6ab31f1ee548d6376c2a5c594d73351c36c01",
       "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
       "record": {
         "id": "gh-affaan-m-ecc-agents-skills-security-review",
         "name": "security-review",
-        "description": "Use this skill when adding authentication, handling user input, working with secrets, creating API endpoints, or implementing payment/sensitive features. Provides comprehensive security checklist and patterns.",
+        "description": "Security review checklist and patterns for adding authentication, handling user input, managing secrets, creating API endpoints, or implementing payment and sensitive features.",
         "sourceUrl": "https://www.skills.sh/affaan-m/ecc/security-review",
         "repo": "https://github.com/affaan-m/ecc",
         "path": ".agents/skills/security-review/SKILL.md",
@@ -7799,9 +7799,9 @@
           }
         },
         "github": {
-          "stars": 284730,
-          "lastPush": "2026-10-20T14:51:29Z",
-          "openIssuesAndPullRequests": 245,
+          "stars": 305192,
+          "lastPush": "2026-11-17T06:41:46Z",
+          "openIssuesAndPullRequests": 152,
           "license": "MIT",
           "archived": false
         },
@@ -7811,8 +7811,8 @@
           "flags": []
         },
         "registry": null,
-        "contentSha": "81d7a4cbf8509963539cbe2e3d3ecbde33077d9fa63bc7c8f6d09e7eb7531743",
-        "analyzedAt": "2026-10-20T19:32:26.890Z",
+        "contentSha": "74c3b032e7adb64ddac5bfd5bd90366447661d3000b1ebc89b54254398a7132c",
+        "analyzedAt": "2026-11-17T16:46:20.602Z",
         "updatedAt": null,
         "qualityScore": 0
       }
@@ -9715,7 +9715,7 @@
       }
     },
     "https://github.com/affaan-m/ecc|.kiro/skills/database-migrations/SKILL.md": {
-      "sha": "158907169ebd63be921c1aa5c44286cff3f14bb3",
+      "sha": "b0f0e11facd7724a5de847c105abc5e6428b48a2",
       "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
       "record": {
         "id": "gh-affaan-m-ecc-kiro-skills-database-migrations",
@@ -9743,37 +9743,41 @@
         "env": [],
         "tools": [],
         "hasScriptsDir": false,
-        "mentionsNetwork": false,
+        "mentionsNetwork": true,
         "compatibility": {
           "claude-code": {
             "status": "compatible",
             "reasons": [
-              "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name."
+              "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name.",
+              "The skill text mentions a network command or an http URL."
             ]
           },
           "codex": {
             "status": "compatible",
             "reasons": [
-              "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored."
+              "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+              "The skill text mentions a network command or an http URL."
             ]
           },
           "hermes": {
             "status": "compatible",
             "reasons": [
-              "Hermes can load this file. The validator requires name, description, and a body after frontmatter."
+              "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+              "The skill text mentions a network command or an http URL."
             ]
           },
           "openclaw": {
             "status": "compatible",
             "reasons": [
-              "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it."
+              "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it.",
+              "The skill text mentions a network command or an http URL."
             ]
           }
         },
         "github": {
-          "stars": 284730,
-          "lastPush": "2026-10-20T14:51:29Z",
-          "openIssuesAndPullRequests": 245,
+          "stars": 305192,
+          "lastPush": "2026-11-17T06:41:46Z",
+          "openIssuesAndPullRequests": 152,
           "license": "MIT",
           "archived": false
         },
@@ -9783,8 +9787,8 @@
           "flags": []
         },
         "registry": null,
-        "contentSha": "1f02085fdd98f60ba93d3d2445a462c194e107435aba2b63bca9628bc406e43c",
-        "analyzedAt": "2026-10-20T19:32:30.781Z",
+        "contentSha": "a8f8758a88c2016b33f5668f62517dde9ce1acd110df008ffd6814a56a0bcdc3",
+        "analyzedAt": "2026-11-17T16:46:20.768Z",
         "updatedAt": null,
         "qualityScore": 0
       }
@@ -18131,7 +18135,7 @@
       }
     },
     "https://github.com/affaan-m/ecc|docs/ja-JP/skills/agent-payment-x402/SKILL.md": {
-      "sha": "c44e7330785d8fb6926c94f8135082343d08da6e",
+      "sha": "b773e785599e7f82ff35eeb53bf3e9668ecc5aa2",
       "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
       "record": {
         "id": "gh-affaan-m-ecc-docs-ja-jp-skills-agent-payment-x402",
@@ -18190,9 +18194,9 @@
           }
         },
         "github": {
-          "stars": 293101,
-          "lastPush": "2026-10-30T03:06:42Z",
-          "openIssuesAndPullRequests": 183,
+          "stars": 305192,
+          "lastPush": "2026-11-17T06:41:46Z",
+          "openIssuesAndPullRequests": 152,
           "license": "MIT",
           "archived": false
         },
@@ -18202,8 +18206,8 @@
           "flags": []
         },
         "registry": null,
-        "contentSha": "8b1ca20888e3bf95663621297e86261b2337fbf8ccba416a4f0cbcc240a3d644",
-        "analyzedAt": "2026-10-30T14:05:00.524Z",
+        "contentSha": "194fba741fd357fe2e6bad730dbccdbd744f49d6bb9af8c825d38039a420614e",
+        "analyzedAt": "2026-11-17T16:46:20.904Z",
         "updatedAt": null,
         "qualityScore": 0
       }
@@ -18732,6 +18736,81 @@
         "registry": null,
         "contentSha": "b29b73239b19ae67573e3ce148a59500bfaefc97fc028cfc442590ae02ec62cf",
         "analyzedAt": "2026-11-04T15:14:27.562Z",
+        "updatedAt": null,
+        "qualityScore": 0
+      }
+    },
+    "https://github.com/affaan-m/ecc|docs/ja-JP/skills/healthcare-eval-harness/SKILL.md": {
+      "sha": "c6a2a79e4799f91fc51c493ac6c342727cb98bda",
+      "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
+      "record": {
+        "id": "gh-affaan-m-ecc-docs-ja-jp-skills-healthcare-eval-harness",
+        "name": "healthcare-eval-harness",
+        "description": "ヘルスケアAIモデル評価ハーネス、臨床メトリクス、およびレギュレーション遵守の検証。",
+        "sourceUrl": "https://www.skills.sh/affaan-m/ecc/healthcare-eval-harness",
+        "repo": "https://github.com/affaan-m/ecc",
+        "path": "docs/ja-JP/skills/healthcare-eval-harness/SKILL.md",
+        "author": "affaan-m",
+        "tags": [],
+        "category": "uncategorized",
+        "frontmatterKeys": [
+          "name",
+          "description",
+          "origin",
+          "version"
+        ],
+        "sources": [
+          {
+            "name": "skills.sh",
+            "url": "https://www.skills.sh/affaan-m/ecc/healthcare-eval-harness"
+          }
+        ],
+        "bins": [],
+        "env": [],
+        "tools": [],
+        "hasScriptsDir": false,
+        "mentionsNetwork": false,
+        "compatibility": {
+          "claude-code": {
+            "status": "compatible",
+            "reasons": [
+              "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name."
+            ]
+          },
+          "codex": {
+            "status": "compatible",
+            "reasons": [
+              "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored."
+            ]
+          },
+          "hermes": {
+            "status": "compatible",
+            "reasons": [
+              "Hermes can load this file. The validator requires name, description, and a body after frontmatter."
+            ]
+          },
+          "openclaw": {
+            "status": "compatible",
+            "reasons": [
+              "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it."
+            ]
+          }
+        },
+        "github": {
+          "stars": 305192,
+          "lastPush": "2026-11-17T06:41:46Z",
+          "openIssuesAndPullRequests": 152,
+          "license": "MIT",
+          "archived": false
+        },
+        "health": "active",
+        "scan": {
+          "label": "scanned, no flags",
+          "flags": []
+        },
+        "registry": null,
+        "contentSha": "ac035567e64d4b44730e24e5e37db2d5e9667e46669fd612c24f49442592c2d6",
+        "analyzedAt": "2026-11-17T16:46:21.065Z",
         "updatedAt": null,
         "qualityScore": 0
       }
