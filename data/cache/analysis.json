@@ -6553,7 +6553,7 @@
       }
     },
     "https://github.com/morluto/rea|.agents/skills/reverse-engineer-anything/SKILL.md": {
-      "sha": "fc0fed32f59ea9a6e329ee8fba4bcdbb30bc6b93",
+      "sha": "f2b143a366dc1f5afad7b165ce7bd1942d416dbd",
       "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
       "record": {
         "id": "gh-morluto-rea-agents-skills-reverse-engineer-anything",
@@ -6613,9 +6613,9 @@
           }
         },
         "github": {
-          "stars": 469532,
-          "lastPush": "2026-11-19T16:18:17Z",
-          "openIssuesAndPullRequests": 1352,
+          "stars": 471086,
+          "lastPush": "2026-11-20T15:58:44Z",
+          "openIssuesAndPullRequests": 1372,
           "license": "MIT",
           "archived": false
         },
@@ -6625,8 +6625,8 @@
           "flags": []
         },
         "registry": null,
-        "contentSha": "a72466a84419572dfed31e55a9d99f0b3d6f3cdfcea4e1cd34d4a376f4ea64f7",
-        "analyzedAt": "2026-11-19T16:23:06.969Z",
+        "contentSha": "c195e4407bf58811f8326f4bc96f1ea2cbd5c54a133b1d2e5cc52e17c25513db",
+        "analyzedAt": "2026-11-20T15:59:24.805Z",
         "updatedAt": null,
         "qualityScore": 0
       }
@@ -7740,7 +7740,7 @@
       }
     },
     "https://github.com/affaan-m/ecc|.agents/skills/security-review/SKILL.md": {
-      "sha": "97e6ab31f1ee548d6376c2a5c594d73351c36c01",
+      "sha": "3a83447a7dacec888cabff7150ac682546669bae",
       "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
       "record": {
         "id": "gh-affaan-m-ecc-agents-skills-security-review",
@@ -7799,9 +7799,9 @@
           }
         },
         "github": {
-          "stars": 305192,
-          "lastPush": "2026-11-17T06:41:46Z",
-          "openIssuesAndPullRequests": 152,
+          "stars": 307645,
+          "lastPush": "2026-11-20T01:13:45Z",
+          "openIssuesAndPullRequests": 138,
           "license": "MIT",
           "archived": false
         },
@@ -7811,8 +7811,8 @@
           "flags": []
         },
         "registry": null,
-        "contentSha": "74c3b032e7adb64ddac5bfd5bd90366447661d3000b1ebc89b54254398a7132c",
-        "analyzedAt": "2026-11-17T16:46:20.602Z",
+        "contentSha": "1bffd0cb53bca22fd9a5b6d9a350649f2d648a9c15a92184ecae7d4c2e0484dd",
+        "analyzedAt": "2026-11-20T15:59:28.982Z",
         "updatedAt": null,
         "qualityScore": 0
       }
@@ -8801,7 +8801,7 @@
       }
     },
     "https://github.com/affaan-m/ecc|.agents/skills/tdd-workflow/SKILL.md": {
-      "sha": "67300bf520db15fe9254837780dcef7cf97fd3e8",
+      "sha": "78fc6e258448b9b56b0e55711bb505bf89aae456",
       "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
       "record": {
         "id": "gh-affaan-m-ecc-agents-skills-tdd-workflow",
@@ -8860,20 +8860,25 @@
           }
         },
         "github": {
-          "stars": 284730,
-          "lastPush": "2026-10-20T14:51:29Z",
-          "openIssuesAndPullRequests": 245,
+          "stars": 307645,
+          "lastPush": "2026-11-20T01:13:45Z",
+          "openIssuesAndPullRequests": 138,
           "license": "MIT",
           "archived": false
         },
         "health": "active",
         "scan": {
-          "label": "scanned, no flags",
-          "flags": []
+          "label": "scanned, flags found",
+          "flags": [
+            {
+              "id": "pipe-to-shell",
+              "summary": "Pipe to a shell. A download is sent into sh, bash, or a similar shell."
+            }
+          ]
         },
         "registry": null,
-        "contentSha": "e9507695657b05f26dd62127f1d6ff58e4015d624df65dd4d7e07f6470317393",
-        "analyzedAt": "2026-10-20T19:32:28.986Z",
+        "contentSha": "95935e86a3dd0d399d962d106d15e23023a89f2d621ae51cfa7fa41fdfd403e8",
+        "analyzedAt": "2026-11-20T15:59:29.123Z",
         "updatedAt": null,
         "qualityScore": 0
       }
@@ -16928,7 +16933,7 @@
       }
     },
     "https://github.com/affaan-m/ecc|docs/ja-JP/skills/accessibility/SKILL.md": {
-      "sha": "d98eae5c0587312b43f145698e560c2162d7eb4b",
+      "sha": "67444f405ca803b73d3d225f413bf84c08abad3e",
       "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
       "record": {
         "id": "gh-affaan-m-ecc-docs-ja-jp-skills-accessibility",
@@ -16987,9 +16992,9 @@
           }
         },
         "github": {
-          "stars": 284730,
-          "lastPush": "2026-10-20T14:51:29Z",
-          "openIssuesAndPullRequests": 245,
+          "stars": 307645,
+          "lastPush": "2026-11-20T01:13:45Z",
+          "openIssuesAndPullRequests": 138,
           "license": "MIT",
           "archived": false
         },
@@ -16999,8 +17004,8 @@
           "flags": []
         },
         "registry": null,
-        "contentSha": "d20fbd9b83577cfc08eff8b44dccecaf01699e7b12a31b3291a988ffc21e32e2",
-        "analyzedAt": "2026-10-20T19:32:45.058Z",
+        "contentSha": "3cf28f210e57432ce7f8fb072d0063255982d3eb31b3f0d4f8b46d6827abfd5a",
+        "analyzedAt": "2026-11-20T15:59:29.299Z",
         "updatedAt": null,
         "qualityScore": 0
       }
