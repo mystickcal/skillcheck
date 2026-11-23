@@ -18819,6 +18819,84 @@
         "updatedAt": null,
         "qualityScore": 0
       }
+    },
+    "https://github.com/mattpocock/skills|skills/in-progress/software-factory/SKILL.md": {
+      "sha": "ba4adc45935e8c24d6bed9b869792e4436ad5979",
+      "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
+      "record": {
+        "id": "gh-mattpocock-skills-skills-in-progress-software-factory",
+        "name": "software-factory",
+        "description": "Shared language for designing a software factory: the tasks it runs and the services it plugs into.",
+        "sourceUrl": "https://www.skills.sh/mattpocock/skills/software-factory",
+        "repo": "https://github.com/mattpocock/skills",
+        "path": "skills/in-progress/software-factory/SKILL.md",
+        "author": "mattpocock",
+        "tags": [],
+        "category": "uncategorized",
+        "frontmatterKeys": [
+          "name",
+          "description",
+          "disable-model-invocation"
+        ],
+        "sources": [
+          {
+            "name": "skills.sh",
+            "url": "https://www.skills.sh/mattpocock/skills/software-factory"
+          }
+        ],
+        "bins": [],
+        "env": [],
+        "tools": [],
+        "hasScriptsDir": false,
+        "mentionsNetwork": false,
+        "compatibility": {
+          "claude-code": {
+            "status": "compatible",
+            "reasons": [
+              "Claude Code can load this file. description is the field it uses to decide when to apply the skill, and name falls back to the directory name.",
+              "The file sets Claude Code fields such as context, hooks, paths, or when_to_use."
+            ]
+          },
+          "codex": {
+            "status": "compatible",
+            "reasons": [
+              "Codex can load this file. The current parser requires a non-empty description and a name of at most 64 characters. Extra frontmatter keys are ignored.",
+              "Claude Code fields such as context, hooks, or paths are ignored by Codex."
+            ]
+          },
+          "hermes": {
+            "status": "compatible",
+            "reasons": [
+              "Hermes can load this file. The validator requires name, description, and a body after frontmatter.",
+              "Claude Code fields such as context, hooks, or paths are ignored by Hermes."
+            ]
+          },
+          "openclaw": {
+            "status": "compatible",
+            "reasons": [
+              "OpenClaw loads a skill that has name and description. With no metadata.openclaw block, the skill stays eligible unless config disables it.",
+              "Claude Code fields such as context, hooks, or paths are ignored by OpenClaw."
+            ]
+          }
+        },
+        "github": {
+          "stars": 331251,
+          "lastPush": "2026-11-19T13:35:13Z",
+          "openIssuesAndPullRequests": 267,
+          "license": "MIT",
+          "archived": false
+        },
+        "health": "active",
+        "scan": {
+          "label": "scanned, no flags",
+          "flags": []
+        },
+        "registry": null,
+        "contentSha": "567326e926d5bab0548aad11effaa6aef3d4dfa1ed385af22413628f49a48285",
+        "analyzedAt": "2026-11-23T19:03:58.278Z",
+        "updatedAt": null,
+        "qualityScore": 0
+      }
     }
   }
 }
