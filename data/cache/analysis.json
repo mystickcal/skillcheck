@@ -5029,12 +5029,12 @@
       }
     },
     "https://github.com/mattpocock/skills|skills/in-progress/chief-of-staff/SKILL.md": {
-      "sha": "22f0b6626f07bfdfa78b70d006742dfa2260e9c4",
+      "sha": "d823bf86956c570f74545e93b77b25338b437671",
       "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
       "record": {
         "id": "gh-mattpocock-skills-skills-in-progress-chief-of-staff",
         "name": "chief-of-staff",
-        "description": "Pursue a long-running goal in a single session by co-ordinating subagents.",
+        "description": "Delegate the work to fresh subagents and remember what it taught you in a dated wiki, so the next session picks up the thread.",
         "sourceUrl": "https://www.skills.sh/mattpocock/skills/chief-of-staff",
         "repo": "https://github.com/mattpocock/skills",
         "path": "skills/in-progress/chief-of-staff/SKILL.md",
@@ -5088,9 +5088,9 @@
           }
         },
         "github": {
-          "stars": 309956,
-          "lastPush": "2026-11-01T11:42:33Z",
-          "openIssuesAndPullRequests": 204,
+          "stars": 332045,
+          "lastPush": "2026-11-24T14:43:16Z",
+          "openIssuesAndPullRequests": 266,
           "license": "MIT",
           "archived": false
         },
@@ -5100,8 +5100,8 @@
           "flags": []
         },
         "registry": null,
-        "contentSha": "f4c1d6533edece6b275155911cb627154a6b13e2bc19934f77330f3afdd07987",
-        "analyzedAt": "2026-11-02T16:58:39.595Z",
+        "contentSha": "1f508d8ebbdbad8704bb24c5016094897a4ebbfe5804e370434b5e5fbeb59c4a",
+        "analyzedAt": "2026-11-24T18:44:21.590Z",
         "updatedAt": null,
         "qualityScore": 0
       }
@@ -6553,7 +6553,7 @@
       }
     },
     "https://github.com/morluto/rea|.agents/skills/reverse-engineer-anything/SKILL.md": {
-      "sha": "d6ce7fcb224f44e02f58cc811206718aa9fb147f",
+      "sha": "4206de40f9e43cfa328ea536b963bfd25660f8d8",
       "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
       "record": {
         "id": "gh-morluto-rea-agents-skills-reverse-engineer-anything",
@@ -6613,9 +6613,9 @@
           }
         },
         "github": {
-          "stars": 472316,
-          "lastPush": "2026-11-21T15:08:52Z",
-          "openIssuesAndPullRequests": 1381,
+          "stars": 476851,
+          "lastPush": "2026-11-24T17:54:27Z",
+          "openIssuesAndPullRequests": 1133,
           "license": "MIT",
           "archived": false
         },
@@ -6625,8 +6625,8 @@
           "flags": []
         },
         "registry": null,
-        "contentSha": "f14879a8ad9a7ec3384253c42e21bc1da8bc050d635443b3d585d48fbdb8a6f7",
-        "analyzedAt": "2026-11-21T15:10:15.897Z",
+        "contentSha": "897c212fc913bbd5f37dbac18c87e6a50c5f61c4cb14164c5a4f489fdce455a3",
+        "analyzedAt": "2026-11-24T18:44:17.666Z",
         "updatedAt": null,
         "qualityScore": 0
       }
