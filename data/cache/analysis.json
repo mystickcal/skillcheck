@@ -3678,7 +3678,7 @@
       }
     },
     "https://github.com/mattpocock/skills|skills/engineering/to-tickets/SKILL.md": {
-      "sha": "9b77a01db9460c99c22d03c910c349f890f12c0e",
+      "sha": "147b9df336c95e960ea8c3b579c778114e57ce42",
       "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
       "record": {
         "id": "gh-mattpocock-skills-skills-engineering-to-tickets",
@@ -3737,9 +3737,9 @@
           }
         },
         "github": {
-          "stars": 298449,
-          "lastPush": "2026-10-19T15:52:15Z",
-          "openIssuesAndPullRequests": 200,
+          "stars": 334123,
+          "lastPush": "2026-11-27T17:07:54Z",
+          "openIssuesAndPullRequests": 255,
           "license": "MIT",
           "archived": false
         },
@@ -3749,8 +3749,10 @@
           "flags": []
         },
         "registry": null,
-        "contentSha": "56ec23c5b2782785d4e65bff9e315b6d3aeb4ef977c174a219e99489fada1995",
-        "analyzedAt": "2026-10-20T18:47:20.624Z"
+        "contentSha": "c252f6c817b7063d3810800bd3f4778c4f1ade761a59ebcae9efc93c0285ff17",
+        "analyzedAt": "2026-11-27T17:18:50.850Z",
+        "updatedAt": null,
+        "qualityScore": 0
       }
     },
     "https://github.com/mattpocock/skills|skills/engineering/wizard/SKILL.md": {
@@ -6553,7 +6555,7 @@
       }
     },
     "https://github.com/morluto/rea|.agents/skills/reverse-engineer-anything/SKILL.md": {
-      "sha": "4206de40f9e43cfa328ea536b963bfd25660f8d8",
+      "sha": "db669e36a38431abb7f6b42dec2e83befcce7cfb",
       "rulesVersion": "claude-code@1,codex@1,hermes@1,openclaw@1",
       "record": {
         "id": "gh-morluto-rea-agents-skills-reverse-engineer-anything",
@@ -6613,9 +6615,9 @@
           }
         },
         "github": {
-          "stars": 476851,
-          "lastPush": "2026-11-24T17:54:27Z",
-          "openIssuesAndPullRequests": 1133,
+          "stars": 480815,
+          "lastPush": "2026-11-27T17:10:01Z",
+          "openIssuesAndPullRequests": 1121,
           "license": "MIT",
           "archived": false
         },
@@ -6625,8 +6627,8 @@
           "flags": []
         },
         "registry": null,
-        "contentSha": "897c212fc913bbd5f37dbac18c87e6a50c5f61c4cb14164c5a4f489fdce455a3",
-        "analyzedAt": "2026-11-24T18:44:17.666Z",
+        "contentSha": "d9b9e585754b966cdb0ef571c3638cdb76c7ddcc188d28b0470098f72081c55f",
+        "analyzedAt": "2026-11-27T17:18:47.948Z",
         "updatedAt": null,
         "qualityScore": 0
       }
